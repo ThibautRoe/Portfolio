@@ -1,16 +1,27 @@
 "use client"
 
-import { Carousel } from "@mantine/carousel"
+import { register } from "swiper/element/bundle"
 import ProjectCard from "./ProjectCard/ProjectCard"
-import classes from "./Projects.module.css"
+register()
 
 export default function Projects({ projects }) {
     return (
-        <div id="projects" className="">
+        <div id="projects" className="flex justify-center">
             <p>Réalisations</p>
-            <Carousel slideSize="70%" height={200} slideGap="md" withIndicators classNames={classes}>
+            <swiper-container
+                class="h-96 w-10/12"
+                a11y="true"
+                centered-slides="true"
+                effect="cards"
+                grab-cursor="true"
+                keyboard="true"
+                long-swipes-ratio="0.25"
+                mousewheel-force-to-axis="true"
+                navigation="true"
+                pagination="true"
+            >
                 {projects.map((item) => (
-                    <Carousel.Slide key={`slide-${item.sys.id}`}>
+                    <swiper-slide key={`slide-${item.sys.id}`}>
                         <ProjectCard
                             training={item.fields.training}
                             name={item.fields.name}
@@ -22,9 +33,9 @@ export default function Projects({ projects }) {
                             github={item.fields.github}
                             livePreview={item.fields.livePreview}
                         />
-                    </Carousel.Slide>
+                    </swiper-slide>
                 ))}
-            </Carousel>
+            </swiper-container>
         </div>
     )
 }

@@ -5,7 +5,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
     const coverUrl = "https:" + cover.fields.file.url
 
     return (
-        <div className="flex w-auto flex-col">
+        <div className="panel flex w-auto flex-col">
             <div className="relative h-96 w-auto overflow-hidden">
                 <Image src={coverUrl} alt={name} placeholder="blur" blurDataURL={coverBlur} sizes="100vw" fill className="object-cover" />
             </div>
