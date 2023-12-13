@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic"
 
-const DynamicAnimatiopn = dynamic(() => import("./Animation"), { ssr: false })
+const DynamicAnimatiopn = dynamic(() => import("./Components/Animation"), { ssr: false })
 
 export default function Hero() {
     return (
@@ -14,7 +14,7 @@ export default function Hero() {
                 Je maîtrise maintenant les dernières technologies et frameworks tels que React / Next.js.`}
                 <br />
                 <br />
-                {`J'offre aujourd'hui toute mon expertise à mes clients, en garantissant écoute, rigueur, professionnalisme et flexibilié. Confiez-moi votre projet, et ensemble, assurons sa réussite.`}
+                {`J'offre aujourd'hui toute mon expertise à mes clients, en garantissant écoute, rigueur, professionnalisme et flexibilité. Confiez-moi votre projet, et ensemble, assurons sa réussite.`}
             </p>
             <DynamicAnimatiopn />
         </div>

@@ -1,4 +1,4 @@
-import SkillCard from "./SkillCard/SkillCard"
+import SkillCard from "./Components/SkillCard"
 
 export default function Skills({ skills }) {
     return (
@@ -22,12 +22,12 @@ export default function Skills({ skills }) {
                     <SkillCard key={item.sys.id} name={item.fields.name} icon={item.fields.icon} url={item.fields.url} />
                 ))}
             </div>
-            <div className="flex flex-row gap-5">
+            {/* <div className="flex flex-row gap-5">
                 <p>Softskills</p>
                 {skills.softskills.map((item) => (
                     <SkillCard key={item.sys.id} name={item.fields.name} icon={item.fields.icon} url={item.fields.url} />
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

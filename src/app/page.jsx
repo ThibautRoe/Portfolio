@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import useGetContentfulData from "../hooks/useGetContentfulData"
 import Hero from "../components/Hero/Hero"
 import Skills from "../components/Skills/Skills"
-import Contact from "../components/Contact/Contact"
+import ContactForm from "../components/Contact/ContactForm"
 
 const DynamicProjects = dynamic(() => import("../components/Projects/Projects"), { ssr: false })
 
@@ -16,7 +16,7 @@ export default async function Home() {
             <Hero />
             <Skills skills={skills} />
             <DynamicProjects projects={projects} />
-            <Contact />
+            <ContactForm />
         </main>
     )
 }

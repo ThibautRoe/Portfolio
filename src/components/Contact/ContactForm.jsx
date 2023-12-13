@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form"
 import sendEmail from "../../utils/sendEmail"
 
-export default function Contact() {
+export default function ContactForm() {
     const {
         register,
         handleSubmit,
