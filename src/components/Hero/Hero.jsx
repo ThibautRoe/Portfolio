@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <div className="flex justify-between gap-96">
             <p>
-                {`Salut ! Moi c'est Thibaut, développeur web fullstack spécialisé dans le frontend.
+                {`Salut!  Moi c'est Thibaut, développeur web fullstack spécialisé dans le frontend.
                 Depuis l'assemblage de mon 1er PC à 15 ans, ma passion pour l'informatique n'a fait que croître.`}
                 <br />
                 <br />
