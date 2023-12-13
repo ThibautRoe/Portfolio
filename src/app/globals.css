@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --scroll-padding: 40px;
+}
+
 /* makes sizing simpler */
 
 *,
@@ -22,8 +26,7 @@
 /* dark mode user-agent-styles */
 
 html {
-    /* TODO */
-    /* color-scheme: dark light; */
+    color-scheme: dark light;
 }
 
 /* min body height */

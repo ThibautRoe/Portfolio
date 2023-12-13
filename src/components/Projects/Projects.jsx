@@ -9,7 +9,7 @@ export default function Projects({ projects }) {
         <div id="projects" className="flex justify-center">
             <p>Réalisations</p>
             <swiper-container
-                class="h-96 w-10/12"
+                class="h-[600px] w-[80%]"
                 a11y="true"
                 centered-slides="true"
                 effect="cards"
@@ -21,7 +21,7 @@ export default function Projects({ projects }) {
                 pagination="true"
             >
                 {projects.map((item) => (
-                    <swiper-slide key={`slide-${item.sys.id}`}>
+                    <swiper-slide key={`slide-${item.sys.id}`} class="bg-slate-300">
                         <ProjectCard
                             training={item.fields.training}
                             name={item.fields.name}

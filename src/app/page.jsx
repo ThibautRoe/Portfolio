@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic"
 import useGetContentfulData from "../hooks/useGetContentfulData"
 import Hero from "../components/Hero/Hero"
 import Skills from "../components/Skills/Skills"
-import Projects from "../components/Projects/Projects"
 import Contact from "../components/Contact/Contact"
+
+const DynamicProjects = dynamic(() => import("../components/Projects/Projects"), { ssr: false })
 
 export default async function Home() {
     // await new Promise((res) => setTimeout(res, 2000))
@@ -13,7 +15,7 @@ export default async function Home() {
         <main>
             <Hero />
             <Skills skills={skills} />
-            <Projects projects={projects} />
+            <DynamicProjects projects={projects} />
             <Contact />
         </main>
     )

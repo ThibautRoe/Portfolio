@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="fr" className="m-auto max-w-[1440px] p-10">
+        <html lang="fr" className="m-auto max-w-[1440px] scroll-pt-[--scroll-padding,40px] scroll-smooth px-10">
             <head></head>
             <body className={inter.className}>
                 <Header />
