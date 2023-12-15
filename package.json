@@ -14,12 +14,16 @@
     },
     "dependencies": {
         "@dotlottie/player-component": "^2.7.2",
+        "@fortawesome/fontawesome-svg-core": "^6.5.1",
+        "@fortawesome/free-brands-svg-icons": "^6.5.1",
+        "@fortawesome/free-solid-svg-icons": "^6.5.1",
+        "@fortawesome/react-fontawesome": "^0.2.0",
         "contentful": "^10.6.14",
         "next": "^14.0.4",
         "nodemailer": "^6.9.7",
         "react": "^18",
         "react-dom": "^18",
-        "react-hook-form": "^7.49.1",
+        "react-hook-form": "^7.49.2",
         "swiper": "^11.0.5"
     },
     "devDependencies": {

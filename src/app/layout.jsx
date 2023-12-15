@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google"
+import { nunito, paytoneOne, gloriaHallelujah } from "../utils/fonts"
 import "./globals.css"
-import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer"
-
-const inter = Inter({ subsets: ["latin"] })
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+config.autoAddCss = false
+import TestViewport from "../components/TestViewport/TestViewport"
 
 export const metadata = {
     title: "Thibaut Roegiers - Développeur web",
@@ -12,12 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="fr" className="m-auto max-w-[1440px] scroll-pt-[--scroll-padding,40px] scroll-smooth px-10">
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito scroll-smooth`}>
             <head></head>
-            <body className={inter.className}>
-                <Header />
+            <body className="text-t-fl-m">
+                <TestViewport />
                 {children}
-                <Footer />
             </body>
         </html>
     )

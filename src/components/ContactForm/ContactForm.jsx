@@ -54,6 +54,8 @@ export default function ContactForm() {
                         required: true,
                         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                     })}
+                    aria-invalid={errors.email ? "true" : "false"}
+                    error={errors.email ? "true" : "false"}
                 />
 
                 <label htmlFor="phone">Téléphone</label>
