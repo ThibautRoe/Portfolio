@@ -6,9 +6,9 @@ export default function Animation() {
     const heroAnimationPath = "/hero-animation.json"
 
     return (
-        <div>
+        <div className="flex place-content-center">
             <dotlottie-player
-                style={{ height: "auto", width: "200%" }}
+                style={{ height: "auto", width: "80%" }}
                 src={heroAnimationPath}
                 background="transparent"
                 speed="1"

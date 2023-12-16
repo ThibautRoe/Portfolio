@@ -1,8 +1,4 @@
-import dynamic from "next/dynamic"
-
-const DynamicAnimatiopn = dynamic(() => import("./Components/Animation"), { ssr: false })
-
-export default function Hero() {
+export default function Presentation() {
     return (
         <div className="flex justify-between gap-96">
             <p>
@@ -16,7 +12,6 @@ export default function Hero() {
                 <br />
                 {`J'offre aujourd'hui toute mon expertise à mes clients, en garantissant écoute, rigueur, professionnalisme et flexibilité. Confiez-moi votre projet, et ensemble, assurons sa réussite.`}
             </p>
-            <DynamicAnimatiopn />
         </div>
     )
 }

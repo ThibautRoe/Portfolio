@@ -1,12 +1,13 @@
 import dynamic from "next/dynamic"
 import useGetContentfulData from "../hooks/useGetContentfulData"
-import Header from "../components/Header/Header"
-import Hero from "../components/Hero/Hero"
-import Skills from "../components/Skills/Skills"
-const DynamicProjects = dynamic(() => import("../components/Projects/Projects"), { ssr: false })
+import Header from "../components/Header"
+import Hero from "../components/Hero"
+// import Presentation from "../components/Presentation"
+import Skills from "../components/Skills"
+const DynamicProjects = dynamic(() => import("../components/Projects"), { ssr: false })
 // import Contact from "../components/Contact/Contact"
-import ContactForm from "../components/ContactForm/ContactForm"
-import Footer from "../components/Footer/Footer"
+import ContactForm from "../components/ContactForm"
+import Footer from "../components/Footer"
 
 export default async function Home() {
     // await new Promise((res) => setTimeout(res, 2000)) // To test loading.jsx page
@@ -17,7 +18,8 @@ export default async function Home() {
         <>
             <Header />
             <main>
-                {/* <Hero /> */}
+                <Hero />
+                {/* <Presentation /> */}
                 {/* <Skills skills={skills} /> */}
                 {/* <DynamicProjects projects={projects} /> */}
                 {/* <Contact /> */}

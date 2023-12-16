@@ -3,7 +3,7 @@ import "./globals.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
-import TestViewport from "../components/TestViewport/TestViewport"
+import TestViewport from "../components/TestViewport"
 
 export const metadata = {
     title: "Thibaut Roegiers - Développeur web",

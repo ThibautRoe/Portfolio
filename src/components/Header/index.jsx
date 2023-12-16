@@ -26,10 +26,10 @@ export default function Header() {
     return (
         <header /* ref={headerRef} */ className="bg-custom-400">
             <div className="u-container py-s-fl-l">
-                <div className="gap-s-fl-l flex items-center">
+                <div className="gap-s-fl-l flex items-stretch">
                     <p className="text-t-fl-2xl">&lt;Thibaut /&gt;</p>
-                    <nav className="flex-grow">
-                        <ul className="gap-s-fl-l flex items-center justify-end">
+                    <nav className="flex flex-grow items-center justify-end">
+                        <ul className="gap-s-fl-l flex items-center">
                             <li>
                                 <Link href="/#about">Présentation</Link>
                             </li>
@@ -41,15 +41,13 @@ export default function Header() {
                             </li>
                         </ul>
                     </nav>
-                    <div>
-                        {/* TODO design bouton et header mobile */}
-                        <span>
-                            <FontAwesomeIcon icon={faChevronRight} className="text-t-fl-l" />
-                        </span>
-                        <Link href="mailto:hello@thibautroegiers.dev" className="text-t-fl-l pl-s-fl-xs pr-s-fl-m py-s-fl-2xs">
-                            Contactez-moi
-                        </Link>
-                    </div>
+                    <Link
+                        href="mailto:hello@thibautroegiers.dev"
+                        className="pr-s-fl-s gap-s-fl-xs bg-custom-600 flex items-center rounded-full"
+                    >
+                        <FontAwesomeIcon icon={faChevronRight} className="text-t-fl-l px-s-fl-s" />
+                        <span className="text-t-fl-ls">Contactez-moi</span>
+                    </Link>
                 </div>
             </div>
         </header>

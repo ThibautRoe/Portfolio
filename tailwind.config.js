@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require("tailwindcss/colors")
+
 module.exports = {
     content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
     theme: {
         colors: {
+            neutral: colors.neutral,
             custom: {
                 300: "#fcd44d",
                 400: "#fbc024",
