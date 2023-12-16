@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-    /* --scroll-padding: 40px; */
-
     /***** FONT SIZES *****/
     /* @link https://utopia.fyi/type/calculator?c=318,12,1.2,1914,22,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,xl,2xl,12 */
     --step--2: clamp(0.5206rem, 0.449rem + 0.3603vw, 0.88rem);
@@ -43,6 +41,8 @@
     --grid-max-width: 119.63rem;
     --grid-gutter: var(--space-m-xl, clamp(1.125rem, 0.5273rem + 3.0075vw, 4.125rem));
     --grid-columns: 12;
+
+    /* --scroll-padding: 40px; */
 }
 
 .u-container {

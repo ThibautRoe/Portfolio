@@ -2,11 +2,11 @@ import dynamic from "next/dynamic"
 import useGetContentfulData from "../hooks/useGetContentfulData"
 import Header from "../components/Header"
 import Hero from "../components/Hero"
-// import Presentation from "../components/Presentation"
+import Presentation from "../components/Presentation"
 import Skills from "../components/Skills"
 const DynamicProjects = dynamic(() => import("../components/Projects"), { ssr: false })
-// import Contact from "../components/Contact/Contact"
-import ContactForm from "../components/ContactForm"
+// import ContactForm from "../components/ContactForm"
+import Contact from "../components/Contact"
 import Footer from "../components/Footer"
 
 export default async function Home() {
@@ -19,12 +19,12 @@ export default async function Home() {
             <Header />
             <main>
                 <Hero />
-                {/* <Presentation /> */}
+                <Presentation />
                 {/* <Skills skills={skills} /> */}
                 {/* <DynamicProjects projects={projects} /> */}
-                {/* <Contact /> */}
+                <Contact />
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito scroll-smooth`}>
             <head></head>
-            <body className="text-t-fl-m">
+            <body className="text-t-fl-base">
                 <TestViewport />
                 {children}
             </body>
