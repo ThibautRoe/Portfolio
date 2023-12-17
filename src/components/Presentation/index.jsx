@@ -2,8 +2,8 @@
 export default function Presentation() {
     return (
         <div className="bg-neutral-100" id="about">
-            <div className="u-container flex flex-col items-center gap-s-fl-2xl text-custom-600">
-                <p className="font-paytoneOne text-t-fl-xl">Présentation</p>
+            <div className="u-container flex min-h-screen flex-col place-content-center items-stretch gap-s-fl-2xl text-custom-600">
+                <p className="text-center font-paytoneOne text-t-fl-xl">Présentation</p>
                 <p>
                     Moi c'est Thibaut, <span className="font-bold">développeur web</span> fullstack spécialisé dans le{" "}
                     <span className="font-bold">front-end</span>.

@@ -16,6 +16,9 @@ module.exports = {
                 800: "#ac5d00",
             },
         },
+        minHeight: {
+            screen: "100dvh",
+        },
         extend: {
             fontFamily: {
                 nunito: ["var(--font-nunito)"],
