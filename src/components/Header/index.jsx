@@ -43,10 +43,10 @@ export default function Header() {
                     </nav>
                     <Link
                         href="mailto:hello@thibautroegiers.dev"
-                        className="active:bg-custom-800 flex  items-center gap-s-fl-xs rounded-full bg-custom-600 pr-s-fl-m drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-custom-700 hover:drop-shadow-lg "
+                        className="active:bg-custom-800 flex transform-gpu items-center rounded-full bg-custom-600 px-s-fl-m drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-custom-700 hover:drop-shadow-lg"
                     >
-                        <button className="flex items-center text-t-fl-l">
-                            <FontAwesomeIcon icon={faChevronRight} className="px-s-fl-m" />
+                        <button className="flex items-center gap-s-fl-s text-t-fl-l">
+                            <FontAwesomeIcon icon={faChevronRight} />
                             <span>Contactez-moi</span>
                         </button>
                     </Link>

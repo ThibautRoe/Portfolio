@@ -25,7 +25,7 @@ export default function Slideshow({ projects }) {
                             training={item.fields.training}
                             name={item.fields.name}
                             cover={item.fields.cover}
-                            coverBlur={item.fields.coverW10Base64Encoded}
+                            coverBlur={item.fields.coverBlur}
                             activity={item.fields.activity}
                             description={item.fields.description}
                             techStack={item.fields.techStack}
