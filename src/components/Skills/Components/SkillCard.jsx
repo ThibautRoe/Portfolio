@@ -1,30 +1,21 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function SkillCard({ name, icon, url }) {
     const iconUrl = "https:" + icon?.fields.file.url
 
     if (url) {
         return (
-            <div className="h-20 w-20">
-                <Link href={url} target="_blank" rel="noopener noreferrer" className="block h-full w-full">
-                    <div className="flex h-full w-full flex-col content-center justify-center">
-                        {icon && <img src={iconUrl} alt={name} className="m-auto h-1/2 w-1/2" />}
-                        <p className="text-center">{name}</p>
-                    </div>
+            <div className="rounded-s-fl-xs h-s-fl-2xl w-s-fl-2xl transform-gpu overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 p-s-fl-2xs drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:drop-shadow-lg">
+                <Link href={url} target="_blank" rel="noopener noreferrer">
+                    <Image src={iconUrl} alt={name} width={100} height={100} />
                 </Link>
             </div>
         )
     } else {
         return (
-            <div className="flex h-20 w-20">
-                <div>
-                    {icon && (
-                        <div className="relative h-20 w-auto overflow-hidden">
-                            <img src={iconUrl} alt={name} className="absolute object-cover" />
-                        </div>
-                    )}
-                    <p>{name}</p>
-                </div>
+            <div className="rounded-s-fl-xs h-s-fl-2xl w-s-fl-2xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 p-s-fl-2xs drop-shadow-md">
+                <Image src={iconUrl} alt={name} width={100} height={100} />
             </div>
         )
     }

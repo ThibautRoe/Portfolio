@@ -26,7 +26,7 @@ export default function Header() {
     return (
         <header /* ref={headerRef} */ className="bg-custom-400">
             <div className="u-container py-s-fl-l font-bold">
-                <div className="flex items-stretch gap-s-fl-l">
+                <div className="flex gap-s-fl-l">
                     <p className="text-t-fl-2xl">&lt;Thibaut /&gt;</p>
                     <nav className="flex flex-grow items-center justify-end">
                         <ul className="flex items-center gap-s-fl-l">

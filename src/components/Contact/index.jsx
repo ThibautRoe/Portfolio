@@ -4,10 +4,11 @@ import { faHandshake, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 export default function Contact() {
     return (
-        <div className="bg-neutral-100">
+        <section className="bg-neutral-100">
             <div className="u-container flex min-h-screen items-center justify-center text-t-fl-xl text-custom-600">
                 <div className="relative flex aspect-square flex-col items-center justify-center gap-s-fl-2xl rounded-full border-2 border-custom-600 px-s-fl-3xl">
-                    <FontAwesomeIcon icon={faHandshake} className="absolute -top-3.5" />
+                    <FontAwesomeIcon icon={faHandshake} className="absolute -top-5" />{" "}
+                    {/* TODO Vertical align no good depending on screen size */}
                     <p className="font-paytoneOne text-t-fl-2xl text-custom-400">Echangeons !</p>
                     <Link
                         href="mailto:hello@thibautroegiers.dev"
@@ -23,6 +24,6 @@ export default function Contact() {
                     </Link>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

@@ -4,9 +4,11 @@ const DynamicSlideshow = dynamic(() => import("./Components/Slideshow"), { ssr: 
 
 export default function Projects({ projects }) {
     return (
-        <div id="projects" className="flex justify-center">
-            <p>Réalisations</p>
-            <DynamicSlideshow projects={projects} />
-        </div>
+        <section>
+            <div id="projects" className="flex justify-center">
+                <h2>Mes réalisations</h2>
+                <DynamicSlideshow projects={projects} />
+            </div>
+        </section>
     )
 }

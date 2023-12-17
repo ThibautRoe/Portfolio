@@ -21,7 +21,7 @@ export default async function Home() {
                 <Hero />
                 <Presentation />
                 <Skills skills={skills} />
-                {/* <DynamicProjects projects={projects} /> */}
+                <DynamicProjects projects={projects} />
                 <Contact />
             </main>
             <Footer />
