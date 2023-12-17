@@ -12,9 +12,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito scroll-smooth`}>
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} scroll-smooth font-nunito`}>
             <head></head>
-            <body className="text-t-fl-base">
+            <body className="text-t-fl-base text-neutral-50">
                 <TestViewport />
                 {children}
             </body>
