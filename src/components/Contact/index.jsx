@@ -4,7 +4,7 @@ import { faHandshake, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 export default function Contact() {
     return (
-        <section className="bg-neutral-100">
+        <section className="bg-neutral-100" id="contact">
             <div className="u-container flex min-h-screen items-center justify-center text-t-fl-xl text-custom-600">
                 <div className="relative flex aspect-square flex-col items-center justify-center gap-s-fl-2xl rounded-full border-2 border-custom-600 px-s-fl-3xl">
                     <FontAwesomeIcon icon={faHandshake} className="absolute -top-5" />{" "}
