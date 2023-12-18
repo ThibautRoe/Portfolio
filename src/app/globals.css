@@ -45,16 +45,18 @@
     /* --scroll-padding: 40px; */
 }
 
-.u-container {
-    max-width: var(--grid-max-width);
-    padding-inline: var(--grid-gutter);
-    padding-block: var(--space-m);
-    margin-inline: auto;
-}
+@layer utilities {
+    .u-container {
+        max-width: var(--grid-max-width);
+        padding-inline: var(--grid-gutter);
+        padding-block: var(--space-m);
+        margin-inline: auto;
+    }
 
-.u-grid {
-    display: grid;
-    gap: var(--grid-gutter);
+    .u-grid {
+        display: grid;
+        gap: var(--grid-gutter);
+    }
 }
 
 /*********/

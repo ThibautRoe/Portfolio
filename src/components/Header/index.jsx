@@ -24,21 +24,21 @@ export default function Header() {
     }, []) */
 
     return (
-        <header /* ref={headerRef} */ className="bg-custom-400 ">
-            <div className="lg:u-container py-s-fl-l ">
+        <header /* ref={headerRef} */ className="bg-custom-400" id="home">
+            <div className="lg:u-container py-s-fl-l">
                 <div className="flex gap-s-fl-l">
                     <p className="hidden text-t-fl-2xl lg:block">&lt;Thibaut /&gt;</p>
-                    <nav className="fixed bottom-0 flex w-full flex-grow items-center justify-center border-t-[1px] border-t-neutral-300/60 bg-neutral-100/60 text-t-fl-s text-neutral-700 lg:justify-end lg:border-0 lg:text-t-fl-base lg:font-bold lg:text-neutral-50">
-                        <ul className="flex max-w-[600px] flex-grow items-center lg:gap-s-fl-l">
-                            <li className="flex-grow">
-                                <Link href="/" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs lg:hidden">
+                    <nav className="fixed bottom-0 z-50 flex flex-grow border-t-[1px] border-t-neutral-300/60 bg-neutral-100/60 text-t-fl-s text-neutral-700 lg:static lg:z-0 lg:border-0 lg:bg-custom-400 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 w-full justify-center lg:w-auto">
+                        <ul className="flex max-w-[600px] flex-grow items-center lg:max-w-full lg:justify-end lg:gap-s-fl-l">
+                            <li className="flex-grow lg:flex-grow-0">
+                                <Link href="#home" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs lg:hidden">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faHouse} />
                                     </span>
                                     <span>Accueil</span>
                                 </Link>
                             </li>
-                            <li className="flex-grow">
+                            <li className="flex-grow lg:flex-grow-0">
                                 <Link href="/#about" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faUser} />
@@ -46,7 +46,7 @@ export default function Header() {
                                     <span>Présentation</span>
                                 </Link>
                             </li>
-                            <li className="flex-grow">
+                            <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#skills" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faCode} />
@@ -54,7 +54,7 @@ export default function Header() {
                                     <span>Compétences</span>
                                 </Link>
                             </li>
-                            <li className="flex-grow">
+                            <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#projects" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faDesktop} />
@@ -62,7 +62,7 @@ export default function Header() {
                                     <span>Réalisations</span>
                                 </Link>
                             </li>
-                            <li className="flex-grow">
+                            <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#contact" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs lg:hidden">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faPaperPlane} />
@@ -74,7 +74,7 @@ export default function Header() {
                     </nav>
                     <Link
                         href="mailto:hello@thibautroegiers.dev"
-                        className="active:bg-custom-800 hidden transform-gpu items-center rounded-full bg-custom-600 px-s-fl-m drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-custom-700 hover:drop-shadow-lg lg:flex"
+                        className="hidden transform-gpu items-center rounded-full bg-custom-600 px-s-fl-m drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-custom-700 hover:drop-shadow-lg active:bg-custom-800 lg:flex"
                     >
                         <button className="flex items-center gap-s-fl-s text-t-fl-l">
                             <FontAwesomeIcon icon={faChevronRight} />

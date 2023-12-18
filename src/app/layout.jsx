@@ -3,7 +3,7 @@ import "./globals.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
-import TestViewport from "../components/TestViewport"
+// import TestViewport from "../components/TestViewport"
 
 export const metadata = {
     title: "Thibaut Roegiers - Développeur web",
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} scroll-smooth font-nunito`}>
             <head></head>
             <body className="text-t-fl-base text-neutral-50">
-                <TestViewport />
+                {/* <TestViewport /> */}
                 {children}
             </body>
         </html>
