@@ -7,9 +7,11 @@ register()
 export default function Slideshow({ projects }) {
     return (
         <swiper-container
-            class="w-[950px]"
+            class="w-1/2"
+            // enabled="false"
             a11y="true"
-            centered-slides="true"
+            // centered-slides="true"
+            cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
             effect="cards"
             grab-cursor="true"
             keyboard="true"
@@ -17,9 +19,13 @@ export default function Slideshow({ projects }) {
             mousewheel-force-to-axis="true"
             navigation="true"
             pagination="true"
+            pagination-clickable="true"
+            // slides-per-view="3"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.sys.id}`}>
+                <swiper-slide key={`slide-${item.sys.id}`} lazy="true" class="drop-shadow-lg">
+                    {" "}
+                    {/* TODO drop-shadow-md sur mobile */}
                     <ProjectCard
                         training={item.fields.training}
                         name={item.fields.name}
