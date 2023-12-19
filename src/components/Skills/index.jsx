@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic"
+import "./Styles/skills.css"
 
 const DynamicSlideshow = dynamic(() => import("./Components/SkillsSlideshow"), { ssr: false })
 
