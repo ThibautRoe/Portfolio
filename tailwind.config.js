@@ -20,6 +20,9 @@ module.exports = {
             screen: "100dvh",
         },
         extend: {
+            screens: {
+                tiny: { raw: "(max-height: 420px)" },
+            },
             fontFamily: {
                 nunito: ["var(--font-nunito)"],
                 paytoneOne: ["var(--font-paytoneOne)"],
