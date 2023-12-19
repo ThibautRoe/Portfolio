@@ -18,7 +18,7 @@ export default function SkillsSlideshow({ skills }) {
             navigation="true"
             pagination="true"
             pagination-clickable="true"
-            // slides-per-view="3"
+            slides-per-view="3"
         >
             <swiper-slide>
                 <div className="flex flex-col items-center px-s-fl-l">

@@ -8,8 +8,8 @@ export default function Hero() {
     return (
         <section className="bg-gradient-to-b from-custom-400 to-custom-300">
             <div className="u-container flex min-h-screen flex-col">
-                <div className="u-grid flex-grow grid-cols-2">
-                    <div className="flex flex-col justify-center gap-s-fl-xl">
+                <div className="lg:u-grid flex-grow lg:grid-cols-2 flex flex-col">
+                    <div className="flex flex-col justify-center gap-s-fl-xl flex-grow">
                         <p className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">👋 Hello, moi c’est Thibaut</p>
                         <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
                         <p>
@@ -19,7 +19,7 @@ export default function Hero() {
                     </div>
                     <DynamicAnimation />
                 </div>
-                <div className="flex justify-center">
+                <div className="hidden sm:flex justify-center">
                     <div className="animated-mouse">
                         <div className="animated-mouse-pointer"></div>
                     </div>
