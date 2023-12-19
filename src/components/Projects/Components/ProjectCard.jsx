@@ -29,6 +29,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                                 href={github}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Voir le code sur Github (nouvel onglet)"
                                 className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
                             >
                                 <FontAwesomeIcon icon={faGithub} />
@@ -39,6 +40,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                                 href={livePreview}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Voir le site (nouvel onglet)"
                                 className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
                             >
                                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
