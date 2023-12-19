@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard"
 import { register } from "swiper/element/bundle"
 register()
 
-export default function Slideshow({ projects }) {
+export default function ProjectsSlideshow({ projects }) {
     return (
         <swiper-container
             class="w-1/2"

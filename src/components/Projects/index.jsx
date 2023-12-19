@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic"
 import "./Styles/projects.css"
 
-const DynamicSlideshow = dynamic(() => import("./Components/Slideshow"), { ssr: false })
+const DynamicSlideshow = dynamic(() => import("./Components/ProjectsSlideshow"), { ssr: false })
 
 export default function Projects({ projects }) {
     return (
