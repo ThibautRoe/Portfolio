@@ -18,3 +18,5 @@ swiper-container::part(pagination) {
 swiper-container::part(bullet-active) {
     background-color: theme("colors.neutral.50");
 }
+
+/* Ca s'applique à tous les Swiper, projects @ skills, voir comment les individualiser */

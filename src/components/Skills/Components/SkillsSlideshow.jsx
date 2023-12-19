@@ -1,24 +1,26 @@
 "use client"
 
 import SkillCard from "./SkillCard"
+// import "../Styles/SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
 export default function SkillsSlideshow({ skills }) {
     return (
         <swiper-container
-            class="max-w-full"
+            class="w-1/2 h-1/2"
+            // class="max-w-full"
             // enabled="false"
             a11y="true"
-            centered-slides="true"
             grab-cursor="true"
+            initial-slide="1"
             keyboard="true"
             long-swipes-ratio="0.25"
             mousewheel-force-to-axis="true"
             navigation="true"
             pagination="true"
             pagination-clickable="true"
-            slides-per-view="3"
+            // slides-per-view="3"
         >
             <swiper-slide>
                 <div className="flex flex-col items-center px-s-fl-l">

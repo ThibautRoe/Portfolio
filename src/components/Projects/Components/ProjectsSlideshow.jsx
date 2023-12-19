@@ -1,6 +1,7 @@
 "use client"
 
 import ProjectCard from "./ProjectCard"
+// import "../Styles/ProjectsSlideshow.css" //TODO à remettre
 import { register } from "swiper/element/bundle"
 register()
 
@@ -10,7 +11,6 @@ export default function ProjectsSlideshow({ projects }) {
             class="w-1/2"
             // enabled="false"
             a11y="true"
-            // centered-slides="true"
             cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
             effect="cards"
             grab-cursor="true"
@@ -20,12 +20,9 @@ export default function ProjectsSlideshow({ projects }) {
             navigation="true"
             pagination="true"
             pagination-clickable="true"
-            // slides-per-view="3"
         >
             {projects.map((item) => (
                 <swiper-slide key={`slide-${item.sys.id}`} lazy="true" class="drop-shadow-lg">
-                    {" "}
-                    {/* TODO drop-shadow-md sur mobile */}
                     <ProjectCard
                         training={item.fields.training}
                         name={item.fields.name}
