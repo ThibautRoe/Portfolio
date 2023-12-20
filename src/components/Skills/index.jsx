@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic"
 
-const DynamicSlideshow = dynamic(() => import("./Components/SkillsSlideshow"), { ssr: false })
+const DynamicSlideshow = dynamic(() => import("./SkillsSlideshow"), { ssr: false })
 
 export default function Skills({ skills }) {
     return (

@@ -1,8 +1,8 @@
 import Link from "next/link"
 import dynamic from "next/dynamic"
-import "./Styles/hero.css"
+import "./hero.css"
 
-const DynamicAnimation = dynamic(() => import("./Components/Animation"), { ssr: false })
+const DynamicAnimation = dynamic(() => import("./Animation"), { ssr: false })
 
 export default function Hero() {
     return (

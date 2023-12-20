@@ -1,7 +1,7 @@
 "use client"
 
 import SkillCard from "./SkillCard"
-// import "../Styles/SkillsSlideshow.css" //TODO à remettre
+// import "./SkillsSlideshow.css" //TODO à remettre
 import { register } from "swiper/element/bundle"
 register()
 

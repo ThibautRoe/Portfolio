@@ -8,7 +8,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
     const coverUrl = "https:" + cover.fields.file.url
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-grow flex-col">
             <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                     src={coverUrl}
