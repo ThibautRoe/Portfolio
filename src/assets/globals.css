@@ -59,6 +59,15 @@
     }
 }
 
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+    color: theme("colors.neutral.50");
+}
+
+swiper-container::part(bullet-active) {
+    background-color: theme("colors.neutral.50");
+}
+
 /*********/
 /* reset */
 /*********/

@@ -8,8 +8,7 @@ register()
 export default function ProjectsSlideshow({ projects }) {
     return (
         <swiper-container
-            class="w-1/2"
-            // enabled="false"
+            class="w-full max-w-[1000px]"
             a11y="true"
             cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
             effect="cards"

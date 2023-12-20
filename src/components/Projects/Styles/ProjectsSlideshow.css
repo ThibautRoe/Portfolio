@@ -1,11 +1,9 @@
 swiper-container::part(button-prev) {
-    color: theme("colors.neutral.50");
     left: var(--swiper-navigation-sides-offset, -150px);
     right: auto;
 }
 
 swiper-container::part(button-next) {
-    color: theme("colors.neutral.50");
     right: var(--swiper-navigation-sides-offset, -150px);
     left: auto;
 }
@@ -13,8 +11,4 @@ swiper-container::part(button-next) {
 swiper-container::part(pagination) {
     bottom: var(--swiper-pagination-bottom, -60px);
     top: var(--swiper-pagination-top, auto);
-}
-
-swiper-container::part(bullet-active) {
-    background-color: theme("colors.neutral.50");
 }

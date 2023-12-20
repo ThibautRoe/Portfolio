@@ -1,5 +1,5 @@
 import { nunito, paytoneOne, gloriaHallelujah } from "../utils/fonts"
-import "./globals.css"
+import "../assets/globals.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false // https://fontawesome.com/docs/web/use-with/react/use-with#getting-font-awesome-css-to-work
