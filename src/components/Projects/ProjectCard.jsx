@@ -1,10 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
-export default function ProjectCard({ training, name, cover, coverBlur, activity, description, techStack, github, livePreview }) {
+export default function ProjectCard({ training, name, cover, coverBlur, activity, description, techStack, github, figma, livePreview }) {
     const coverUrl = "https:" + cover.fields.file.url
 
     return (
@@ -33,6 +33,17 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                                 className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
                             >
                                 <FontAwesomeIcon icon={faGithub} />
+                            </Link>
+                        )}
+                        {figma && (
+                            <Link
+                                href={figma}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Voir la maquette sur Figma (nouvel onglet)"
+                                className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
+                            >
+                                <FontAwesomeIcon icon={faFigma} />
                             </Link>
                         )}
                         {livePreview && (

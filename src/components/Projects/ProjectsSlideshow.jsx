@@ -31,6 +31,7 @@ export default function ProjectsSlideshow({ projects }) {
                         description={item.fields.description}
                         techStack={item.fields.techStack}
                         github={item.fields.github}
+                        figma={item.fields.figma}
                         livePreview={item.fields.livePreview}
                     />
                 </swiper-slide>
