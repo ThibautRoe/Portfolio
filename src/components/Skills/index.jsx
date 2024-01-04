@@ -1,9 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import dynamic from "next/dynamic"
-
-const DynamicSlideshow = dynamic(() => import("./SkillsSlideshow"), { ssr: false })
+import SkillsSlideshow from "./SkillsSlideshow"
 
 export default function Skills({ skills }) {
     const skillsSectionRef = useRef(null)
@@ -32,7 +30,7 @@ export default function Skills({ skills }) {
             <div className="u-container flex flex-col items-center gap-s-fl-2xl font-paytoneOne h-full">
                 <h2 className="text-t-fl-xl tiny:hidden">Mes compétences</h2>
                 <div className="flex flex-grow self-stretch">
-                    <DynamicSlideshow skills={skills} />
+                    <SkillsSlideshow skills={skills} />
                 </div>
             </div>
         </section>

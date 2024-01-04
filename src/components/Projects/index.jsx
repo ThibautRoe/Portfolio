@@ -1,9 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import dynamic from "next/dynamic"
-
-const DynamicSlideshow = dynamic(() => import("./ProjectsSlideshow"), { ssr: false })
+import ProjectsSlideshow from "./ProjectsSlideshow"
 
 export default function Projects({ projects }) {
     const projectsSectionRef = useRef(null)
@@ -36,7 +34,7 @@ export default function Projects({ projects }) {
             <div className="u-container flex flex-col gap-s-fl-xl h-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Mes réalisations</h2>
                 <div className="flex flex-grow items-stretch justify-center">
-                    <DynamicSlideshow projects={projects} />
+                    <ProjectsSlideshow projects={projects} />
                 </div>
             </div>
         </section>

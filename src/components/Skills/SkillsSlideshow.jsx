@@ -12,7 +12,6 @@ export default function SkillsSlideshow({ skills }) {
             a11y="true"
             breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3, "grabCursor": true}}'
             grab-cursor="true"
-            initial-slide="1"
             keyboard="true"
             long-swipes-ratio="0.25"
             mousewheel-force-to-axis="true"
@@ -31,7 +30,7 @@ export default function SkillsSlideshow({ skills }) {
                     </div>
                 </div>
             </swiper-slide>
-            <swiper-slide class="flex flex-col items-center px-s-fl-l">
+            <swiper-slide class="flex flex-col items-center px-s-fl-l md:ml-s-fl-xs lg:mx-s-fl-xs">
                 <p className="text-t-fl-l">Back-end</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
