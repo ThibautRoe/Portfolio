@@ -26,7 +26,7 @@ export default function Presentation() {
     }, [])
 
     return (
-        <section ref={aboutSectionRef} id="about" className="bg-neutral-100 h-dvh">
+        <section ref={aboutSectionRef} id="about" className="bg-neutral-100 snap-start h-dvh">
             <div className="u-container flex flex-col justify-center gap-s-fl-2xl text-custom-600 h-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <p>

@@ -32,7 +32,7 @@ export default function Contact() {
     }, [])
 
     return (
-        <section ref={contactSectionRef} id="contact" className="bg-neutral-100 h-dvh">
+        <section ref={contactSectionRef} id="contact" className="bg-neutral-100 snap-start h-dvh">
             <div className="u-container flex items-center justify-center text-t-fl-xl text-custom-600 h-full">
                 <div className="relative flex aspect-square flex-col items-center justify-center gap-s-fl-2xl rounded-full border-2 border-custom-600 px-s-fl-2xl-3xl">
                     <FontAwesomeIcon icon={faHandshake} className="absolute -top-5" />{" "}

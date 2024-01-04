@@ -28,7 +28,11 @@ export default function Projects({ projects }) {
     }, [])
 
     return (
-        <section ref={projectsSectionRef} id="projects" className="bg-gradient-to-b from-custom-400 to-custom-300 overflow-hidden h-dvh">
+        <section
+            ref={projectsSectionRef}
+            id="projects"
+            className="bg-gradient-to-b from-custom-400 to-custom-300 overflow-hidden snap-start h-dvh"
+        >
             <div className="u-container flex flex-col gap-s-fl-xl h-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Mes réalisations</h2>
                 <div className="flex flex-grow items-stretch justify-center">

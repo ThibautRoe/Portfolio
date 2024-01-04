@@ -24,7 +24,7 @@ export default function Header() {
     }, []) */
 
     return (
-        <header /* ref={headerRef} */ className="bg-custom-400" id="home">
+        <header /* ref={headerRef} */ id="home" className="bg-custom-400 snap-start">
             <div className="lg:u-container py-s-fl-l">
                 <div className="flex gap-s-fl-l">
                     <p className="hidden text-t-fl-2xl lg:block">&lt;Thibaut /&gt;</p>
