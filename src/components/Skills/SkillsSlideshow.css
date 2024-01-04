@@ -1,16 +1,13 @@
-swiper-container::part(button-prev) {
-    left: var(--swiper-navigation-sides-offset, -150px);
-    right: auto;
+.skills-swiper::part(button-prev) {
+    left: 0px;
+    top: calc(50% + 13px);
 }
 
-swiper-container::part(button-next) {
-    right: var(--swiper-navigation-sides-offset, -150px);
-    left: auto;
+.skills-swiper::part(button-next) {
+    right: 0px;
+    top: calc(50% + 13px);
 }
 
-swiper-container::part(pagination) {
-    bottom: var(--swiper-pagination-bottom, -60px);
-    top: var(--swiper-pagination-top, auto);
+.skills-swiper::part(pagination) {
+    bottom: 0px;
 }
-
-/* Ca s'applique à tous les Swiper, projects @ skills, rajouter une class à chacun pour les identifier comment les individualiser */

@@ -1,14 +1,12 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useEffect } from "react"
 
 /* eslint-disable react/no-unescaped-entities */
 export default function Presentation() {
-    const aboutSectionRef = useRef(null)
-
     function handleResizeAbout() {
         const nav = document.querySelector("nav")
-        const aboutSection = aboutSectionRef.current
+        const aboutSection = document.getElementById("about")
 
         if (nav && aboutSection) {
             aboutSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
@@ -26,7 +24,7 @@ export default function Presentation() {
     }, [])
 
     return (
-        <section ref={aboutSectionRef} id="about" className="bg-neutral-100 snap-start h-dvh">
+        <section id="about" className="bg-neutral-100 snap-start h-dvh">
             <div className="u-container flex flex-col justify-center gap-s-fl-2xl text-custom-600 h-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <p>

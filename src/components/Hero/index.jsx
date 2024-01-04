@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useEffect } from "react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 import "./hero.css"
@@ -8,11 +8,10 @@ import "./hero.css"
 const DynamicAnimation = dynamic(() => import("./Animation"), { ssr: false })
 
 export default function Hero() {
-    const heroSectionRef = useRef(null)
     function handleResizeHero() {
         const header = document.querySelector("header")
         const nav = document.querySelector("nav")
-        const heroSection = heroSectionRef.current
+        const heroSection = document.getElementById("hero")
 
         if (header && heroSection) {
             heroSection.style.height = `calc(100dvh - ${header.offsetHeight}px)`
@@ -34,7 +33,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section ref={heroSectionRef} className="bg-gradient-to-b from-custom-400 to-custom-300 h-dvh">
+        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 h-dvh">
             <div className="u-container grid grid-rows-[1fr_auto] h-full">
                 <div className="lg:u-grid lg:grid-cols-2 grid grid-rows-2 lg:grid-rows-none flex-grow">
                     <div className="flex flex-col justify-center gap-s-fl-xl flex-grow">

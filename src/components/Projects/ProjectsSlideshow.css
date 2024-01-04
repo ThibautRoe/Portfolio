@@ -1,14 +1,11 @@
-swiper-container::part(button-prev) {
-    left: var(--swiper-navigation-sides-offset, -150px);
-    right: auto;
+.projects-swiper::part(button-prev) {
+    left: calc(0px - var(--space-m));
 }
 
-swiper-container::part(button-next) {
-    right: var(--swiper-navigation-sides-offset, -150px);
-    left: auto;
+.projects-swiper::part(button-next) {
+    right: calc(0px - var(--space-m));
 }
 
-swiper-container::part(pagination) {
-    bottom: var(--swiper-pagination-bottom, -60px);
-    top: var(--swiper-pagination-top, auto);
+.projects-swiper::part(pagination) {
+    bottom: 0px;
 }

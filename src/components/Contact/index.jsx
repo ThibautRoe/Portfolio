@@ -1,16 +1,15 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useEffect } from "react"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHandshake, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 export default function Contact() {
-    const contactSectionRef = useRef(null)
     function handleResizeContact() {
         const footer = document.querySelector("footer")
         const nav = document.querySelector("nav")
-        const contactSection = contactSectionRef.current
+        const contactSection = document.getElementById("contact")
 
         if (footer && contactSection) {
             contactSection.style.height = `calc(100dvh - ${footer.offsetHeight}px)`
@@ -32,7 +31,7 @@ export default function Contact() {
     }, [])
 
     return (
-        <section ref={contactSectionRef} id="contact" className="bg-neutral-100 snap-start h-dvh">
+        <section id="contact" className="bg-neutral-100 snap-start h-dvh">
             <div className="u-container flex items-center justify-center text-t-fl-xl text-custom-600 h-full">
                 <div className="relative flex aspect-square flex-col items-center justify-center gap-s-fl-2xl rounded-full border-2 border-custom-600 px-s-fl-2xl-3xl">
                     <FontAwesomeIcon icon={faHandshake} className="absolute -top-5" />{" "}
