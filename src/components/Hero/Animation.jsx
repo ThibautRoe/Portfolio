@@ -33,7 +33,13 @@ export default function Animation() {
 
     return (
         <div className="flex items-center justify-center p-s-fl-m">
-            <dotlottie-player class="w-[80%] lg:w-full" src={heroAnimationPath} loop autoplay onClick={toggleAnimation}></dotlottie-player>
+            <dotlottie-player
+                class="w-[80%] sm:w-[65%] lg:w-full"
+                src={heroAnimationPath}
+                loop
+                autoplay
+                onClick={toggleAnimation}
+            ></dotlottie-player>
         </div>
     )
 }

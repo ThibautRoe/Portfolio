@@ -1,25 +1,27 @@
 "use client"
 
-import { useEffect } from "react"
+import { useRef, useEffect } from "react"
 
 export default function TestViewport() {
-    useEffect(() => {
-        function updateViewportWidth() {
-            const viewportWidth = typeof window !== "undefined" ? window.innerWidth || document.documentElement.clientWidth : null
+    const viewportWidthTextRef = useRef(null)
 
-            if (viewportWidth !== null) {
-                document.getElementById("viewportWidth").innerText = viewportWidth + "px"
-            }
+    function updateViewportWidth() {
+        const viewportWidthText = viewportWidthTextRef.current
+
+        if (viewportWidthText) {
+            viewportWidthText.innerText = window.innerWidth + "px"
         }
+    }
 
-        // Appeler la fonction initiale
+    useEffect(() => {
         updateViewportWidth()
 
-        // Ajouter un écouteur d'événements pour la redimension de la fenêtre
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", updateViewportWidth)
-        }
-    }, []) // Le tableau vide signifie que cela s'exécutera uniquement après le montage initial.
+        window.addEventListener("resize", updateViewportWidth)
 
-    return <p id="viewportWidth" className="text-t-fl-l h-12"></p>
+        return () => {
+            window.removeEventListener("resize", updateViewportWidth)
+        }
+    }, [])
+
+    return <p ref={viewportWidthTextRef} id="viewportWidthText" className="text-t-fl-l h-12"></p>
 }
