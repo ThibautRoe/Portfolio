@@ -9,7 +9,6 @@ const DynamicAnimation = dynamic(() => import("./Animation"), { ssr: false })
 
 export default function Hero() {
     const heroSectionRef = useRef(null)
-
     function handleResizeHero() {
         const header = document.querySelector("header")
         const nav = document.querySelector("nav")

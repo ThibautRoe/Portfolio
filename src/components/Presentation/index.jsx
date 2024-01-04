@@ -1,8 +1,33 @@
+"use client"
+
+import { useRef, useEffect } from "react"
+
 /* eslint-disable react/no-unescaped-entities */
 export default function Presentation() {
+    const aboutSectionRef = useRef(null)
+
+    function handleResizeAbout() {
+        const nav = document.querySelector("nav")
+        const aboutSection = aboutSectionRef.current
+
+        if (nav && aboutSection) {
+            aboutSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+        }
+    }
+
+    useEffect(() => {
+        handleResizeAbout()
+
+        window.addEventListener("resize", handleResizeAbout)
+
+        return () => {
+            window.removeEventListener("resize", handleResizeAbout)
+        }
+    }, [])
+
     return (
-        <section className="bg-neutral-100" id="about">
-            <div className="u-container flex min-h-screen flex-col justify-center gap-s-fl-2xl text-custom-600">
+        <section ref={aboutSectionRef} id="about" className="bg-neutral-100 h-dvh">
+            <div className="u-container flex flex-col justify-center gap-s-fl-2xl text-custom-600 h-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <p>
                     Moi c'est Thibaut, <span className="font-bold">développeur web</span> fullstack spécialisé dans le{" "}
