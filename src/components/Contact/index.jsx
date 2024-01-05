@@ -39,7 +39,6 @@ export default function Contact() {
                             icon={faHandshake}
                             className="absolute bg-neutral-100 px-s-fl-3xs -top-s-fl-xs left-[calc(2.9*var(--space-xl-2xl))]"
                         />
-                        {/* TODO Vertical align no good depending on screen size */}
                     </div>
                     <div className="flex aspect-square flex-col items-center justify-center gap-s-fl-2xl px-s-fl-2xl-3xl">
                         <p className="font-paytoneOne text-t-fl-2xl text-custom-400">Echangeons !</p>
