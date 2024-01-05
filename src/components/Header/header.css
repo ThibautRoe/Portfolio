@@ -1,0 +1,28 @@
+:root {
+    --steps: 11; /* Char count */
+}
+
+.header-text {
+    position: relative;
+    &::after {
+        content: "|";
+        position: absolute;
+        right: 0;
+        width: 100%;
+        color: white;
+        /* color: theme("colors.neutral.50"); */
+        /* background: var(--background); */
+        animation: typing 4s steps(var(--steps)) forwards, caret 1s infinite;
+    }
+}
+
+@keyframes typing {
+    to {
+        width: 0;
+    }
+}
+@keyframes caret {
+    50% {
+        color: transparent;
+    }
+}

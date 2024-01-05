@@ -1,9 +1,11 @@
-// "use client" // Use if updateScrollPadding needed
+"use client" // Use if updateScrollPadding needed
 
 // import { useEffect, useRef } from "react" // Use if updateScrollPadding needed
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faHouse, faUser, faCode, faDesktop, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import AnimatedText from "../AnimatedText"
+import "./header.css"
 
 export default function Header() {
     // const headerRef = useRef(null) // Use if updateScrollPadding needed
@@ -27,7 +29,8 @@ export default function Header() {
         <header /* ref={headerRef} */ id="home" className="bg-custom-400 snap-start">
             <div className="lg:u-container py-s-fl-l">
                 <div className="flex gap-s-fl-l">
-                    <p className="hidden text-t-fl-2xl lg:block">&lt;Thibaut /&gt;</p>
+                    {/* <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:block" /> */}
+                    <p className="header-text hidden text-t-fl-2xl lg:block">&lt;Thibaut /&gt;</p>
                     <nav className="fixed bottom-0 z-50 flex flex-grow border-t-[1px] border-t-neutral-300/60 bg-neutral-100/60 text-t-fl-s text-neutral-700 lg:static lg:z-0 lg:border-0 lg:bg-custom-400 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 w-full justify-center lg:w-auto">
                         <ul className="flex max-w-[600px] flex-grow items-center lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                             <li className="flex-grow lg:flex-grow-0">

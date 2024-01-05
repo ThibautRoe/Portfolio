@@ -11,3 +11,5 @@
 .skills-swiper::part(pagination) {
     bottom: 0px;
 }
+
+/* Voir global.css pour régler la couleur de la pagination & navigation */

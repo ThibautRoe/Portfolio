@@ -8,7 +8,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
     const coverUrl = "https:" + cover.fields.file.url
 
     return (
-        <div className="flex flex-grow flex-col w-full lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
+        <div className="flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
             <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                     src={coverUrl}
@@ -17,7 +17,7 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                     blurDataURL={coverBlur}
                     sizes="(width > 1500px) 50vw, (width > 1200px) 70vw, 80vw"
                     fill
-                    className="rounded-t-s-fl-s object-cover" // TODO Ajuster les tailles
+                    className="rounded-t-s-fl-s object-cover object-top" // TODO Ajuster les tailles
                 />
             </div>
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">

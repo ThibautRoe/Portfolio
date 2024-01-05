@@ -1,3 +1,5 @@
+// Voir sinon https://mantine.dev/hooks/use-viewport-size/
+
 "use client"
 
 import { useRef, useEffect } from "react"

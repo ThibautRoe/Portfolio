@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     return (
         <html
             lang="fr"
-            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito snap-y snap-mandatory`}
+            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito snap-y snap-mandatory scroll-smooth`}
         >
             <head></head>
             <body className="text-t-fl-base text-neutral-50">
