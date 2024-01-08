@@ -4,17 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
-export default function ProjectCard({ training, name, cover, coverBlur, activity, description, techStack, github, figma, livePreview }) {
-    const coverUrl = "https:" + cover.fields.file.url
-
+export default function ProjectCard(props) {
     return (
         <div className="flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
             <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
-                    src={coverUrl}
-                    alt={name}
+                    src={props.coverUrl}
+                    alt={props.name}
                     placeholder="blur"
-                    blurDataURL={coverBlur}
+                    blurDataURL={props.coverBlur}
                     sizes="(width > 1500px) 50vw, (width > 1200px) 70vw, 80vw"
                     fill
                     className="rounded-t-s-fl-s object-cover object-top" // TODO Ajuster les tailles
@@ -22,11 +20,11 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
             </div>
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
-                    <p className="flex-grow font-paytoneOne">{name}</p>
+                    <p className="flex-grow font-paytoneOne">{props.name}</p>
                     <div className="flex gap-s-fl-l text-t-fl-l">
-                        {github && (
+                        {props.github && (
                             <Link
-                                href={github}
+                                href={props.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le code sur Github (nouvel onglet)"
@@ -35,9 +33,9 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                                 <FontAwesomeIcon icon={faGithub} />
                             </Link>
                         )}
-                        {figma && (
+                        {props.figma && (
                             <Link
-                                href={figma}
+                                href={props.figma}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir la maquette sur Figma (nouvel onglet)"
@@ -46,9 +44,9 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                                 <FontAwesomeIcon icon={faFigma} />
                             </Link>
                         )}
-                        {livePreview && (
+                        {props.livePreview && (
                             <Link
-                                href={livePreview}
+                                href={props.livePreview}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le site (nouvel onglet)"
@@ -59,11 +57,11 @@ export default function ProjectCard({ training, name, cover, coverBlur, activity
                         )}
                     </div>
                 </div>
-                {training && <p className="text-t-fl-xs"> - Projet de formation - </p>}
-                <p className="text-t-fl-s italic">{activity}</p>
-                <p className="text-t-fl-s">{description}</p>
+                {props.training && <p className="text-t-fl-xs"> - Projet de formation - </p>}
+                <p className="text-t-fl-s italic">{props.activity}</p>
+                <p className="text-t-fl-s">{props.description}</p>
                 <div className="flex flex-wrap gap-s-fl-s text-t-fl-s">
-                    {techStack.map((item) => (
+                    {props.techStack.map((item) => (
                         <p key={item} className="rounded-full border-[1px] border-solid border-neutral-50 px-s-fl-xs py-s-fl-3xs">
                             {item}
                         </p>

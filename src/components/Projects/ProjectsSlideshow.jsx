@@ -21,18 +21,18 @@ export default function ProjectsSlideshow({ projects }) {
             pagination-clickable="true"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.sys.id}`} lazy="true" class="flex justify-center items-center drop-shadow-lg">
+                <swiper-slide key={`slide-${item.id}`} lazy="true" class="flex justify-center items-center drop-shadow-lg">
                     <ProjectCard
-                        training={item.fields.training}
-                        name={item.fields.name}
-                        cover={item.fields.cover}
-                        coverBlur={item.fields.coverBlur}
-                        activity={item.fields.activity}
-                        description={item.fields.description}
-                        techStack={item.fields.techStack}
-                        github={item.fields.github}
-                        figma={item.fields.figma}
-                        livePreview={item.fields.livePreview}
+                        training={item.training}
+                        name={item.name}
+                        coverUrl={item.coverUrl}
+                        coverBlur={item.coverBlur}
+                        activity={item.activity}
+                        description={item.description}
+                        techStack={item.techStack}
+                        github={item.github}
+                        figma={item.figma}
+                        livePreview={item.livePreview}
                     />
                 </swiper-slide>
             ))}

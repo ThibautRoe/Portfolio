@@ -11,7 +11,7 @@ import Footer from "../components/Footer"
 export default async function Home() {
     // await new Promise((res) => setTimeout(res, 2000)) // To test loading.jsx page
 
-    const { skills, projects } = await useGetContentfulData()
+    const { formattedSkills, formattedProjects } = await useGetContentfulData()
 
     return (
         <>
@@ -19,8 +19,8 @@ export default async function Home() {
             <main>
                 <Hero />
                 <Presentation />
-                <Skills skills={skills} />
-                <Projects projects={projects} />
+                <Skills skills={formattedSkills} />
+                <Projects projects={formattedProjects} />
                 <Contact />
             </main>
             <Footer />
