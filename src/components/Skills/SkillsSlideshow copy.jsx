@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import AnimatedTooltip from "./AnimatedTooltip"
+import SkillCard from "./SkillCard"
 import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
@@ -48,7 +48,9 @@ export default function SkillsSlideshow({ skills }) {
                 <p className="text-t-fl-l">Front-end</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.frontend} />
+                        {skills.frontend.map((item) => (
+                            <SkillCard key={item.sys.id} name={item.fields.name} icon={item.fields.icon} url={item.fields.url} />
+                        ))}
                     </div>
                 </div>
             </swiper-slide>
@@ -56,7 +58,9 @@ export default function SkillsSlideshow({ skills }) {
                 <p className="text-t-fl-l">Back-end</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.backend} />
+                        {skills.backend.map((item) => (
+                            <SkillCard key={item.sys.id} name={item.fields.name} icon={item.fields.icon} url={item.fields.url} />
+                        ))}
                     </div>
                 </div>
             </swiper-slide>
@@ -64,7 +68,9 @@ export default function SkillsSlideshow({ skills }) {
                 <p className="text-t-fl-l">Autres</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.other} />
+                        {skills.other.map((item) => (
+                            <SkillCard key={item.sys.id} name={item.fields.name} icon={item.fields.icon} url={item.fields.url} />
+                        ))}
                     </div>
                 </div>
             </swiper-slide>
