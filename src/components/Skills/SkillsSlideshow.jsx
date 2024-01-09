@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import AnimatedTooltip from "./AnimatedTooltip"
+import SkillCard from "./SkillCard"
 import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
@@ -45,26 +45,26 @@ export default function SkillsSlideshow({ skills }) {
             slides-per-view="1"
         >
             <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="text-t-fl-l">Front-end</p>
+                <p className="font-paytoneOne text-t-fl-l">Front-end</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.frontend} />
+                        <SkillCard items={skills.frontend} />
                     </div>
                 </div>
             </swiper-slide>
             <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="text-t-fl-l">Back-end</p>
+                <p className="font-paytoneOne text-t-fl-l">Back-end</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.backend} />
+                        <SkillCard items={skills.backend} />
                     </div>
                 </div>
             </swiper-slide>
             <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="text-t-fl-l">Autres</p>
+                <p className="font-paytoneOne text-t-fl-l">Autres</p>
                 <div className="flex flex-grow items-center">
                     <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <AnimatedTooltip items={skills.other} />
+                        <SkillCard items={skills.other} />
                     </div>
                 </div>
             </swiper-slide>

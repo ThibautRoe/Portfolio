@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
@@ -28,9 +29,15 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le code sur Github (nouvel onglet)"
-                                className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
+                                className="hover:drop-shadow-md"
                             >
-                                <FontAwesomeIcon icon={faGithub} />
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                >
+                                    <FontAwesomeIcon icon={faGithub} />
+                                </motion.div>
                             </Link>
                         )}
                         {props.figma && (
@@ -39,9 +46,15 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir la maquette sur Figma (nouvel onglet)"
-                                className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
+                                className="hover:drop-shadow-md"
                             >
-                                <FontAwesomeIcon icon={faFigma} />
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                >
+                                    <FontAwesomeIcon icon={faFigma} />
+                                </motion.div>
                             </Link>
                         )}
                         {props.livePreview && (
@@ -50,9 +63,15 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le site (nouvel onglet)"
-                                className="transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:drop-shadow-md"
+                                className="hover:drop-shadow-md"
                             >
-                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                >
+                                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                                </motion.div>
                             </Link>
                         )}
                     </div>
