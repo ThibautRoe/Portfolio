@@ -35,7 +35,7 @@ export default function Hero() {
     return (
         <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 h-dvh">
             <div className="u-container grid grid-rows-[1fr_auto] h-full">
-                <div className="lg:u-grid lg:grid-cols-2 grid grid-rows-2 lg:grid-rows-none flex-grow">
+                <div className="grid grid-rows-2 lg:u-grid lg:grid-cols-2 lg:grid-rows-none">
                     <div className="flex flex-col justify-center gap-s-fl-xl flex-grow">
                         <p className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">👋 Hello, moi c’est Thibaut</p>
                         <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
