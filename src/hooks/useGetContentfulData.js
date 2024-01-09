@@ -27,10 +27,10 @@ export default async function useGetContentfulData() {
         }
     })
 
-    const skillsBackend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Backend")
-    skillsBackend.sort((a, b) => a.fields.order - b.fields.order)
+    const skillsFrontend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Frontend")
+    skillsFrontend.sort((a, b) => a.fields.order - b.fields.order)
 
-    const formattedskillsBackend = skillsBackend.map((item) => {
+    const formattedskillsFrontend = skillsFrontend.map((item) => {
         return {
             id: item.sys.id,
             name: item.fields.name,
@@ -39,10 +39,10 @@ export default async function useGetContentfulData() {
         }
     })
 
-    const skillsFrontend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Frontend")
-    skillsFrontend.sort((a, b) => a.fields.order - b.fields.order)
+    const skillsBackend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Backend")
+    skillsBackend.sort((a, b) => a.fields.order - b.fields.order)
 
-    const formattedskillsFrontend = skillsFrontend.map((item) => {
+    const formattedskillsBackend = skillsBackend.map((item) => {
         return {
             id: item.sys.id,
             name: item.fields.name,
@@ -73,12 +73,12 @@ export default async function useGetContentfulData() {
         }
     })
 
-    const formattedSkills = {
-        backend: formattedskillsBackend,
-        frontend: formattedskillsFrontend,
-        other: formattedskillsOther,
-        softskills: formattedskillsSoftskill,
-    }
+    const formattedSkills = [
+        { name: "Front-end", value: formattedskillsFrontend },
+        { name: "Back-end", value: formattedskillsBackend },
+        { name: "Autres", value: formattedskillsOther },
+        // { name: "Soft-skills", value: formattedskillsSoftskill },
+    ]
 
     return { formattedProjects, formattedSkills }
 }

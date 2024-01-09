@@ -34,7 +34,7 @@ export default function SkillsSlideshow({ skills }) {
         <swiper-container
             class="skills-swiper w-full"
             a11y="true"
-            breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3, "grabCursor": true}}'
+            breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
             grab-cursor="true"
             keyboard="true"
             long-swipes-ratio="0.25"
@@ -44,30 +44,18 @@ export default function SkillsSlideshow({ skills }) {
             pagination-clickable="true"
             slides-per-view="1"
         >
-            <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="font-paytoneOne text-t-fl-l">Front-end</p>
-                <div className="flex flex-grow items-center">
-                    <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <SkillCard items={skills.frontend} />
+            {skills.map((skill) => (
+                <swiper-slide key={skill.name} class="flex flex-col items-center px-s-fl-l">
+                    <p className="font-paytoneOne text-t-fl-l">{skill.name}</p>
+                    <div className="flex flex-grow items-center">
+                        <div className="flex flex-wrap justify-center gap-s-fl-xl">
+                            {skill.value.map((item) => (
+                                <SkillCard key={item.id} item={item} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </swiper-slide>
-            <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="font-paytoneOne text-t-fl-l">Back-end</p>
-                <div className="flex flex-grow items-center">
-                    <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <SkillCard items={skills.backend} />
-                    </div>
-                </div>
-            </swiper-slide>
-            <swiper-slide class="flex flex-col items-center px-s-fl-l">
-                <p className="font-paytoneOne text-t-fl-l">Autres</p>
-                <div className="flex flex-grow items-center">
-                    <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                        <SkillCard items={skills.other} />
-                    </div>
-                </div>
-            </swiper-slide>
+                </swiper-slide>
+            ))}
         </swiper-container>
     )
 }
