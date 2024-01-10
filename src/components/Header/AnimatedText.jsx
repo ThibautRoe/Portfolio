@@ -1,41 +1,59 @@
 "use client"
 
 import { motion, useInView, useAnimation } from "framer-motion"
-import { useRef, useEffect } from "react"
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
 
 const defaultAnimations = {
     hidden: {
         opacity: 0,
-        y: 20,
+        x: 0,
+        y: -10,
     },
     visible: {
         opacity: 1,
+        x: 0,
         y: 0,
         transition: {
             duration: 0.1,
         },
     },
+    visibleCaret: {
+        opacity: 1,
+        x: 0,
+        y: -3,
+        transition: {
+            duration: 0.1,
+        },
+    },
+    pulsateCaret: {
+        opacity: [1, 0, 1],
+        transition: {
+            duration: 1.5,
+            repeat: Infinity,
+        },
+    },
 }
 
 export default function AnimatedText(props) {
-    const ref = useRef(null)
+    const { once, text, el, animation, className, repeatDelay } = props
+    const textArray = Array.isArray(text) ? text : [text]
+    const wrapper = el || "p"
+    const animations = animation || defaultAnimations
     const controls = useAnimation()
-    const animation = props.animation ? props.animation : defaultAnimations
-    const once = props.once
-    const isInView = useInView(ref, { amount: 0.5, once })
-    const textArray = Array.isArray(props.text) ? props.text : [props.text]
-    const wrapper = props.el ? props.el : "p"
+    const controlsCaret = useAnimation()
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once })
+    const [startPulsatingCaret, setStartPulsatingCaret] = useState(false)
 
     useEffect(() => {
         let timeout
-        const show = () => {
+        function show() {
             controls.start("visible")
-            if (props.repeatDelay) {
+            if (repeatDelay) {
                 timeout = setTimeout(async () => {
                     await controls.start("hidden")
                     controls.start("visible")
-                }, props.repeatDelay)
+                }, repeatDelay)
             }
         }
 
@@ -43,34 +61,44 @@ export default function AnimatedText(props) {
             show()
         } else {
             controls.start("hidden")
+            controlsCaret.start("hidden")
         }
 
         return () => clearTimeout(timeout)
     }, [isInView])
 
+    useEffect(() => {
+        setTimeout(async () => {
+            await controlsCaret.start("visibleCaret")
+            controlsCaret.start("pulsateCaret")
+        }, 1100)
+    }, [startPulsatingCaret])
+
     return (
         <>
             {React.createElement(
                 wrapper,
-                { className: props.className },
+                { className: className },
                 <>
                     <span className="sr-only">{textArray.join(" ")}</span>
                     <motion.span
                         ref={ref}
-                        initial="hidden"
-                        animate={controls}
                         variants={{
                             visible: { transition: { staggerChildren: 0.1 } },
                             hidden: {},
                         }}
+                        initial="hidden"
+                        animate={controls}
+                        onAnimationComplete={() => setStartPulsatingCaret(true)}
                         aria-hidden
+                        className="inline-block"
                     >
                         {textArray.map((line, lineIndex) => (
                             <span className="block" key={`${line}-${lineIndex}`}>
                                 {line.split(" ").map((word, wordIndex) => (
                                     <span className="inline-block" key={`${word}-${wordIndex}`}>
                                         {word.split("").map((char, charIndex) => (
-                                            <motion.span key={`${char}-${charIndex}`} className="inline-block" variants={animation}>
+                                            <motion.span key={`${char}-${charIndex}`} variants={animations} className="inline-block">
                                                 {char}
                                             </motion.span>
                                         ))}
@@ -79,6 +107,9 @@ export default function AnimatedText(props) {
                                 ))}
                             </span>
                         ))}
+                    </motion.span>
+                    <motion.span variants={animations} initial="hidden" animate={controlsCaret} aria-hidden className="inline-block">
+                        |
                     </motion.span>
                 </>
             )}
