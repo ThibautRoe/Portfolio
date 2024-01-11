@@ -23,8 +23,9 @@ export default function RootLayout({ children }) {
             if (loader) {
                 setTimeout(() => {
                     loader.remove()
+                    document.body.style.overflow = "auto"
                     setIsSplashScreenOnPage(false)
-                }, 300)
+                }, 5300)
             }
         }
 
