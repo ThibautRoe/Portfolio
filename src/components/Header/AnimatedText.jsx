@@ -1,7 +1,8 @@
 "use client"
 
+import { useContext, useRef, useEffect, useState, createElement } from "react"
+import { GlobalContext } from "@/app/layout"
 import { motion, useInView, useAnimation } from "framer-motion"
-import React, { useRef, useEffect, useState } from "react"
 
 const defaultAnimations = {
     hidden: {
@@ -44,6 +45,7 @@ export default function AnimatedText(props) {
     const ref = useRef(null)
     const isInView = useInView(ref, { once })
     const [startPulsatingCaret, setStartPulsatingCaret] = useState(false)
+    const isSplashScreenOnPage = useContext(GlobalContext)
 
     useEffect(() => {
         let timeout
@@ -57,7 +59,7 @@ export default function AnimatedText(props) {
             }
         }
 
-        if (isInView) {
+        if (isInView && !isSplashScreenOnPage) {
             show()
         } else {
             controls.start("hidden")
@@ -65,18 +67,29 @@ export default function AnimatedText(props) {
         }
 
         return () => clearTimeout(timeout)
-    }, [isInView])
+    }, [isInView, isSplashScreenOnPage])
 
     useEffect(() => {
-        setTimeout(async () => {
-            await controlsCaret.start("visibleCaret")
-            controlsCaret.start("pulsateCaret")
-        }, 1100)
-    }, [startPulsatingCaret])
+        let timeout
+        function show() {
+            timeout = setTimeout(async () => {
+                await controlsCaret.start("visibleCaret")
+                controlsCaret.start("pulsateCaret")
+            }, 1100)
+        }
+
+        if (startPulsatingCaret && !isSplashScreenOnPage) {
+            show()
+        } else {
+            controlsCaret.start("hidden")
+        }
+
+        return () => clearTimeout(timeout)
+    }, [startPulsatingCaret, isSplashScreenOnPage])
 
     return (
         <>
-            {React.createElement(
+            {createElement(
                 wrapper,
                 { className: className },
                 <>
@@ -89,7 +102,9 @@ export default function AnimatedText(props) {
                         }}
                         initial="hidden"
                         animate={controls}
-                        onAnimationComplete={() => setStartPulsatingCaret(true)}
+                        onAnimationComplete={() => {
+                            setStartPulsatingCaret(true)
+                        }}
                         aria-hidden
                         className="inline-block"
                     >
