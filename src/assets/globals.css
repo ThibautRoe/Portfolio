@@ -42,7 +42,10 @@
     --grid-gutter: var(--space-m-xl, clamp(1.125rem, 0.5273rem + 3.0075vw, 4.125rem));
     --grid-columns: 12;
 
-    /* --scroll-padding: 40px; */
+    /***** CUSTOM CLAMP FOR RIBBON POSITIONING ON PROJECT CARD *****/
+    /* @link https://utopia.fyi/clamp/calculator?a=318,1914,0—23|30—46 */
+    --fluid-ribbon-left: clamp(0rem, -0.2864rem + 1.4411vw, 1.4375rem);
+    --fluid-ribbon-top: clamp(1.875rem, 1.6758rem + 1.0025vw, 2.875rem);
 }
 
 @layer utilities {

@@ -20,7 +20,7 @@ export default function SkillCard({ item }) {
         <div className="relative" onMouseEnter={() => setHoveredIndex(item.id)} onMouseLeave={() => setHoveredIndex(null)}>
             <AnimatePresence mode="wait">
                 {hoveredIndex === item.id && (
-                    <div className="absolute -top-s-fl-l left-1/2 -translate-x-1/2 z-50">
+                    <div className="absolute -top-s-fl-l left-1/2 -translate-x-1/2 z-40">
                         <motion.div
                             initial={{ opacity: 0, y: 20, scale: 0.6 }}
                             animate={{

@@ -33,7 +33,7 @@ export default function Animation() {
 
     return (
         <div className="flex items-center justify-center">
-            <div>
+            <div className="flex items-center justify-center">
                 <dotlottie-player
                     class="w-[80%] sm:w-[65%] lg:w-full"
                     src={heroAnimationPath}

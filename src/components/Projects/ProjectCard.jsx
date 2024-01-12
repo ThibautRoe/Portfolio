@@ -7,7 +7,14 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProjectCard(props) {
     return (
-        <div className="flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
+        <div className="relative flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
+            {props.training && (
+                <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
+                    <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
+                        - Projet de formation -
+                    </span>
+                </div>
+            )}
             <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                     src={props.coverUrl}
@@ -76,7 +83,6 @@ export default function ProjectCard(props) {
                         )}
                     </div>
                 </div>
-                {props.training && <p className="text-t-fl-xs"> - Projet de formation - </p>}
                 <p className="text-t-fl-s italic">{props.activity}</p>
                 <p className="text-t-fl-s">{props.description}</p>
                 <div className="flex flex-wrap gap-s-fl-s text-t-fl-s">

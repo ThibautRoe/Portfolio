@@ -8,12 +8,11 @@ import AnimatedText from "./AnimatedText"
 
 export default function Header() {
     return (
-        <header id="home" className="bg-custom-400 snap-start">
+        <header id="home" className="bg-custom-400 snap-start h-0 lg:h-auto">
             <div className="lg:u-container py-s-fl-l">
                 <div className="flex gap-s-fl-l">
                     <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:inline" />
-                    {/* <p className="header-text hidden text-t-fl-2xl lg:block">&lt;Thibaut /&gt;</p> */}
-                    <nav className="fixed bottom-0 z-50 flex flex-grow border-t-[1px] border-t-neutral-300/60 bg-neutral-100/60 text-t-fl-s text-neutral-700 lg:static lg:z-0 lg:border-0 lg:bg-custom-400 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 w-full justify-center lg:w-auto">
+                    <nav className="fixed bottom-0 z-40 flex flex-grow border-t-[1px] border-t-neutral-300/60 bg-neutral-100/60 text-t-fl-s text-neutral-700 lg:static lg:z-0 lg:border-0 lg:bg-custom-400 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 w-full justify-center lg:w-auto">
                         <ul className="flex max-w-[600px] flex-grow items-center lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                             <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#home" className="flex flex-col items-center gap-y-[3px] p-s-fl-2xs lg:hidden">
