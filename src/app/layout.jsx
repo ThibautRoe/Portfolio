@@ -25,24 +25,20 @@ export default function RootLayout({ children }) {
                     loader.remove()
                     document.body.style.overflow = "auto"
                     setIsSplashScreenOnPage(false)
-                }, 300)
+                }, 750)
             }
         }
-
-        window.onload = removeSplashScreen
+        window.addEventListener("load", removeSplashScreen())
 
         return () => {
-            window.onload = null
+            window.removeEventListener("load", removeSplashScreen())
         }
     }, [isSplashScreenOnPage])
 
     return (
-        <html
-            lang="fr"
-            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito snap-y snap-mandatory scroll-smooth`}
-        >
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito overflow-y-hidden`}>
             <head></head>
-            <body className="text-t-fl-base text-neutral-50">
+            <body className="text-t-fl-base text-neutral-50 snap-y snap-mandatory scroll-smooth sticky h-dvh">
                 <GlobalContext.Provider value={isSplashScreenOnPage}>
                     <SplashScreen />
                     {/* <DynamicTestViewport /> */}

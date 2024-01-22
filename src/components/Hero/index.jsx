@@ -56,9 +56,9 @@ export default function Hero() {
                     </div>
                     <DynamicAnimation />
                 </div>
-                <div className="hidden sm:flex justify-center">
-                    <div className="animated-mouse">
-                        <div className="animated-mouse-pointer"></div>
+                <div className="flex justify-center">
+                    <div className="animated-mouse w-s-fl-m h-s-fl-l rounded-s-fl-xs">
+                        <div className="animated-mouse-pointer aspect-square w-s-fl-3xs"></div>
                     </div>
                 </div>
             </div>

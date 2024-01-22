@@ -1,14 +1,9 @@
 .animated-mouse {
     position: relative;
-    width: 27px;
-    height: 47px;
     border: 2px solid #fff;
-    border-radius: 14px;
 }
 .animated-mouse-pointer {
     position: absolute;
-    width: 6px;
-    height: 6px;
     border-radius: 100%;
     background: #fff;
     left: 50%;

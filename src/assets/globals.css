@@ -87,6 +87,7 @@ swiper-container::part(bullet-active) {
 /* force styling of type through styling, rather than elements */
 
 * {
+    min-width: 0; /* https://youtu.be/cH8VbLM1958?si=ydZ-gooPQuIHual0 */
     margin: 0;
     padding: 0;
     font: inherit;
@@ -96,12 +97,6 @@ swiper-container::part(bullet-active) {
 
 html {
     color-scheme: dark light;
-}
-
-/* min body height */
-
-body {
-    min-height: 100vh;
 }
 
 /* responsive images/videos */
