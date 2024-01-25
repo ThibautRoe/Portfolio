@@ -15,7 +15,7 @@ export default function Hero() {
         const heroSection = document.getElementById("hero")
 
         if (header && heroSection) {
-            heroSection.style.height = `calc(100dvh - ${header.offsetHeight}px)`
+            heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
         }
 
         if (nav && heroSection) {
@@ -34,8 +34,8 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 h-dvh">
-            <div className="u-container grid grid-rows-[1fr_auto] h-full">
+        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex flex-col">
+            <div className="u-container grid grid-rows-[1fr_auto] flex-grow w-full">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-2 lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
@@ -50,14 +50,21 @@ export default function Hero() {
                             <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
                             <p>
                                 J’adore &lt;coder /&gt; des sites modernes, dynamiques et{" "}
-                                <Link href="https://utopia.fyi/">fluid responsive !</Link>
+                                <Link
+                                    href="https://utopia.fyi/"
+                                    style={{ textDecorationSkipInk: "none" }}
+                                    className="underline decoration-wavy underline-offset-[0.25em]"
+                                >
+                                    fluid responsive
+                                </Link>{" "}
+                                !
                             </p>
                         </div>
                     </div>
                     <DynamicAnimation />
                 </div>
                 <div className="flex justify-center">
-                    <div className="animated-mouse w-s-fl-m h-s-fl-l rounded-s-fl-xs">
+                    <div className="animated-mouse aspect-[9/16] w-s-fl-m rounded-s-fl-xs">
                         <div className="animated-mouse-pointer aspect-square w-s-fl-3xs"></div>
                     </div>
                 </div>

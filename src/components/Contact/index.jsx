@@ -13,7 +13,7 @@ export default function Contact() {
         const contactSection = document.getElementById("contact")
 
         if (footer && contactSection) {
-            contactSection.style.height = `calc(100dvh - ${footer.offsetHeight}px)`
+            contactSection.style.minHeight = `calc(100dvh - ${footer.offsetHeight}px)`
         }
 
         if (footer && nav) {
@@ -32,8 +32,8 @@ export default function Contact() {
     }, [])
 
     return (
-        <section id="contact" className="bg-neutral-100 snap-start">
-            <div className="u-container flex min-h-screen items-center justify-center text-t-fl-xl text-custom-600">
+        <section id="contact" className="bg-neutral-100 snap-start flex flex-col">
+            <div className="u-container flex flex-grow items-center justify-center text-t-fl-xl text-custom-600">
                 <div className="relative">
                     <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-spin-slow">
                         <FontAwesomeIcon

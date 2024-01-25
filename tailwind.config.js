@@ -24,7 +24,7 @@ module.exports = {
                 "spin-slow": "spin 8s linear infinite",
             },
             screens: {
-                tiny: { raw: "(max-height: 420px)" },
+                tall: { raw: "(min-height: 480px)" },
             },
             fontFamily: {
                 nunito: ["var(--font-nunito)"],

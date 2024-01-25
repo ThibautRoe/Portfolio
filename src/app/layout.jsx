@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito overflow-y-hidden`}>
             <head></head>
-            <body className="text-t-fl-base text-neutral-50 snap-y snap-mandatory scroll-smooth sticky h-dvh">
+            <body className="text-t-fl-base text-neutral-50 tall:snap-y tall:snap-mandatory scroll-smooth sticky h-dvh">
                 <GlobalContext.Provider value={isSplashScreenOnPage}>
                     <SplashScreen />
                     {/* <DynamicTestViewport /> */}
