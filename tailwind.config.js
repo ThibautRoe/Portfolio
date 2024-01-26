@@ -20,9 +20,6 @@ module.exports = {
             screen: "100dvh",
         },
         extend: {
-            animation: {
-                "spin-slow": "spin 8s linear infinite",
-            },
             screens: {
                 tall: { raw: "(min-height: 480px)" },
             },

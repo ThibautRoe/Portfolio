@@ -35,7 +35,7 @@ export default function Contact() {
         <section id="contact" className="bg-neutral-100 snap-start flex flex-col">
             <div className="u-container flex flex-grow items-center justify-center text-t-fl-xl text-custom-600">
                 <div className="relative">
-                    <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-spin-slow">
+                    <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-[spin_8s_linear_infinite]">
                         <FontAwesomeIcon
                             icon={faHandshake}
                             className="absolute bg-neutral-100 px-s-fl-3xs -top-s-fl-xs left-[calc(2.9*var(--space-xl-2xl))]"

@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect } from "react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 import "./hero.css"
@@ -39,22 +38,20 @@ export default function Hero() {
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-2 lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
-                            <p className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">
-                                <motion.span animate={{ rotate: [0, 30, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-                                    {" "}
-                                    {/* TODO ne fonctionne pas */}
-                                    👋
-                                </motion.span>
+                            <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">
+                                <div className="inline-block animate-[helloAnimation_2s_ease-in-out_infinite]">👋</div>
                                 <span> Hello, moi c’est Thibaut</span>
-                            </p>
+                            </div>
                             <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
-                            <p>
+                            <div>
                                 J’adore &lt;coder /&gt; des sites modernes, dynamiques et{" "}
-                                <Link href="https://utopia.fyi/" className="underline decoration-dotted underline-offset-[0.175em]">
-                                    fluid responsive
+                                <Link href="https://utopia.fyi/">
+                                    <div className="inline-block underline decoration-dotted underline-offset-[0.175em] transition duration-300 hover:scale-105 hover:text-custom-700 active:text-custom-800">
+                                        fluid responsive
+                                    </div>
                                 </Link>{" "}
                                 !
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <DynamicAnimation />
