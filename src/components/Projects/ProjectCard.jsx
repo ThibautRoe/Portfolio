@@ -7,7 +7,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProjectCard(props) {
     return (
-        <div className="relative flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%]">
+        <div className="relative flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%] drop-shadow-lg">
             {props.training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
                     <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
@@ -36,7 +36,7 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le code sur Github (nouvel onglet)"
-                                className="hover:drop-shadow-md"
+                                className="hover:shadow-md"
                             >
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}
@@ -53,7 +53,7 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir la maquette sur Figma (nouvel onglet)"
-                                className="hover:drop-shadow-md"
+                                className="hover:shadow-md"
                             >
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}
@@ -70,7 +70,7 @@ export default function ProjectCard(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le site (nouvel onglet)"
-                                className="hover:drop-shadow-md"
+                                className="hover:shadow-md"
                             >
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}

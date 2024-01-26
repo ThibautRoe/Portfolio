@@ -45,13 +45,13 @@ export default function Contact() {
                         <p className="font-paytoneOne text-t-fl-2xl text-custom-400">Echangeons !</p>
                         <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer">
                             <motion.div
-                                className="rounded-full bg-custom-600 drop-shadow-md hover:bg-custom-700 hover:drop-shadow-lg active:bg-custom-800"
+                                className="rounded-full bg-custom-600 shadow-md hover:bg-custom-700 hover:shadow-lg active:bg-custom-800"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                             >
                                 <button className="relative flex items-center gap-s-fl-s px-s-fl-l py-s-fl-2xs font-bold text-neutral-50">
-                                    <span className="absolute -left-s-fl-xs -top-s-fl-xs px-s-fl-xs py-s-fl-3xs text-t-fl-xs text-custom-700 after:absolute after:inset-0 after:-z-10 after:skew-x-[-30deg] after:bg-custom-300">
+                                    <span className="absolute -left-s-fl-xs -top-s-fl-xs px-s-fl-xs py-s-fl-3xs text-t-fl-xs text-custom-700 z-10 after:-z-10 after:absolute after:inset-0 after:skew-x-[-30deg] after:bg-custom-300">
                                         OUVERT À DE NOUVEAUX PROJETS
                                     </span>
                                     <span>CONTACT</span>

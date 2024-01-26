@@ -21,7 +21,7 @@ export default function ProjectsSlideshow({ projects }) {
             pagination-clickable="true"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.id}`} lazy="true" class="flex justify-center items-center drop-shadow-lg">
+                <swiper-slide key={`slide-${item.id}`} lazy="true" class="flex justify-center items-center">
                     <ProjectCard
                         training={item.training}
                         name={item.name}

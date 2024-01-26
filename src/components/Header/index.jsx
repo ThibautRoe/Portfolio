@@ -64,7 +64,7 @@ export default function Header() {
                     </nav>
                     <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer" className="hidden lg:flex">
                         <motion.div
-                            className="flex items-center rounded-full bg-custom-600 px-s-fl-m drop-shadow-md hover:bg-custom-700 hover:drop-shadow-lg active:bg-custom-800"
+                            className="flex items-center rounded-full bg-custom-600 px-s-fl-m shadow-md hover:bg-custom-700 hover:shadow-lg active:bg-custom-800"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
