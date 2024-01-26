@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 import "./hero.css"
@@ -44,13 +45,18 @@ export default function Hero() {
                             </div>
                             <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
                             <div>
-                                J’adore &lt;coder /&gt; des sites modernes, dynamiques et{" "}
+                                <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
                                 <Link href="https://utopia.fyi/">
-                                    <div className="inline-block underline decoration-dotted underline-offset-[0.175em] transition duration-300 hover:scale-105 hover:text-custom-700 active:text-custom-800">
+                                    <motion.span
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                        className="inline-block underline decoration-dotted underline-offset-[0.175em] hover:text-custom-700 active:text-custom-800"
+                                    >
                                         fluid responsive
-                                    </div>
-                                </Link>{" "}
-                                !
+                                    </motion.span>
+                                </Link>
+                                <span> !</span>
                             </div>
                         </div>
                     </div>

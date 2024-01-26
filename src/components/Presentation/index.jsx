@@ -28,7 +28,7 @@ export default function Presentation() {
             <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl text-custom-600 w-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <div className="flex flex-grow items-center">
-                    <p>
+                    <div>
                         Moi c'est Thibaut, <span className="font-bold">développeur web</span> fullstack spécialisé dans le{" "}
                         <span className="font-bold">front-end</span>.
                         <br />
@@ -48,8 +48,9 @@ export default function Presentation() {
                         <span className="font-bold">écoute, rigueur, professionnalisme et flexibilité</span>.
                         <br />
                         <br />
-                        <span className="font-bold text-custom-400">Confiez-moi votre projet, et ensemble, assurons sa réussite 🤝</span>
-                    </p>
+                        <span className="font-bold text-custom-400">Confiez-moi votre projet, et ensemble, assurons sa réussite </span>
+                        <div className="inline-block animate-bounce">🤝</div>
+                    </div>
                 </div>
             </div>
         </section>
