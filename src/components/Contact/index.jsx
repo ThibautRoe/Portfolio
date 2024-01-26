@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHandshake, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
-import { motion } from "framer-motion"
 
 export default function Contact() {
     function handleResizeContact() {

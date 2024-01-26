@@ -18,6 +18,11 @@ export default function RootLayout({ children }) {
     const [isSplashScreenOnPage, setIsSplashScreenOnPage] = useState(true)
 
     useEffect(() => {
+        // Added to scroll to anchor link on page refresh
+        ;(document.getElementById(location.hash.slice(1)) || document.body).scrollIntoView()
+    }, [])
+
+    useEffect(() => {
         const removeSplashScreen = () => {
             const loader = document.getElementById("splashScreen")
             if (loader) {
@@ -36,9 +41,9 @@ export default function RootLayout({ children }) {
     }, [isSplashScreenOnPage])
 
     return (
-        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito overflow-y-hidden`}>
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito overflow-hidden`}>
             <head></head>
-            <body className="text-t-fl-base text-neutral-50 tall:snap-y tall:snap-mandatory scroll-smooth sticky h-dvh">
+            <body className="text-t-fl-base text-neutral-50 tall:snap-y tall:snap-mandatory scroll-smooth sticky h-dvh w-dvw">
                 <GlobalContext.Provider value={isSplashScreenOnPage}>
                     <SplashScreen />
                     {/* <DynamicTestViewport /> */}

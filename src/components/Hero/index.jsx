@@ -35,7 +35,7 @@ export default function Hero() {
 
     return (
         <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex flex-col">
-            <div className="u-container grid grid-rows-[1fr_auto] flex-grow w-full">
+            <div className="u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-2 lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
@@ -50,11 +50,7 @@ export default function Hero() {
                             <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
                             <p>
                                 J’adore &lt;coder /&gt; des sites modernes, dynamiques et{" "}
-                                <Link
-                                    href="https://utopia.fyi/"
-                                    style={{ textDecorationSkipInk: "none" }}
-                                    className="underline decoration-wavy underline-offset-[0.25em]"
-                                >
+                                <Link href="https://utopia.fyi/" className="underline decoration-dotted underline-offset-[0.175em]">
                                     fluid responsive
                                 </Link>{" "}
                                 !

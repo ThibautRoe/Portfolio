@@ -1,11 +1,11 @@
 .animated-mouse {
     position: relative;
-    border: 2px solid #fff;
+    border: 2px solid #fafafa;
 }
 .animated-mouse-pointer {
     position: absolute;
     border-radius: 100%;
-    background: #fff;
+    background: #fafafa;
     left: 50%;
     top: 70%;
     transform: translate(-50%, 0);

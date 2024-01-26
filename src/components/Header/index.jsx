@@ -27,7 +27,9 @@ export default function Header() {
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faUser} />
                                     </span>
-                                    <span>Présentation</span>
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] hover:after:opacity-100">
+                                        Présentation
+                                    </span>
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
@@ -35,7 +37,9 @@ export default function Header() {
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faCode} />
                                     </span>
-                                    <span>Compétences</span>
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] hover:after:opacity-100">
+                                        Compétences
+                                    </span>
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
@@ -43,7 +47,9 @@ export default function Header() {
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faDesktop} />
                                     </span>
-                                    <span>Réalisations</span>
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] hover:after:opacity-100">
+                                        Réalisations
+                                    </span>
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
