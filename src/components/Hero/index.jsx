@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
+import { GlobalContext } from "@/app/layout"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import dynamic from "next/dynamic"
@@ -9,6 +10,8 @@ import "./hero.css"
 const DynamicAnimation = dynamic(() => import("./Animation"), { ssr: false })
 
 export default function Hero() {
+    const isSplashScreenOnPage = useContext(GlobalContext)
+
     function handleResizeHero() {
         const header = document.querySelector("header")
         const nav = document.querySelector("nav")
@@ -24,14 +27,16 @@ export default function Hero() {
     }
 
     useEffect(() => {
-        handleResizeHero()
+        if (!isSplashScreenOnPage) {
+            handleResizeHero()
 
-        window.addEventListener("resize", handleResizeHero)
+            window.addEventListener("resize", handleResizeHero)
+        }
 
         return () => {
             window.removeEventListener("resize", handleResizeHero)
         }
-    }, [])
+    }, [isSplashScreenOnPage])
 
     return (
         <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex flex-col">

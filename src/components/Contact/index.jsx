@@ -12,12 +12,12 @@ export default function Contact() {
         const nav = document.querySelector("nav")
         const contactSection = document.getElementById("contact")
 
-        if (footer && contactSection) {
-            contactSection.style.minHeight = `calc(100dvh - ${footer.offsetHeight}px)`
-        }
-
         if (footer && nav) {
             footer.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+        }
+
+        if (footer && contactSection) {
+            contactSection.style.minHeight = `calc(100dvh - ${footer.offsetHeight}px)`
         }
     }
 
