@@ -3,8 +3,11 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+// import dynamic from "next/dynamic"
 import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import "./hero.css"
+
+// const DynamicHeroAnimation = dynamic(() => import("@/Components/Hero/HeroAnimation.jsx"), { ssr: false })
 
 export default function Hero() {
     function handleResizeHero() {
@@ -59,6 +62,7 @@ export default function Hero() {
                         </div>
                     </div>
                     <HeroAnimation />
+                    {/* <DynamicHeroAnimation /> */}
                 </div>
                 <div className="flex justify-center">
                     <div className="animated-mouse aspect-[9/16] w-s-fl-m rounded-s-fl-xs">

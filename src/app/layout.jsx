@@ -10,9 +10,12 @@ const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), 
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito overflow-hidden`}>
+        <html
+            lang="fr"
+            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito tall:snap-y tall:snap-mandatory scroll-smooth`}
+        >
             <head></head>
-            <body className="text-t-fl-base text-neutral-50 tall:snap-y tall:snap-mandatory scroll-smooth sticky h-dvh w-dvw">
+            <body className="text-t-fl-base text-neutral-50">
                 {/* <DynamicTestViewport /> */}
                 {children}
             </body>
