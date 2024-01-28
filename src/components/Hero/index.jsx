@@ -3,10 +3,10 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-// import dynamic from "next/dynamic"
-import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
+// import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import "./hero.css"
 
+// import dynamic from "next/dynamic"
 // const DynamicHeroAnimation = dynamic(() => import("@/Components/Hero/HeroAnimation.jsx"), { ssr: false })
 
 export default function Hero() {
@@ -35,7 +35,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex">
+        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex min-h-screen">
             <div className="u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
@@ -61,7 +61,7 @@ export default function Hero() {
                             </div>
                         </div>
                     </div>
-                    <HeroAnimation />
+                    {/* <HeroAnimation /> */}
                     {/* <DynamicHeroAnimation /> */}
                 </div>
                 <div className="flex justify-center">

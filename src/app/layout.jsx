@@ -12,10 +12,10 @@ export default function RootLayout({ children }) {
     return (
         <html
             lang="fr"
-            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito tall:snap-y tall:snap-mandatory scroll-smooth`}
+            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito text-t-fl-base text-neutral-50 overflow-hidden`}
         >
             <head></head>
-            <body className="text-t-fl-base text-neutral-50">
+            <body className="h-dvh w-dvw scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
                 {/* <DynamicTestViewport /> */}
                 {children}
             </body>
