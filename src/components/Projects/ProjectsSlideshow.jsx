@@ -26,6 +26,7 @@ export default function ProjectsSlideshow({ projects }) {
                         training={item.training}
                         name={item.name}
                         coverUrl={item.coverUrl}
+                        coverVideoUrl={item.coverVideoUrl}
                         coverBlur={item.coverBlur}
                         activity={item.activity}
                         description={item.description}

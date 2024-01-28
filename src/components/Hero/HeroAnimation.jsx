@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react"
 import "@dotlottie/player-component"
 
-export default function Animation() {
+export default function HeroAnimation() {
     const heroAnimationPath = "/hero-animation.lottie"
     const [player, setPlayer] = useState()
 
     useEffect(() => {
-        const initPlayer = () => {
+        const initPlayer = async () => {
             const playerElement = document.querySelector("dotlottie-player")
 
             if (playerElement) {

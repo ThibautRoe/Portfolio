@@ -1,17 +1,12 @@
 "use client"
 
-import { useContext, useEffect } from "react"
-import { GlobalContext } from "@/app/layout"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import dynamic from "next/dynamic"
+import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import "./hero.css"
 
-const DynamicAnimation = dynamic(() => import("./Animation"), { ssr: false })
-
 export default function Hero() {
-    const isSplashScreenOnPage = useContext(GlobalContext)
-
     function handleResizeHero() {
         const header = document.querySelector("header")
         const nav = document.querySelector("nav")
@@ -27,21 +22,19 @@ export default function Hero() {
     }
 
     useEffect(() => {
-        if (!isSplashScreenOnPage) {
-            handleResizeHero()
+        handleResizeHero()
 
-            window.addEventListener("resize", handleResizeHero)
-        }
+        window.addEventListener("resize", handleResizeHero)
 
         return () => {
             window.removeEventListener("resize", handleResizeHero)
         }
-    }, [isSplashScreenOnPage])
+    }, [])
 
     return (
-        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex flex-col">
+        <section id="hero" className="bg-gradient-to-b from-custom-400 to-custom-300 flex">
             <div className="u-container grid grid-rows-[1fr_auto] flex-grow">
-                <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-2 lg:grid-rows-none">
+                <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
                             <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">
@@ -65,7 +58,7 @@ export default function Hero() {
                             </div>
                         </div>
                     </div>
-                    <DynamicAnimation />
+                    <HeroAnimation />
                 </div>
                 <div className="flex justify-center">
                     <div className="animated-mouse aspect-[9/16] w-s-fl-m rounded-s-fl-xs">

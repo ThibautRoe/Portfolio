@@ -1,7 +1,6 @@
 "use client"
 
-import { useContext, useRef, useEffect, useState, createElement } from "react"
-import { GlobalContext } from "@/app/layout"
+import { useRef, useEffect, useState, createElement } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
 
 const defaultAnimations = {
@@ -45,7 +44,6 @@ export default function AnimatedText(props) {
     const ref = useRef(null)
     const isInView = useInView(ref, { once })
     const [startPulsatingCaret, setStartPulsatingCaret] = useState(false)
-    const isSplashScreenOnPage = useContext(GlobalContext)
 
     useEffect(() => {
         let timeout
@@ -59,7 +57,7 @@ export default function AnimatedText(props) {
             }
         }
 
-        if (isInView && !isSplashScreenOnPage) {
+        if (isInView) {
             show()
         } else {
             controls.start("hidden")
@@ -67,7 +65,7 @@ export default function AnimatedText(props) {
         }
 
         return () => clearTimeout(timeout)
-    }, [isInView, isSplashScreenOnPage])
+    }, [isInView])
 
     useEffect(() => {
         let timeout
@@ -78,14 +76,14 @@ export default function AnimatedText(props) {
             }, 1100)
         }
 
-        if (startPulsatingCaret && !isSplashScreenOnPage) {
+        if (startPulsatingCaret) {
             show()
         } else {
             controlsCaret.start("hidden")
         }
 
         return () => clearTimeout(timeout)
-    }, [startPulsatingCaret, isSplashScreenOnPage])
+    }, [startPulsatingCaret])
 
     return (
         <>
