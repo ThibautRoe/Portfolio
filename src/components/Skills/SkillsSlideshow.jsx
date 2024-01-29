@@ -32,7 +32,7 @@ export default function SkillsSlideshow({ skills }) {
 
     return (
         <swiper-container
-            class="skills-swiper w-full"
+            class="skills-swiper w-full min-h-[355px]"
             a11y="true"
             breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
             grab-cursor="true"

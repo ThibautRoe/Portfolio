@@ -7,7 +7,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProjectCard(props) {
     return (
-        <div className="relative flex flex-grow flex-col max-h-[70dvh] lg:max-w-[90%] xl:max-w-[80%] 2xl:max-w-[70%] drop-shadow-lg">
+        <div className="relative flex flex-grow flex-col max-h-[80%] max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] 2xl:max-w-[70%] drop-shadow-lg">
             {props.training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
                     <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
@@ -21,9 +21,9 @@ export default function ProjectCard(props) {
                     alt={props.name}
                     placeholder="blur"
                     blurDataURL={props.coverBlur}
-                    sizes="(width > 1500px) 50vw, (width > 1200px) 70vw, 80vw"
+                    sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
                     fill
-                    className="rounded-t-s-fl-s object-cover object-top" // TODO Ajuster les tailles
+                    className="rounded-t-s-fl-s object-cover object-top"
                 />
             </div>
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
