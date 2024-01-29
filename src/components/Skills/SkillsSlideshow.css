@@ -1,11 +1,9 @@
 .skills-swiper::part(button-prev) {
     left: 0px;
-    top: calc(50% + 13px);
 }
 
 .skills-swiper::part(button-next) {
     right: 0px;
-    top: calc(50% + 13px);
 }
 
 .skills-swiper::part(pagination) {

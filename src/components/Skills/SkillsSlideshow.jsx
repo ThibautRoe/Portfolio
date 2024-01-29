@@ -32,7 +32,7 @@ export default function SkillsSlideshow({ skills }) {
 
     return (
         <swiper-container
-            class="skills-swiper w-full min-h-[355px]"
+            class="skills-swiper w-full"
             a11y="true"
             breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
             grab-cursor="true"
@@ -45,9 +45,9 @@ export default function SkillsSlideshow({ skills }) {
             slides-per-view="1"
         >
             {skills.map((skill) => (
-                <swiper-slide key={skill.name} lazy="true" class="flex flex-col items-center px-s-fl-l">
+                <swiper-slide key={skill.name} lazy="true" class="skills-slide flex flex-col items-center px-s-fl-l">
                     <p className="font-paytoneOne text-t-fl-l">{skill.name}</p>
-                    <div className="flex flex-grow items-center">
+                    <div className="flex flex-grow items-center pt-s-fl-s pb-s-fl-l">
                         <div className="flex flex-wrap justify-center gap-s-fl-xl">
                             {skill.value.map((item) => (
                                 <SkillCard key={item.id} item={item} />

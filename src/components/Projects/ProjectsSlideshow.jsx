@@ -1,11 +1,46 @@
 "use client"
 
+import { useEffect } from "react"
 import ProjectCard from "./ProjectCard"
 import "./ProjectsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
 export default function ProjectsSlideshow({ projects }) {
+    useEffect(() => {
+        const swiperEl = document.querySelector(".projects-swiper")
+        const projectsVideos = document.querySelectorAll(".projects-swiper video")
+        const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+
+        if (activeSlideVideo) {
+            activeSlideVideo.setAttribute("autoplay", "")
+        }
+
+        if (swiperEl && projectsVideos) {
+            projectsVideos.forEach((item) => {
+                item.addEventListener("ended", () => {
+                    item.currentTime = 0
+                })
+                item.addEventListener("contextmenu", (e) => e.preventDefault())
+            })
+
+            swiperEl.addEventListener("swiperslidechangetransitionend", () => {
+                const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+
+                projectsVideos.forEach((item) => {
+                    if (!item.paused) {
+                        item.pause()
+                        item.currentTime = 0
+                    }
+                })
+
+                if (activeSlideVideo) {
+                    activeSlideVideo.play()
+                }
+            })
+        }
+    }, [])
+
     return (
         <swiper-container
             class="projects-swiper w-full"
@@ -21,7 +56,7 @@ export default function ProjectsSlideshow({ projects }) {
             pagination-clickable="true"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.id}`} lazy="true" class="flex justify-center items-center">
+                <swiper-slide key={`slide-${item.id}`} /* lazy="true" */ class="projects-slide flex justify-center items-center pb-s-fl-m">
                     <ProjectCard
                         training={item.training}
                         name={item.name}

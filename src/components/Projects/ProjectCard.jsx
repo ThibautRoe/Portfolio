@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
@@ -7,7 +7,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProjectCard(props) {
     return (
-        <div className="relative flex flex-grow flex-col max-h-[80%] max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] 2xl:max-w-[70%] drop-shadow-lg">
+        <div className="relative flex flex-grow flex-col min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg">
             {props.training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
                     <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
@@ -15,7 +15,18 @@ export default function ProjectCard(props) {
                     </span>
                 </div>
             )}
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
+                <video
+                    muted
+                    playsInline
+                    src={props.coverVideoUrl}
+                    /* poster={props.coverBlur} */
+                    className="absolute w-full h-full object-cover object-top"
+                >
+                    Votre navigateur ne prend pas en charge les vidéos
+                </video>
+            </div>
+            {/* <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
                 <Image
                     src={props.coverUrl}
                     alt={props.name}
@@ -23,9 +34,9 @@ export default function ProjectCard(props) {
                     blurDataURL={props.coverBlur}
                     sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
                     fill
-                    className="rounded-t-s-fl-s object-cover object-top"
+                    className="w-full h-full object-cover object-top"
                 />
-            </div>
+            </div> */}
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
                     <p className="flex-grow font-paytoneOne">{props.name}</p>
