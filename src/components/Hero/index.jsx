@@ -3,11 +3,19 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Loader from "@/components/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import "./hero.css"
 
-// import dynamic from "next/dynamic"
-// const DynamicHeroAnimation = dynamic(() => import("@/Components/Hero/HeroAnimation.jsx"), { ssr: false })
+import dynamic from "next/dynamic"
+const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation.jsx"), {
+    ssr: false,
+    loading: () => (
+        <div className="flex items-center justify-center">
+            <Loader />
+        </div>
+    ),
+})
 
 export default function Hero() {
     function handleResizeHero() {
@@ -62,7 +70,7 @@ export default function Hero() {
                         </div>
                     </div>
                     {/* <HeroAnimation /> */}
-                    {/* <DynamicHeroAnimation /> */}
+                    <DynamicHeroAnimation />
                 </div>
                 <div className="flex justify-center">
                     <div className="animated-mouse aspect-[9/16] w-s-fl-m rounded-s-fl-xs">

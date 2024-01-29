@@ -1,14 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import "@dotlottie/player-component"
 
 export default function HeroAnimation() {
     const heroAnimationPath = "/hero-animation.lottie"
     const [player, setPlayer] = useState()
 
     useEffect(() => {
-        import("@dotlottie/player-component")
-
         const initPlayer = async () => {
             const playerElement = document.querySelector("dotlottie-player")
 
@@ -36,10 +35,10 @@ export default function HeroAnimation() {
         <div className="flex items-center justify-center">
             <div className="flex items-center justify-center">
                 <dotlottie-player
-                    class="w-[80%] sm:w-[65%] lg:w-full"
+                    class="w-[70dvw] sm:w-[65dvw] lg:w-full"
                     src={heroAnimationPath}
-                    autoplay
                     loop
+                    autoplay
                     onClick={toggleAnimation}
                 ></dotlottie-player>
             </div>

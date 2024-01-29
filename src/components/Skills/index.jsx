@@ -25,7 +25,7 @@ export default function Skills({ skills }) {
 
     return (
         <section id="skills" className="bg-gradient-to-b from-custom-400 to-custom-300 snap-start flex flex-col min-h-screen">
-            <div className="u-container flex flex-col flex-grow items-center gap-s-fl-2xl">
+            <div className="u-container flex flex-col flex-grow items-center gap-s-fl-l-xl">
                 <h2 className="font-paytoneOne text-t-fl-xl tiny:hidden">Mes compétences</h2>
                 <div className="flex flex-grow self-stretch">
                     <SkillsSlideshow skills={skills} />

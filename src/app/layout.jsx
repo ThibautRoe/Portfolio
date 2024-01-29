@@ -1,7 +1,11 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { nunito, paytoneOne, gloriaHallelujah } from "@/utils/fonts"
-import "@/assets/globals.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import Loading from "@/app/loading"
+import "@/assets/globals.css"
 
 config.autoAddCss = false // https://fontawesome.com/docs/web/use-with/react/use-with#getting-font-awesome-css-to-work
 
@@ -9,15 +13,26 @@ config.autoAddCss = false // https://fontawesome.com/docs/web/use-with/react/use
 const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), { ssr: false }) */
 
 export default function RootLayout({ children }) {
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        const loadingIsDone = () => {
+            setIsLoading(false)
+        }
+
+        window.addEventListener("load", loadingIsDone())
+
+        return () => {
+            window.removeEventListener("load", loadingIsDone())
+        }
+    }, [])
+
     return (
-        <html
-            lang="fr"
-            className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} font-nunito text-t-fl-base text-neutral-50 overflow-hidden`}
-        >
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden`}>
             <head></head>
-            <body className="h-dvh w-dvw scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
+            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
                 {/* <DynamicTestViewport /> */}
-                {children}
+                {isLoading ? <Loading /> : children}
             </body>
         </html>
     )
