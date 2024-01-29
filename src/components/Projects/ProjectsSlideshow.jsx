@@ -13,7 +13,7 @@ export default function ProjectsSlideshow({ projects }) {
         const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
 
         if (activeSlideVideo) {
-            activeSlideVideo.setAttribute("autoplay", "")
+            activeSlideVideo.setAttribute("autoPlay", "")
         }
 
         if (swiperEl && projectsVideos) {
