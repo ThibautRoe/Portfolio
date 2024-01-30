@@ -13,7 +13,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@dotlottie/player-component": "^2.7.4",
+        "@dotlottie/player-component": "2.7.4",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-brands-svg-icons": "^6.5.1",
         "@fortawesome/free-solid-svg-icons": "^6.5.1",
