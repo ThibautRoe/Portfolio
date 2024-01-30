@@ -10,22 +10,25 @@ export default function ProjectsSlideshow({ projects }) {
     useEffect(() => {
         const swiperEl = document.querySelector(".projects-swiper")
         const projectsVideos = document.querySelectorAll(".projects-swiper video")
-        const initialActiveSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-
-        if (initialActiveSlideVideo) {
-            initialActiveSlideVideo.setAttribute("autoPlay", "")
-        }
 
         if (swiperEl && projectsVideos) {
             projectsVideos.forEach((item) => {
+                item.addEventListener("play", () => {
+                    if (!item.closest(".projects-slide").classList.contains("swiper-slide-active")) {
+                        item.pause()
+                        item.currentTime = 0
+                    }
+                })
+
                 item.addEventListener("ended", () => {
                     item.currentTime = 0
                 })
+
                 item.addEventListener("contextmenu", (e) => e.preventDefault())
             })
 
             swiperEl.addEventListener("swiperslidechangetransitionend", () => {
-                const currentActiveSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+                const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
 
                 projectsVideos.forEach((item) => {
                     if (!item.paused) {
@@ -34,8 +37,8 @@ export default function ProjectsSlideshow({ projects }) {
                     }
                 })
 
-                if (currentActiveSlideVideo) {
-                    currentActiveSlideVideo.play()
+                if (activeSlideVideo) {
+                    activeSlideVideo.play()
                 }
             })
         }
