@@ -29,7 +29,17 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden`}>
-            <head></head>
+            <head>
+                <title>Thibaut Roegiers - Développeur web front-end</title>
+                <meta name="description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://thibautroegiers.dev/" />
+                <meta property="og:site_name" content="Thibaut Roegiers" />
+                <meta property="og:title" content="Thibaut Roegiers" />
+                <meta property="og:description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />
+                <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+                <link rel="icon" sizes="96x96" href="favicon.png" type="image/png" />
+            </head>
             <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
                 {/* <DynamicTestViewport /> */}
                 {isLoading ? <Loading /> : children}
