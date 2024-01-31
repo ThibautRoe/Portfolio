@@ -24,7 +24,7 @@ export default function Presentation() {
     }, [])
 
     return (
-        <section id="about" className="navAnchor bg-neutral-100 snap-start flex flex-col min-h-screen">
+        <section id="about" className="nav-anchor bg-neutral-100 snap-start flex flex-col min-h-screen">
             <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl text-custom-600 w-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <div className="flex flex-grow items-center">

@@ -8,6 +8,8 @@ module.exports = {
         colors: {
             neutral: colors.neutral,
             custom: {
+                100: "#fff6d9",
+                200: "#ffeaa2",
                 300: "#fcd44d",
                 400: "#fbc024",
                 500: "#f59f0a",

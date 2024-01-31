@@ -32,7 +32,7 @@ export default function Contact() {
     }, [])
 
     return (
-        <section id="contact" className="navAnchor bg-neutral-100 snap-start flex flex-col min-h-screen">
+        <section id="contact" className="nav-anchor bg-neutral-100 snap-start flex flex-col min-h-screen">
             <div className="u-container flex flex-grow items-center justify-center text-t-fl-xl text-custom-600">
                 <div className="relative">
                     <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-[spin_8s_linear_infinite]">
