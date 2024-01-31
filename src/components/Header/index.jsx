@@ -13,11 +13,41 @@ export default function Header() {
     const params = useParams()
 
     useEffect(() => {
-        setHash(window.location.hash)
-    }, [params])
+        const handleIntersection = (items) => {
+            items.forEach((item) => {
+                if (item.isIntersecting) {
+                    window.location.hash = item.target.id
+                    setHash(window.location.hash)
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(handleIntersection, {
+            threshold: 1,
+        })
+
+        const handleObserver = () => {
+            setTimeout(() => {
+                const sections = document.querySelectorAll(".navAnchor")
+                sections.forEach((section) => {
+                    observer.observe(section)
+                })
+            }, 500) //Timeout because document.querySelectorAll(".navAnchor") returns an empty array if triggered too soon
+        }
+
+        handleObserver()
+
+        return () => {
+            observer.disconnect()
+        }
+    }, [])
+
+    // useEffect(() => {
+    //     setHash(window.location.hash)
+    // }, [params])
 
     return (
-        <header id="home" className="bg-custom-400 snap-start h-[1px] lg:h-auto">
+        <header id="home" className="navAnchor bg-custom-400 snap-start h-[1px] lg:h-auto">
             {/* 1px plutôt que hidden sur mobile sinon le #home hash link ne fonctionne plus */}
             <div className="lg:u-container">
                 <div className="flex gap-s-fl-l">

@@ -6,9 +6,11 @@ import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProjectCard(props) {
+    const { training, name, coverUrl, coverVideoUrl, coverBlur, activity, description, techStack, github, figma, livePreview } = props
+
     return (
         <div className="relative flex flex-grow flex-col min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg">
-            {props.training && (
+            {training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
                     <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
                         - Projet de formation -
@@ -19,8 +21,8 @@ export default function ProjectCard(props) {
                 <video
                     muted
                     playsInline
-                    src={props.coverVideoUrl}
-                    /* poster={props.coverBlur} */
+                    src={coverVideoUrl}
+                    /* poster={coverBlur} */
                     className="absolute w-full h-full object-cover object-top"
                 >
                     Votre navigateur ne prend pas en charge les vidéos
@@ -28,10 +30,10 @@ export default function ProjectCard(props) {
             </div>
             {/* <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
                 <Image
-                    src={props.coverUrl}
-                    alt={props.name}
+                    src={coverUrl}
+                    alt={name}
                     placeholder="blur"
-                    blurDataURL={props.coverBlur}
+                    blurDataURL={coverBlur}
                     sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
                     fill
                     className="w-full h-full object-cover object-top"
@@ -39,11 +41,11 @@ export default function ProjectCard(props) {
             </div> */}
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
-                    <p className="flex-grow font-paytoneOne">{props.name}</p>
+                    <p className="flex-grow font-paytoneOne">{name}</p>
                     <div className="flex gap-s-fl-l text-t-fl-l">
-                        {props.github && (
+                        {github && (
                             <Link
-                                href={props.github}
+                                href={github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le code sur Github (nouvel onglet)"
@@ -58,9 +60,9 @@ export default function ProjectCard(props) {
                                 </motion.div>
                             </Link>
                         )}
-                        {props.figma && (
+                        {figma && (
                             <Link
-                                href={props.figma}
+                                href={figma}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir la maquette sur Figma (nouvel onglet)"
@@ -75,9 +77,9 @@ export default function ProjectCard(props) {
                                 </motion.div>
                             </Link>
                         )}
-                        {props.livePreview && (
+                        {livePreview && (
                             <Link
-                                href={props.livePreview}
+                                href={livePreview}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Voir le site (nouvel onglet)"
@@ -94,10 +96,10 @@ export default function ProjectCard(props) {
                         )}
                     </div>
                 </div>
-                <p className="text-t-fl-s italic">{props.activity}</p>
-                <p className="text-t-fl-s">{props.description}</p>
+                <p className="text-t-fl-s italic">{activity}</p>
+                <p className="text-t-fl-s">{description}</p>
                 <div className="flex flex-wrap gap-s-fl-s text-t-fl-s">
-                    {props.techStack.map((item) => (
+                    {techStack.map((item) => (
                         <p key={item} className="rounded-full border-[1px] border-solid border-neutral-50 px-s-fl-xs py-s-fl-3xs">
                             {item}
                         </p>

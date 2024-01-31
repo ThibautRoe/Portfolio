@@ -26,7 +26,7 @@ export default function Projects({ projects }) {
     return (
         <section
             id="projects"
-            className="bg-gradient-to-b from-custom-400 to-custom-300 overflow-hidden snap-start flex flex-col min-h-screen"
+            className="navAnchor bg-gradient-to-b from-custom-400 to-custom-300 overflow-hidden snap-start flex flex-col min-h-screen"
         >
             <div className="u-container flex flex-col flex-grow gap-s-fl-xl">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Mes réalisations</h2>

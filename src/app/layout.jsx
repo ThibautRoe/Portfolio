@@ -15,34 +15,35 @@ const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), 
 
 export default function RootLayout({ children }) {
     const [isLoading, setIsLoading] = useState(true)
-    const hash = window.location.hash
 
     useEffect(() => {
-        if (!hash) {
+        const initialHash = window.location.hash
+
+        if (!initialHash) {
             window.location.hash = "#home"
         }
-        const loadingIsDone = () => {
-            setIsLoading(false)
-            setTimeout(() => {
-                handleHashChange()
-            }, 500)
-        }
-        const handleHashChange = () => {
-            const { hash } = window.location
-            if (hash) {
-                const targetElement = document.querySelector(hash)
-                if (targetElement) {
-                    targetElement.scrollIntoView()
-                }
+
+        const scrollToCurrentHash = () => {
+            const currentHash = window.location.hash
+            const targetElement = document.querySelector(currentHash)
+            if (targetElement) {
+                targetElement.scrollIntoView()
             }
         }
 
+        const loadingIsDone = () => {
+            setIsLoading(false)
+            setTimeout(() => {
+                scrollToCurrentHash()
+            }, 500)
+        }
+
         window.addEventListener("load", loadingIsDone)
-        window.addEventListener("hashchange", handleHashChange)
+        window.addEventListener("hashchange", scrollToCurrentHash)
 
         return () => {
             window.removeEventListener("load", loadingIsDone)
-            window.removeEventListener("hashchange", handleHashChange)
+            window.removeEventListener("hashchange", scrollToCurrentHash)
         }
     }, [])
 
