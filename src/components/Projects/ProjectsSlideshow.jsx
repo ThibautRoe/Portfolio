@@ -35,6 +35,7 @@ export default function ProjectsSlideshow({ projects }) {
                 })
 
                 if (currentActiveSlideVideo) {
+                    currentActiveSlideVideo.setAttribute("autoPlay", "") // TODO ne rejout pas si elle a déjà été mise en pause au moins 1x, l'enlever sur les autres vidéos
                     currentActiveSlideVideo.play()
                 }
             })

@@ -5,6 +5,7 @@ import { nunito, paytoneOne, gloriaHallelujah } from "@/utils/fonts"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import Loading from "@/app/loading"
+
 import "@/assets/globals.css"
 
 config.autoAddCss = false // https://fontawesome.com/docs/web/use-with/react/use-with#getting-font-awesome-css-to-work
@@ -14,16 +15,34 @@ const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), 
 
 export default function RootLayout({ children }) {
     const [isLoading, setIsLoading] = useState(true)
+    const hash = window.location.hash
 
     useEffect(() => {
+        if (!hash) {
+            window.location.hash = "#home"
+        }
         const loadingIsDone = () => {
             setIsLoading(false)
+            setTimeout(() => {
+                handleHashChange()
+            }, 500)
+        }
+        const handleHashChange = () => {
+            const { hash } = window.location
+            if (hash) {
+                const targetElement = document.querySelector(hash)
+                if (targetElement) {
+                    targetElement.scrollIntoView()
+                }
+            }
         }
 
-        window.addEventListener("load", loadingIsDone())
+        window.addEventListener("load", loadingIsDone)
+        window.addEventListener("hashchange", handleHashChange)
 
         return () => {
-            window.removeEventListener("load", loadingIsDone())
+            window.removeEventListener("load", loadingIsDone)
+            window.removeEventListener("hashchange", handleHashChange)
         }
     }, [])
 

@@ -23,7 +23,7 @@ export default function Footer() {
                         </motion.span>
                     </Link>
                     <span> and ❤️ | © {year} </span>
-                    <Link href="mailto:hello@thibautroegiers.dev">
+                    <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer">
                         <motion.span
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

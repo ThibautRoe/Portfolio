@@ -55,7 +55,7 @@ export default function Hero() {
                             <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
                             <div>
                                 <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
-                                <Link href="https://utopia.fyi/">
+                                <Link href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">
                                     <motion.span
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
