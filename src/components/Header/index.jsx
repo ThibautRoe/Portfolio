@@ -11,38 +11,49 @@ export default function Header() {
     useEffect(() => {
         let sections
         let navLi
+        let timeouts = {}
 
-        const handleNavLiHighlight = () => {
-            let current = ""
-
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop
-                if (document.body.scrollTop >= sectionTop - 10) {
-                    current = section.getAttribute("id")
+        const highlightNavLi = (currentSectionId) => {
+            navLi.forEach((li) => {
+                li.classList.remove("text-neutral-800", "bg-custom-100/60")
+                if (li.querySelector("a") && li.querySelector("a").href.includes(currentSectionId)) {
+                    li.classList.add("text-neutral-800", "bg-custom-100/60")
                 }
             })
+        }
 
-            if (window.innerWidth < 1024) {
-                navLi.forEach((li) => {
-                    li.classList.remove("text-neutral-800", "bg-custom-100/60")
-                    if (li.querySelector("a") && li.querySelector("a").href.includes(current)) {
-                        li.classList.add("text-neutral-800", "bg-custom-100/60")
+        const sectionObserver = new IntersectionObserver(
+            (sections, observer) => {
+                sections.forEach((section) => {
+                    if (section.isIntersecting) {
+                        timeouts[section.target.id] = setTimeout(() => {
+                            if (window.innerWidth < 1024) {
+                                highlightNavLi(section.target.id)
+                            }
+                            window.location.hash = section.target.id
+                        }, 500)
+                    } else {
+                        clearTimeout(timeouts[section.target.id])
                     }
                 })
-            }
+            },
+            { threshold: 0.6 }
+        )
 
-            // window.location.hash = current
+        const initObserver = () => {
+            sections.forEach((section) => {
+                sectionObserver.observe(section)
+            })
         }
 
         setTimeout(() => {
             sections = document.querySelectorAll(".nav-anchor")
             navLi = document.querySelectorAll("nav ul li")
-            handleNavLiHighlight()
-            document.body.addEventListener("scroll", handleNavLiHighlight) // document.body instead of window because of the trick in layout.jsx to get mobile browser UI always visible
-        }, 500) // Timeout because document.querySelectorAll(".nav-anchor") returns an empty array if triggered too soon
+            initObserver()
+        }, 500) //Timeout because document.querySelectorAll(".nav-anchor") returns an empty array if triggered too soon
 
         return () => {
-            document.body.removeEventListener("scroll", handleNavLiHighlight)
+            sectionObserver.disconnect()
         }
     }, [])
 
