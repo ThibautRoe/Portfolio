@@ -1,20 +1,21 @@
 "use client"
 
 import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import ProjectCard from "./ProjectCard"
 import "./ProjectsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
 export default function ProjectsSlideshow({ projects }) {
+    const { ref, inView, entry } = useInView({
+        threshold: 0.5,
+        delay: 200,
+    })
+
     useEffect(() => {
         const swiperEl = document.querySelector(".projects-swiper")
         const projectsVideos = document.querySelectorAll(".projects-swiper video")
-        const initialActiveSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-
-        if (initialActiveSlideVideo) {
-            initialActiveSlideVideo.setAttribute("autoPlay", "")
-        }
 
         if (swiperEl && projectsVideos) {
             projectsVideos.forEach((item) => {
@@ -25,7 +26,7 @@ export default function ProjectsSlideshow({ projects }) {
             })
 
             swiperEl.addEventListener("swiperslidechangetransitionend", () => {
-                const currentActiveSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+                const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
 
                 projectsVideos.forEach((item) => {
                     if (!item.paused) {
@@ -34,16 +35,34 @@ export default function ProjectsSlideshow({ projects }) {
                     }
                 })
 
-                if (currentActiveSlideVideo) {
-                    currentActiveSlideVideo.setAttribute("autoPlay", "") // TODO ne rejout pas si elle a déjà été mise en pause au moins 1x, l'enlever sur les autres vidéos
-                    currentActiveSlideVideo.play()
+                if (activeSlideVideo) {
+                    activeSlideVideo.play()
                 }
             })
         }
     }, [])
 
+    useEffect(() => {
+        const projectsVideos = document.querySelectorAll(".projects-swiper video")
+        const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+
+        if (!inView && projectsVideos) {
+            projectsVideos.forEach((video) => {
+                if (!video.paused) {
+                    video.pause()
+                    video.currentTime = 0
+                }
+            })
+        }
+
+        if (inView && activeSlideVideo) {
+            activeSlideVideo.play()
+        }
+    }, [inView])
+
     return (
         <swiper-container
+            ref={ref}
             class="projects-swiper w-full"
             a11y="true"
             cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
