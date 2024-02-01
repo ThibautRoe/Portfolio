@@ -17,7 +17,7 @@ export default async function getContentfulData() {
             training: item.fields.training,
             name: item.fields.name,
             coverUrl: "https:" + item.fields.cover.fields.file.url,
-            coverVideoUrl: "https:" + item.fields.coverVideo.fields.file.url,
+            coverVideoUrl: item.fields.coverVideo ? "https:" + item.fields.coverVideo.fields.file.url : "",
             coverBlur: item.fields.coverBlur,
             activity: item.fields.activity,
             description: item.fields.description,

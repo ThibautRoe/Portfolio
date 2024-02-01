@@ -1,5 +1,5 @@
 import Link from "next/link"
-// import Image from "next/image"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
@@ -18,27 +18,27 @@ export default function ProjectCard(props) {
                 </div>
             )}
             <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
-                <video
-                    muted
-                    playsInline
-                    src={coverVideoUrl}
-                    /* poster={coverBlur} */
-                    className="absolute w-full h-full object-cover object-top"
-                >
-                    Votre navigateur ne prend pas en charge les vidéos
-                </video>
+                {coverVideoUrl ? (
+                    <video
+                        muted
+                        playsInline
+                        src={`${coverVideoUrl}#t=0.001`} /* Trick to get the first frame to show on iOS, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */
+                        className="absolute w-full h-full object-cover object-top"
+                    >
+                        Votre navigateur ne prend pas en charge les vidéos
+                    </video>
+                ) : (
+                    <Image
+                        src={coverUrl}
+                        alt={name}
+                        placeholder="blur"
+                        blurDataURL={coverBlur}
+                        sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
+                        fill
+                        className="w-full h-full object-cover object-top"
+                    />
+                )}
             </div>
-            {/* <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
-                <Image
-                    src={coverUrl}
-                    alt={name}
-                    placeholder="blur"
-                    blurDataURL={coverBlur}
-                    sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
-                    fill
-                    className="w-full h-full object-cover object-top"
-                />
-            </div> */}
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
                     <p className="flex-grow font-paytoneOne">{name}</p>

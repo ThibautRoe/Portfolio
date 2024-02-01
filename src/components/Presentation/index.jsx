@@ -4,16 +4,16 @@ import { useEffect } from "react"
 
 /* eslint-disable react/no-unescaped-entities */
 export default function Presentation() {
-    function handleResizeAbout() {
-        const nav = document.querySelector("nav")
-        const aboutSection = document.getElementById("about")
-
-        if (nav && aboutSection) {
-            aboutSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-        }
-    }
-
     useEffect(() => {
+        function handleResizeAbout() {
+            const nav = document.querySelector("nav")
+            const aboutSection = document.getElementById("about")
+
+            if (nav && aboutSection) {
+                aboutSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
         handleResizeAbout()
 
         window.addEventListener("resize", handleResizeAbout)

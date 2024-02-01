@@ -1,44 +1,48 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Link from "next/link"
-import { useParams } from "next/navigation"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faUser, faCode, faDesktop, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import AnimatedText from "@/components/Header/AnimatedText"
 
 export default function Header() {
-    const [hash, setHash] = useState(window.location.hash)
-    const params = useParams()
-
     useEffect(() => {
-        const handleIntersection = (items) => {
-            items.forEach((item) => {
-                if (item.isIntersecting) {
-                    window.location.hash = item.target.id
-                    setHash(window.location.hash)
+        let sections
+        let navLi
+
+        const handleNavLiHighlight = () => {
+            let current = ""
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop
+                if (document.body.scrollTop >= sectionTop - 10) {
+                    current = section.getAttribute("id")
                 }
             })
-        }
 
-        const observer = new IntersectionObserver(handleIntersection, {
-            threshold: 1,
-        })
-
-        const handleObserver = () => {
-            setTimeout(() => {
-                const sections = document.querySelectorAll(".nav-anchor")
-                sections.forEach((section) => {
-                    observer.observe(section)
+            if (window.innerWidth < 1024) {
+                navLi.forEach((li) => {
+                    li.classList.remove("text-neutral-800", "bg-custom-100/60")
+                    if (li.querySelector("a") && li.querySelector("a").href.includes(current)) {
+                        li.classList.add("text-neutral-800", "bg-custom-100/60")
+                    }
                 })
-            }, 500) //Timeout because document.querySelectorAll(".nav-anchor") returns an empty array if triggered too soon
+            }
+
+            // window.location.hash = current
         }
 
-        handleObserver()
+        setTimeout(() => {
+            sections = document.querySelectorAll(".nav-anchor")
+            navLi = document.querySelectorAll("nav ul li")
+            handleNavLiHighlight()
+            document.body.addEventListener("scroll", handleNavLiHighlight) // document.body instead of window because of the trick in layout.jsx to get mobile browser UI always visible
+        }, 500) // Timeout because document.querySelectorAll(".nav-anchor") returns an empty array if triggered too soon
 
         return () => {
-            observer.disconnect()
+            document.body.removeEventListener("scroll", handleNavLiHighlight)
         }
     }, [])
 
@@ -51,12 +55,7 @@ export default function Header() {
                     <nav className="fixed bottom-0 z-50 flex flex-grow justify-center w-full border-t-[1px] text-t-fl-s text-neutral-600 border-t-neutral-300/60 bg-neutral-100/60 lg:static lg:z-0 lg:w-auto lg:border-0 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 lg:bg-custom-400">
                         <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                             <li className="flex-grow lg:flex-grow-0">
-                                <Link
-                                    href="#home"
-                                    className={`${
-                                        hash === "#home" ? "text-neutral-800 bg-custom-100/60" : ""
-                                    } flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden`}
-                                >
+                                <Link href="#home" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faHouse} />
                                     </span>
@@ -64,12 +63,7 @@ export default function Header() {
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
-                                <Link
-                                    href="/#about"
-                                    className={`${
-                                        hash === "#about" ? "text-neutral-800 bg-custom-100/60" : ""
-                                    } flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs`}
-                                >
+                                <Link href="/#about" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faUser} />
                                     </span>
@@ -79,12 +73,7 @@ export default function Header() {
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
-                                <Link
-                                    href="#skills"
-                                    className={`${
-                                        hash === "#skills" ? "text-neutral-800 bg-custom-100/60" : ""
-                                    } flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs`}
-                                >
+                                <Link href="#skills" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faCode} />
                                     </span>
@@ -94,12 +83,7 @@ export default function Header() {
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
-                                <Link
-                                    href="#projects"
-                                    className={`${
-                                        hash === "#projects" ? "text-neutral-800 bg-custom-100/60" : ""
-                                    } flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs`}
-                                >
+                                <Link href="#projects" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faDesktop} />
                                     </span>
@@ -109,12 +93,7 @@ export default function Header() {
                                 </Link>
                             </li>
                             <li className="flex-grow lg:flex-grow-0">
-                                <Link
-                                    href="#contact"
-                                    className={`${
-                                        hash === "#contact" ? "text-neutral-800 bg-custom-100/60" : ""
-                                    } flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden`}
-                                >
+                                <Link href="#contact" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden">
                                     <span className="lg:hidden">
                                         <FontAwesomeIcon icon={faPaperPlane} />
                                     </span>

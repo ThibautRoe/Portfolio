@@ -7,21 +7,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHandshake, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 export default function Contact() {
-    function handleResizeContact() {
-        const footer = document.querySelector("footer")
-        const nav = document.querySelector("nav")
-        const contactSection = document.getElementById("contact")
-
-        if (footer && nav) {
-            footer.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-        }
-
-        if (footer && contactSection) {
-            contactSection.style.minHeight = `calc(100dvh - ${footer.offsetHeight}px)`
-        }
-    }
-
     useEffect(() => {
+        function handleResizeContact() {
+            const footer = document.querySelector("footer")
+            const nav = document.querySelector("nav")
+            const contactSection = document.getElementById("contact")
+
+            if (footer && nav) {
+                footer.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+
+            if (footer && contactSection) {
+                contactSection.style.minHeight = `calc(100dvh - ${footer.offsetHeight}px)`
+            }
+        }
+
         handleResizeContact()
 
         window.addEventListener("resize", handleResizeContact)

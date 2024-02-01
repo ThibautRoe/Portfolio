@@ -4,16 +4,16 @@ import { useEffect } from "react"
 import SkillsSlideshow from "./SkillsSlideshow"
 
 export default function Skills({ skills }) {
-    function handleResizeSkills() {
-        const nav = document.querySelector("nav")
-        const skillsSection = document.getElementById("skills")
-
-        if (nav && skillsSection) {
-            skillsSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-        }
-    }
-
     useEffect(() => {
+        function handleResizeSkills() {
+            const nav = document.querySelector("nav")
+            const skillsSection = document.getElementById("skills")
+
+            if (nav && skillsSection) {
+                skillsSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
         handleResizeSkills()
 
         window.addEventListener("resize", handleResizeSkills)

@@ -18,21 +18,21 @@ const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimati
 })
 
 export default function Hero() {
-    function handleResizeHero() {
-        const header = document.querySelector("header")
-        const nav = document.querySelector("nav")
-        const heroSection = document.getElementById("hero")
-
-        if (header && heroSection) {
-            heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
-        }
-
-        if (nav && heroSection) {
-            heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-        }
-    }
-
     useEffect(() => {
+        function handleResizeHero() {
+            const header = document.querySelector("header")
+            const nav = document.querySelector("nav")
+            const heroSection = document.getElementById("hero")
+
+            if (header && heroSection) {
+                heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
+            }
+
+            if (nav && heroSection) {
+                heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
         handleResizeHero()
 
         window.addEventListener("resize", handleResizeHero)

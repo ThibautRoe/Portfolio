@@ -17,33 +17,28 @@ export default function RootLayout({ children }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        const initialHash = window.location.hash
-
-        if (!initialHash) {
-            window.location.hash = "#home"
-        }
-
         const scrollToCurrentHash = () => {
             const currentHash = window.location.hash
             const targetElement = document.querySelector(currentHash)
             if (targetElement) {
                 targetElement.scrollIntoView()
+                console.log("couscous")
             }
         }
 
         const loadingIsDone = () => {
             setIsLoading(false)
-            setTimeout(() => {
-                scrollToCurrentHash()
-            }, 500)
+            // setTimeout(() => {
+            //     scrollToCurrentHash()
+            // }, 500)
         }
 
         window.addEventListener("load", loadingIsDone)
-        window.addEventListener("hashchange", scrollToCurrentHash)
+        // window.addEventListener("hashchange", scrollToCurrentHash)
 
         return () => {
             window.removeEventListener("load", loadingIsDone)
-            window.removeEventListener("hashchange", scrollToCurrentHash)
+            // window.removeEventListener("hashchange", scrollToCurrentHash)
         }
     }, [])
 

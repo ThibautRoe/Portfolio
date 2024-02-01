@@ -4,16 +4,16 @@ import { useEffect } from "react"
 import ProjectsSlideshow from "./ProjectsSlideshow"
 
 export default function Projects({ projects }) {
-    function handleResizeProjects() {
-        const nav = document.querySelector("nav")
-        const projectsSection = document.getElementById("projects")
-
-        if (nav && projectsSection) {
-            projectsSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-        }
-    }
-
     useEffect(() => {
+        function handleResizeProjects() {
+            const nav = document.querySelector("nav")
+            const projectsSection = document.getElementById("projects")
+
+            if (nav && projectsSection) {
+                projectsSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
         handleResizeProjects()
 
         window.addEventListener("resize", handleResizeProjects)
