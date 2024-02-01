@@ -9,8 +9,8 @@ import AnimatedText from "@/components/Header/AnimatedText"
 
 export default function Header() {
     useEffect(() => {
-        let sections
-        let navLi
+        let sections = {}
+        let navLi = {}
         let timeouts = {}
 
         const highlightNavLi = (currentSectionId) => {
@@ -31,7 +31,7 @@ export default function Header() {
                                 highlightNavLi(section.target.id)
                             }
                             window.location.hash = section.target.id
-                        }, 500)
+                        }, 200)
                     } else {
                         clearTimeout(timeouts[section.target.id])
                     }
