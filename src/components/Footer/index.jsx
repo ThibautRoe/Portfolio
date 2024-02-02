@@ -8,8 +8,8 @@ export default function Footer() {
     const year = getCurrentYear()
 
     return (
-        <footer className="bg-neutral-100">
-            <div className="u-container py-s-fl-s text-custom-600 text-t-fl-xs flex justify-center">
+        <footer className="bg-neutral-100 dark:bg-neutral-800">
+            <div className="u-container py-s-fl-s text-custom-600 dark:text-neutral-50 text-t-fl-xs flex justify-center">
                 <div>
                     <span>Made with </span>
                     <Link href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
@@ -17,7 +17,7 @@ export default function Footer() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                            className="inline-block underline decoration-dotted underline-offset-[0.175em] hover:text-custom-700 active:text-custom-800"
+                            className="inline-block underline decoration-dotted underline-offset-[0.175em] hover:text-custom-700 dark:hover:text-custom-400 active:text-custom-800 dark:active:text-custom-500"
                         >
                             Next.js
                         </motion.span>
@@ -28,7 +28,7 @@ export default function Footer() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                            className="inline-block underline decoration-dotted underline-offset-[0.175em] hover:text-custom-700 active:text-custom-800"
+                            className="inline-block underline decoration-dotted underline-offset-[0.175em] hover:text-custom-700 dark:hover:text-custom-400 active:text-custom-800 dark:active:text-custom-500"
                         >
                             Thibaut Roegiers
                         </motion.span>

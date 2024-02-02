@@ -17,22 +17,22 @@ export default function RootLayout({ children }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        const initialHash = window.location.hash
+        // const initialHash = window.location.hash
 
-        const scrollToInitialHash = () => {
-            const targetElement = document.querySelector(initialHash)
-            if (targetElement) {
-                targetElement.scrollIntoView()
-            }
-        }
+        // const scrollToInitialHash = () => {
+        //     const targetElement = document.querySelector(initialHash)
+        //     if (targetElement) {
+        //         targetElement.scrollIntoView()
+        //     }
+        // }
 
         const loadingIsDone = () => {
             setIsLoading(false)
-            if (initialHash) {
-                setTimeout(() => {
-                    scrollToInitialHash()
-                }, 600)
-            }
+            // if (initialHash) {
+            //     setTimeout(() => {
+            //         scrollToInitialHash()
+            //     }, 600)
+            // }
         }
 
         window.addEventListener("load", loadingIsDone)

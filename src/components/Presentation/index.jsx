@@ -24,8 +24,8 @@ export default function Presentation() {
     }, [])
 
     return (
-        <section id="about" className="nav-anchor bg-neutral-100 snap-start flex flex-col min-h-screen">
-            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl text-custom-600 w-full">
+        <section id="about" className="nav-anchor bg-neutral-100 dark:bg-neutral-800 snap-start flex flex-col min-h-screen">
+            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl text-custom-600 dark:text-neutral-50 w-full">
                 <h2 className="text-center font-paytoneOne text-t-fl-xl">Présentation</h2>
                 <div className="flex flex-grow items-center">
                     <div>
@@ -48,7 +48,9 @@ export default function Presentation() {
                         <span className="font-bold">écoute, rigueur, professionnalisme et flexibilité</span>.
                         <br />
                         <br />
-                        <span className="font-bold text-custom-400">Confiez-moi votre projet, et ensemble, assurons sa réussite </span>
+                        <span className="font-bold text-custom-400 dark:text-custom-300">
+                            Confiez-moi votre projet, et ensemble, assurons sa réussite{" "}
+                        </span>
                         <div className="inline-block animate-bounce">🤝</div>
                     </div>
                 </div>

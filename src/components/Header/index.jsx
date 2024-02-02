@@ -15,9 +15,9 @@ export default function Header() {
 
         const highlightNavLi = (currentSectionId) => {
             navLi.forEach((li) => {
-                li.classList.remove("text-neutral-800", "bg-custom-100/60")
+                li.classList.remove("text-neutral-800", "dark:text-neutral-100", "bg-custom-200/80", "dark:bg-neutral-600/95")
                 if (li.querySelector("a") && li.querySelector("a").href.includes(currentSectionId)) {
-                    li.classList.add("text-neutral-800", "bg-custom-100/60")
+                    li.classList.add("text-neutral-800", "dark:text-neutral-100", "bg-custom-200/80", "dark:bg-neutral-600/95")
                 }
             })
         }
@@ -30,7 +30,7 @@ export default function Header() {
                             if (window.innerWidth < 1024) {
                                 highlightNavLi(section.target.id)
                             }
-                            window.location.hash = section.target.id
+                            // window.location.hash = section.target.id
                         }, 200)
                     } else {
                         clearTimeout(timeouts[section.target.id])
@@ -58,12 +58,12 @@ export default function Header() {
     }, [])
 
     return (
-        <header id="home" className="nav-anchor bg-custom-400 snap-start h-[1px] lg:h-auto">
-            {/* 1px plutôt que hidden sur mobile sinon le #home hash link ne fonctionne plus */}
+        <header id="home" className="nav-anchor lg:bg-custom-400 dark:lg:bg-neutral-800 snap-start h-[1px] lg:h-auto">
+            {/* 1px height plutôt que hidden sur mobile sinon le snap-start n'est pas pris en compte donc on le peut plus scroller sur cette section et le #home hash link ne fonctionne plus  */}
             <div className="lg:u-container">
                 <div className="flex gap-s-fl-l">
                     <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:inline" />
-                    <nav className="fixed bottom-0 z-50 flex flex-grow justify-center w-full border-t-[1px] text-t-fl-s text-neutral-600 border-t-neutral-300/60 bg-neutral-100/60 lg:static lg:z-0 lg:w-auto lg:border-0 lg:text-t-fl-base lg:font-bold lg:text-neutral-50 lg:bg-custom-400">
+                    <nav className="fixed lg:static bottom-0 lg:bottom-auto z-50 lg:z-auto w-full lg:w-auto text-t-fl-s lg:text-t-fl-base text-neutral-600 dark:text-neutral-400 lg:text-neutral-50 dark:lg:text-neutral-50 border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 lg:font-bold flex flex-grow justify-center">
                         <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                             <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#home" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden">

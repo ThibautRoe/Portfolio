@@ -12,7 +12,7 @@ export default function ProjectCard(props) {
         <div className="relative flex flex-grow flex-col min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg">
             {training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
-                    <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-custom-700 bg-custom-300 rotate-45">
+                    <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-neutral-600 bg-custom-300 rotate-45">
                         - Projet de formation -
                     </span>
                 </div>
@@ -39,7 +39,7 @@ export default function ProjectCard(props) {
                     />
                 )}
             </div>
-            <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 p-s-fl-2xs-xs">
+            <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 dark:from-neutral-500 dark:to-neutral-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
                     <p className="flex-grow font-paytoneOne">{name}</p>
                     <div className="flex gap-s-fl-l text-t-fl-l">
