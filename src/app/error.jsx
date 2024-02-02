@@ -13,7 +13,7 @@ export default function Error({ error, reset }) {
     }, [error])
 
     return (
-        <div className="w-full h-full flex flex-col gap-s-fl-xl items-center justify-center bg-gradient-to-b from-custom-400 to-custom-300">
+        <div className="w-full h-full flex flex-col gap-s-fl-xl items-center justify-center bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-900 dark:to-neutral-800">
             <p className="text-t-fl-4xl">Un problème est survenu</p>
             <Link href="/">
                 <motion.div
