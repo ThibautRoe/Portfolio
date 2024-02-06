@@ -1,10 +1,7 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import { nunito, paytoneOne, gloriaHallelujah } from "@/utils/fonts"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import Loading from "@/app/loading"
+import SplashScreen from "@/components/SplashScreen"
 
 import "@/assets/globals.css"
 
@@ -14,34 +11,6 @@ config.autoAddCss = false // https://fontawesome.com/docs/web/use-with/react/use
 const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), { ssr: false }) */
 
 export default function RootLayout({ children }) {
-    const [isLoading, setIsLoading] = useState(true)
-
-    useEffect(() => {
-        // const initialHash = window.location.hash
-
-        // const scrollToInitialHash = () => {
-        //     const targetElement = document.querySelector(initialHash)
-        //     if (targetElement) {
-        //         targetElement.scrollIntoView()
-        //     }
-        // }
-
-        const loadingIsDone = () => {
-            setIsLoading(false)
-            // if (initialHash) {
-            //     setTimeout(() => {
-            //         scrollToInitialHash()
-            //     }, 600)
-            // }
-        }
-
-        window.addEventListener("load", loadingIsDone)
-
-        return () => {
-            window.removeEventListener("load", loadingIsDone)
-        }
-    }, [])
-
     return (
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden`}>
             <head>
@@ -57,7 +26,8 @@ export default function RootLayout({ children }) {
             </head>
             <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
                 {/* <DynamicTestViewport /> */}
-                {isLoading ? <Loading /> : children}
+                <SplashScreen />
+                {children}
             </body>
         </html>
     )

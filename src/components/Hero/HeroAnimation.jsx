@@ -8,15 +8,32 @@ export default function HeroAnimation() {
     const [player, setPlayer] = useState()
 
     useEffect(() => {
+        const removeSplashScreen = () => {
+            const loader = document.getElementById("splashScreen")
+            if (loader) {
+                document.body.style.overflow = "auto"
+                loader.remove()
+            }
+        }
+
         const initPlayer = async () => {
             const playerElement = document.querySelector("dotlottie-player")
 
             if (playerElement) {
                 setPlayer(playerElement)
+                playerElement.addEventListener("ready", removeSplashScreen())
             }
         }
 
         initPlayer()
+
+        return () => {
+            const playerElement = document.querySelector("dotlottie-player")
+
+            if (playerElement) {
+                playerElement.removeEventListener("ready", removeSplashScreen())
+            }
+        }
     }, [])
 
     function toggleAnimation() {

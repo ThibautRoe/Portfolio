@@ -63,7 +63,7 @@ export default function Header() {
             <div className="lg:u-container">
                 <div className="flex gap-s-fl-l">
                     <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:inline" />
-                    <nav className="fixed lg:static bottom-0 lg:bottom-auto z-50 lg:z-auto w-full lg:w-auto text-t-fl-s lg:text-t-fl-base text-neutral-600 dark:text-neutral-400 lg:text-neutral-50 dark:lg:text-neutral-50 border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 lg:font-bold flex flex-grow justify-center">
+                    <nav className="fixed lg:static bottom-0 lg:bottom-auto z-50 lg:z-auto w-full lg:w-auto text-t-fl-2xs lg:text-t-fl-base text-neutral-600 dark:text-neutral-400 lg:text-neutral-50 dark:lg:text-neutral-50 border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 lg:font-bold flex flex-grow justify-center">
                         <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                             <li className="flex-grow lg:flex-grow-0">
                                 <Link href="#home" className="flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs lg:hidden">
