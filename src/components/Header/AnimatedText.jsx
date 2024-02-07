@@ -43,7 +43,6 @@ export default function AnimatedText(props) {
     const controlsCaret = useAnimation()
     const ref = useRef(null)
     const isInView = useInView(ref, { once })
-    const [startPulsatingCaret, setStartPulsatingCaret] = useState(false)
 
     useEffect(() => {
         let timeout
@@ -67,23 +66,12 @@ export default function AnimatedText(props) {
         return () => clearTimeout(timeout)
     }, [isInView])
 
-    useEffect(() => {
-        let timeout
-        function show() {
-            timeout = setTimeout(async () => {
-                await controlsCaret.start("visibleCaret")
-                controlsCaret.start("pulsateCaret")
-            }, 1100)
-        }
-
-        if (startPulsatingCaret) {
-            show()
-        } else {
-            controlsCaret.start("hidden")
-        }
-
-        return () => clearTimeout(timeout)
-    }, [startPulsatingCaret])
+    function startPulsatingCaret() {
+        setTimeout(async () => {
+            await controlsCaret.start("visibleCaret")
+            controlsCaret.start("pulsateCaret")
+        }, 1100)
+    }
 
     return (
         <>
@@ -101,7 +89,7 @@ export default function AnimatedText(props) {
                         initial="hidden"
                         animate={controls}
                         onAnimationComplete={() => {
-                            setStartPulsatingCaret(true)
+                            startPulsatingCaret()
                         }}
                         aria-hidden
                         className="inline-block"

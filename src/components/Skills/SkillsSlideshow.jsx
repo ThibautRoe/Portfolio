@@ -46,7 +46,7 @@ export default function SkillsSlideshow({ skills }) {
         >
             {skills.map((skill) => (
                 <swiper-slide key={skill.name} lazy="true" class="skills-slide flex flex-col items-center px-s-fl-l">
-                    <p className="font-paytoneOne text-t-fl-l">{skill.name}</p>
+                    <h3 className="font-paytoneOne text-t-fl-l">{skill.name}</h3>
                     <div className="flex flex-grow items-center pt-s-fl-s pb-s-fl-l">
                         <div className="flex flex-wrap justify-center gap-s-fl-xl">
                             {skill.value.map((item) => (

@@ -14,6 +14,7 @@ export default function Footer() {
                     <span>Made with </span>
                     <Link href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                         <motion.span
+                            tabIndex="-1"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -25,6 +26,7 @@ export default function Footer() {
                     <span> and ❤️ | © {year} </span>
                     <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer">
                         <motion.span
+                            tabIndex="-1"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}

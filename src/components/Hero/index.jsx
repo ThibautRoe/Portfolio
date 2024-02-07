@@ -55,11 +55,14 @@ export default function Hero() {
                                 <div className="inline-block animate-[helloAnimation_2s_ease-in-out_infinite]">👋</div>
                                 <span> Hello, moi c’est Thibaut</span>
                             </div>
-                            <h1 className="font-paytoneOne text-t-fl-3xl">Développeur web front-end</h1>
+                            <h1 className="font-paytoneOne text-t-fl-3xl">
+                                Développeur web <span className="front-end-text transparent-fill hover:text-neutral-50">front-end</span>
+                            </h1>
                             <div>
                                 <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
                                 <Link href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">
                                     <motion.span
+                                        tabIndex="-1"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: "spring", stiffness: 400, damping: 17 }}

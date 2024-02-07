@@ -1,3 +1,15 @@
+.transparent-fill:not(:hover) {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #fafafa;
+}
+
+.transparent-fill:hover {
+    -webkit-text-fill-color: inherit;
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: #fafafa;
+}
+
 .animated-mouse-pointer {
     animation-name: mousePointer;
     animation-duration: 3s;
@@ -7,6 +19,7 @@
     animation-fill-mode: backwards;
     animation-delay: 0.5s;
 }
+
 @keyframes mousePointer {
     0% {
         opacity: 0;
