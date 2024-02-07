@@ -1,62 +1,13 @@
-.transparent-fill:not(:hover) {
-    -webkit-text-fill-color: transparent;
+.transparent-fill {
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #fafafa;
+}
+
+.transparent-fill:not(:hover) {
+    -webkit-text-fill-color: transparent;
 }
 
 .transparent-fill:hover {
     -webkit-text-fill-color: inherit;
     -webkit-text-stroke-width: 0;
-    -webkit-text-stroke-color: #fafafa;
-}
-
-.animated-mouse-pointer {
-    animation-name: mousePointer;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-timing-function: linear;
-    animation-fill-mode: backwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes mousePointer {
-    0% {
-        opacity: 0;
-        top: 70%;
-    }
-    20% {
-        opacity: 1;
-        top: 70%;
-    }
-    40% {
-        opacity: 1;
-        top: 70%;
-    }
-    60% {
-        opacity: 1;
-        top: 20%;
-    }
-    61% {
-        opacity: 1;
-        top: 20%;
-    }
-    67% {
-        opacity: 0;
-        top: 20%;
-    }
-    100% {
-        opacity: 0;
-        top: 20%;
-    }
-}
-
-@keyframes helloAnimation {
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(30deg);
-    }
 }

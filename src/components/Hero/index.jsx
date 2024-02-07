@@ -5,7 +5,9 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Loader from "@/components/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
-import "./hero.css"
+import AnimatedMouse from "@/components/AnimatedMouse"
+import ToggleDarkModeButton from "@/components/ToggleDarkModeButton"
+import "./Hero.css"
 
 import dynamic from "next/dynamic"
 const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation.jsx"), {
@@ -45,7 +47,7 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-800 dark:to-neutral-700 flex min-h-screen"
+            className="relative bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-800 dark:to-neutral-700 flex min-h-screen"
         >
             <div className="u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
@@ -56,7 +58,7 @@ export default function Hero() {
                                 <span> Hello, moi c’est Thibaut</span>
                             </div>
                             <h1 className="font-paytoneOne text-t-fl-3xl">
-                                Développeur web <span className="front-end-text transparent-fill hover:text-neutral-50">front-end</span>
+                                Développeur web <span className="transparent-fill hover:text-neutral-50">front-end</span>
                             </h1>
                             <div>
                                 <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
@@ -79,11 +81,10 @@ export default function Hero() {
                     <DynamicHeroAnimation />
                 </div>
                 <div className="flex justify-center">
-                    <div className="animated-mouse relative aspect-[9/16] w-s-fl-m rounded-s-fl-xs border-2 border-neutral-50">
-                        <div className="animated-mouse-pointer absolute left-1/2 top-[70%] -translate-x-1/2 aspect-square w-s-fl-3xs rounded-full bg-neutral-50"></div>
-                    </div>
+                    <AnimatedMouse />
                 </div>
             </div>
+            <ToggleDarkModeButton />
         </section>
     )
 }
