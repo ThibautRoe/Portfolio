@@ -40,6 +40,7 @@ module.exports = {
                 "t-fl-base": ["var(--step-0)", { lineHeight: "120%" }],
                 "t-fl-s": ["var(--step--1)", { lineHeight: "120%" }],
                 "t-fl-xs": ["var(--step--2)", { lineHeight: "120%" }],
+                "t-fl-2xs": ["var(--step--3)", { lineHeight: "120%" }],
             },
             spacing: {
                 "s-fl-3xl": "var(--space-3xl)",

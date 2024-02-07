@@ -4,8 +4,8 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faUser, faCode, faDesktop, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
-import { motion } from "framer-motion"
 import AnimatedText from "@/components/Header/AnimatedText"
+import AnimatedButton from "@/components/AnimatedButton"
 
 export default function Header() {
     useEffect(() => {
@@ -113,20 +113,12 @@ export default function Header() {
                             </li>
                         </ul>
                     </nav>
-                    <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer" className="hidden lg:flex">
-                        <motion.div
-                            tabIndex="-1"
-                            className="flex items-center rounded-full bg-custom-600 px-s-fl-m py-s-fl-3xs shadow-md hover:bg-custom-700 hover:shadow-lg active:bg-custom-800"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        >
-                            <button tabIndex="-1" className="flex items-center gap-s-fl-s text-t-fl-l">
-                                <FontAwesomeIcon icon={faPaperPlane} />
-                                <span>Contactez-moi</span>
-                            </button>
-                        </motion.div>
-                    </Link>
+                    <AnimatedButton
+                        link="mailto:hello@thibautroegiers.dev"
+                        linkClass="hidden lg:flex"
+                        text="Contactez-moi"
+                        iconBefore={faPaperPlane}
+                    />
                 </div>
             </div>
         </header>

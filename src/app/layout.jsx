@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             </head>
             <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
                 {/* <DynamicTestViewport /> */}
-                <SplashScreen />
+                {/* <SplashScreen /> */}
                 {children}
             </body>
         </html>
