@@ -7,7 +7,7 @@ import Loader from "@/components/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import AnimatedMouse from "@/components/AnimatedMouse"
 import ToggleDarkModeButton from "@/components/ToggleDarkModeButton"
-import "./Hero.css"
+import "./Hero2.css"
 
 import dynamic from "next/dynamic"
 const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation.jsx"), {
