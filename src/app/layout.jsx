@@ -12,7 +12,9 @@ const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), 
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden`}>
+        <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden dark`}>
+            {" "}
+            {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
             <head>
                 <title>Thibaut Roegiers - Développeur web front-end</title>
                 <meta name="description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />

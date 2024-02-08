@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react"
 import "@dotlottie/player-component"
+import useDarkMode from "@/hooks/useDarkMode"
 
 export default function HeroAnimation() {
     const heroAnimationPath = "/hero-animation.lottie"
     const [player, setPlayer] = useState()
+    useDarkMode()
 
     useEffect(() => {
         const removeSplashScreen = () => {

@@ -37,7 +37,7 @@ export default function Error({ error, reset }) {
                         // Attempt to recover by trying to re-render the segment
                         () => reset()
                     }
-                    className="flex items-center gap-s-fl-s font-bold rounded-full bg-custom-600 hover:bg-custom-700 active:bg-custom-800 shadow-md hover:shadow-lg text-t-fl-l px-s-fl-m py-s-fl-2xs"
+                    className="flex items-center gap-s-fl-s font-bold rounded-full bg-custom-600 hover:bg-custom-700 active:bg-custom-800 shadow-md hover:shadow-lg text-t-fl-xl px-s-fl-l py-s-fl-xs"
                 >
                     <FontAwesomeIcon icon={faChevronRight} />
                     <span>Réessayer</span>
