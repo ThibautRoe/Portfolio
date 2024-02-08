@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { motion } from "framer-motion"
 
 export default function AnimatedButton(props) {
@@ -31,9 +30,9 @@ export default function AnimatedButton(props) {
                             {ribbonText}
                         </span>
                     ) : null}
-                    {iconBefore ? <FontAwesomeIcon icon={iconBefore} /> : null}
+                    {iconBefore ? iconBefore : null}
                     <span>{text}</span>
-                    {iconAfter ? <FontAwesomeIcon icon={iconAfter} /> : null}
+                    {iconAfter ? iconAfter : null}
                 </button>
             </motion.div>
         </Link>

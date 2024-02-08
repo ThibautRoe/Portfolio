@@ -13,7 +13,6 @@ const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), 
 export default function RootLayout({ children }) {
     return (
         <html lang="fr" className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} overflow-hidden dark`}>
-            {" "}
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
             <head>
                 <title>Thibaut Roegiers - Développeur web front-end</title>
@@ -26,7 +25,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
                 <link rel="icon" sizes="96x96" href="favicon.png" type="image/png" />
             </head>
-            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth sticky tall:snap-y tall:snap-mandatory overflow-auto">
+            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth tall:snap-y tall:snap-mandatory sticky overflow-auto">
                 {/* <DynamicTestViewport /> */}
                 <SplashScreen />
                 {children}
