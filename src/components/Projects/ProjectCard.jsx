@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons"
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
+import BaseIcon from "@/components/Icons/BaseIcon"
+import IconGithubProjectCard from "@/components/Icons/src/IconGithubProjectCard"
+import IconFigma from "@/components/Icons/src/IconFigma"
+import IconArrowOutFromSquare from "@/components/Icons/src/IconArrowOutFromSquare"
 
 export default function ProjectCard(props) {
     const { training, name, coverUrl, coverVideoUrl, coverBlur, activity, description, techStack, github, figma, livePreview } = props
@@ -42,7 +43,7 @@ export default function ProjectCard(props) {
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs bg-gradient-to-b from-custom-500 to-custom-700 dark:from-neutral-500 dark:to-neutral-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
                     <h3 className="flex-grow font-paytoneOne">{name}</h3>
-                    <div className="flex gap-s-fl-l text-t-fl-l">
+                    <div className="flex items-center gap-s-fl-l text-t-fl-l">
                         {github && (
                             <Link
                                 href={github}
@@ -57,7 +58,9 @@ export default function ProjectCard(props) {
                                     whileTap={{ scale: 0.9 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                 >
-                                    <FontAwesomeIcon icon={faGithub} />
+                                    <BaseIcon width="1em" height="1em" viewBox="0 0 496 512">
+                                        <IconGithubProjectCard />
+                                    </BaseIcon>
                                 </motion.div>
                             </Link>
                         )}
@@ -75,7 +78,9 @@ export default function ProjectCard(props) {
                                     whileTap={{ scale: 0.9 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                 >
-                                    <FontAwesomeIcon icon={faFigma} />
+                                    <BaseIcon width="1em" height="1em" viewBox="0 0 384 512">
+                                        <IconFigma />
+                                    </BaseIcon>
                                 </motion.div>
                             </Link>
                         )}
@@ -93,7 +98,9 @@ export default function ProjectCard(props) {
                                     whileTap={{ scale: 0.9 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                 >
-                                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                                    <BaseIcon width="0.9em" height="0.9em" viewBox="0 0 512 512">
+                                        <IconArrowOutFromSquare />
+                                    </BaseIcon>
                                 </motion.div>
                             </Link>
                         )}
