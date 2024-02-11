@@ -40,7 +40,7 @@ export default function Error({ error, reset }) {
                     className="flex items-center gap-s-fl-s font-bold rounded-full bg-custom-600 hover:bg-custom-700 active:bg-custom-800 shadow-md hover:shadow-lg text-t-fl-xl px-s-fl-l py-s-fl-xs"
                 >
                     {
-                        <BaseIcon width="1.2em" height="1.2em">
+                        <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
                             <IconChevronRight />
                         </BaseIcon>
                     }

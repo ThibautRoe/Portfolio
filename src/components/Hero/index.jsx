@@ -1,15 +1,17 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Loader from "@/components/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
 import AnimatedMouse from "@/components/AnimatedMouse"
 import ToggleDarkModeButton from "@/components/ToggleDarkModeButton"
+import ConfettiBoom from "@/components/ConfettiBoom"
 import "./Hero.css"
 
 import dynamic from "next/dynamic"
+
 const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation.jsx"), {
     ssr: false,
     loading: () => (
@@ -20,6 +22,10 @@ const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimati
 })
 
 export default function Hero() {
+    const frontendRef = useRef(null)
+    const [frontendCoordinates, setFrontendCoordinates] = useState({ x: 0, y: 0 })
+    const [displayConfetti, setDisplayConfetti] = useState(false)
+
     useEffect(() => {
         function handleResizeHero() {
             const header = document.querySelector("header")
@@ -33,6 +39,26 @@ export default function Hero() {
             if (nav && heroSection) {
                 heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
             }
+
+            handleSnapMandatory()
+        }
+
+        function handleSnapMandatory() {
+            const sections = document.querySelectorAll("section")
+            let allSectionsTallEnough = true
+
+            sections.forEach((section) => {
+                if (section.offsetHeight > window.innerHeight) {
+                    document.body.classList.remove("snap-mandatory", "snap-y")
+                    allSectionsTallEnough = false
+                } else {
+                    allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
+                }
+
+                if (allSectionsTallEnough) {
+                    document.body.classList.add("snap-mandatory", "snap-y")
+                }
+            })
         }
 
         handleResizeHero()
@@ -43,6 +69,22 @@ export default function Hero() {
             window.removeEventListener("resize", handleResizeHero)
         }
     }, [])
+
+    function getFrontendCoordinates() {
+        if (frontendRef.current) {
+            const rect = frontendRef.current.getBoundingClientRect()
+            setFrontendCoordinates({
+                x: (rect.left + rect.width / 2) / window.innerWidth,
+                y: (rect.top - rect.height / 2) / window.innerHeight,
+            })
+        }
+    }
+
+    function handleConfetti() {
+        getFrontendCoordinates()
+        setDisplayConfetti(true)
+        setTimeout(() => setDisplayConfetti(false), 4000)
+    }
 
     return (
         <section
@@ -58,8 +100,16 @@ export default function Hero() {
                                 <span> Hello, moi c’est Thibaut</span>
                             </div>
                             <h1 className="font-paytoneOne text-t-fl-3xl">
-                                Développeur web <span className="transparent-fill hover:text-neutral-50">front-end</span>
+                                Développeur web{" "}
+                                <span
+                                    ref={frontendRef}
+                                    onMouseEnter={handleConfetti}
+                                    className="relative transparent-fill hover:text-neutral-50"
+                                >
+                                    front-end
+                                </span>
                             </h1>
+                            {displayConfetti && <ConfettiBoom position={frontendCoordinates} />}
                             <div>
                                 <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
                                 <Link href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">

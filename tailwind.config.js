@@ -23,9 +23,6 @@ module.exports = {
             screen: "100dvh",
         },
         extend: {
-            screens: {
-                tall: { raw: "(min-height: 480px)" },
-            },
             fontFamily: {
                 nunito: ["var(--font-nunito)"],
                 paytoneOne: ["var(--font-paytoneOne)"],
