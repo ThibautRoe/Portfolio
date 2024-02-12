@@ -30,6 +30,7 @@ export default function Hero() {
         function handleSnapMandatory() {
             const sections = document.querySelectorAll("section")
             let allSectionsTallEnough = true
+            console.log("yo")
 
             sections.forEach((section) => {
                 if (section.offsetHeight > window.innerHeight) {
@@ -67,8 +68,10 @@ export default function Hero() {
         }
 
         setTimeout(() => {
-            handleResize()
-        }, 500) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
+            handleSnapMandatory()
+        }, 1000) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
+
+        handleResizeHero()
 
         window.addEventListener("resize", handleResize)
         window.addEventListener("orientationChange", handleResize)
