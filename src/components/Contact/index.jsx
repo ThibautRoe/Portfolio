@@ -3,8 +3,8 @@
 import { useEffect } from "react"
 import AnimatedButton from "@/components/AnimatedButton"
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconHandshake from "@/components/Icons/src/IconHandshake"
-import IconMail from "@/components/Icons/src/IconMail"
+import IconHandshake from "@/components/Icons/src/NotAnimated/IconHandshake"
+import IconMail from "@/components/Icons/src/Animated/IconMail"
 
 export default function Contact() {
     useEffect(() => {
@@ -32,12 +32,12 @@ export default function Contact() {
     }, [])
 
     return (
-        <section id="contact" className="nav-anchor bg-neutral-100 dark:bg-neutral-800 snap-start flex flex-col min-h-screen">
+        <section id="contact" className="nav-anchor bg-neutral-100 dark:bg-neutral-900 snap-start flex flex-col min-h-screen">
             <div className="u-container flex flex-grow items-center justify-center">
                 <div className="relative">
                     <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-[spin_8s_linear_infinite]">
                         <BaseIcon
-                            className="absolute text-t-fl-xl text-custom-600 bg-neutral-100 dark:bg-neutral-800 px-s-fl-3xs left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            className="absolute text-t-fl-xl text-custom-600 bg-neutral-100 dark:bg-neutral-900 px-s-fl-3xs left-1/2 -translate-x-1/2 -translate-y-1/2"
                             width="2em"
                             height="1.6em"
                             viewBox="0 0 640 512"

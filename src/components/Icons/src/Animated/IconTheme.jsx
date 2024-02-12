@@ -5,8 +5,8 @@ export default function IconTheme() {
                 <mask id="lineMdLightDarkLoop0">
                     <circle cx={7.5} cy={7.5} r={5.5} fill="#fff"></circle>
                     <circle cx={7.5} cy={7.5} r={5.5}>
-                        <animate fill="freeze" attributeName="cx" dur="0.6s" values="7.5;11"></animate>
-                        <animate fill="freeze" attributeName="r" dur="0.6s" values="5.5;6.5"></animate>
+                        <animate fill="freeze" attributeName="cx" begin="0s" dur="0.6s" values="7.5;11"></animate>
+                        <animate fill="freeze" attributeName="r" begin="0s" dur="0.6s" values="5.5;6.5"></animate>
                     </circle>
                 </mask>
                 <mask id="lineMdLightDarkLoop1">
@@ -25,6 +25,7 @@ export default function IconTheme() {
                             </g>
                             <animateTransform
                                 attributeName="transform"
+                                begin="0s"
                                 dur="7.5s"
                                 repeatCount="indefinite"
                                 type="rotate"
@@ -42,7 +43,13 @@ export default function IconTheme() {
                         strokeWidth={2}
                         d="M1 12h22"
                     >
-                        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="M0 12h22;M2 12h22;M0 12h22"></animate>
+                        <animate
+                            attributeName="d"
+                            begin="0s"
+                            dur="9s"
+                            repeatCount="indefinite"
+                            values="M0 12h22;M2 12h22;M0 12h22"
+                        ></animate>
                         <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.75s" dur="0.6s" values="26;52"></animate>
                     </path>
                 </mask>

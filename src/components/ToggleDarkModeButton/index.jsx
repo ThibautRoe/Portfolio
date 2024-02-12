@@ -1,5 +1,5 @@
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconTheme from "@/components/Icons/src/IconTheme"
+import IconTheme from "@/components/Icons/src/Animated/IconTheme"
 
 export default function ToggleDarkModeButton() {
     function toggleDarkMode() {

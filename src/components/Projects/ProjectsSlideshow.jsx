@@ -10,7 +10,7 @@ register()
 export default function ProjectsSlideshow({ projects }) {
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
-        delay: 200,
+        delay: 1000,
     })
 
     useEffect(() => {

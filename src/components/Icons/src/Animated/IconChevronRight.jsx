@@ -10,7 +10,7 @@ export default function IconChevronRight() {
                 strokeWidth={2}
                 d="M8 12L15 5M8 12L15 19"
             >
-                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="10;0"></animate>
+                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5" dur="0.6s" values="10;0"></animate>
             </path>
         </g>
     )

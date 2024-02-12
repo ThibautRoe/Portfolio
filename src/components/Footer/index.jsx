@@ -8,7 +8,7 @@ export default function Footer() {
     const year = getCurrentYear()
 
     return (
-        <footer className="bg-neutral-100 dark:bg-neutral-800">
+        <footer className="bg-neutral-100 dark:bg-neutral-900">
             <div className="u-container py-s-fl-s text-custom-600 dark:text-neutral-50 text-t-fl-xs flex justify-center">
                 <div>
                     <span>Made with </span>

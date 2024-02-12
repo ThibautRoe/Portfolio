@@ -2,9 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconGithubProjectCard from "@/components/Icons/src/IconGithubProjectCard"
-import IconFigma from "@/components/Icons/src/IconFigma"
-import IconArrowOutFromSquare from "@/components/Icons/src/IconArrowOutFromSquare"
+import IconGithubProjectCard from "@/components/Icons/src/NotAnimated/IconGithubProjectCard"
+import IconFigma from "@/components/Icons/src/NotAnimated/IconFigma"
+import IconArrowOutFromSquare from "@/components/Icons/src/NotAnimated/IconArrowOutFromSquare"
 
 export default function ProjectCard(props) {
     const { training, name, coverUrl, coverVideoUrl, coverBlur, activity, description, techStack, github, figma, livePreview } = props

@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconChevronRight from "@/components/Icons/src/IconChevronRight"
+import IconChevronRight from "@/components/Icons/src/Animated/IconChevronRight"
 
 export default function Error({ error, reset }) {
     useEffect(() => {
