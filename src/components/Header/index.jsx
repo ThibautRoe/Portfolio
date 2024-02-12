@@ -82,7 +82,7 @@ export default function Header() {
                                     <BaseIcon className="lg:hidden" width="1.2em" height="1.2em" viewBox="0 0 24 24">
                                         <IconPerson />
                                     </BaseIcon>
-                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:opacity-0 hover:after:opacity-100">
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:bg-[length:100%_100%] after:opacity-0 hover:after:opacity-100 lg:after:transition-opacity lg:after:duration-500">
                                         Présentation
                                     </span>
                                 </Link>
@@ -92,7 +92,7 @@ export default function Header() {
                                     <BaseIcon className="lg:hidden" width="1.2em" height="1.2em" viewBox="0 0 24 24">
                                         <IconCode />
                                     </BaseIcon>
-                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:opacity-0 hover:after:opacity-100">
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:bg-[length:100%_100%] after:opacity-0 hover:after:opacity-100 lg:after:transition-opacity lg:after:duration-500">
                                         Compétences
                                     </span>
                                 </Link>
@@ -102,7 +102,7 @@ export default function Header() {
                                     <BaseIcon className="lg:hidden" width="1.2em" height="1.2em" viewBox="0 0 24 24">
                                         <IconGithubNavBar />
                                     </BaseIcon>
-                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:opacity-0 hover:after:opacity-100">
+                                    <span className="wavyUnderline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:bg-[length:100%_100%] after:opacity-0 hover:after:opacity-100 lg:after:transition-opacity lg:after:duration-500">
                                         Réalisations
                                     </span>
                                 </Link>

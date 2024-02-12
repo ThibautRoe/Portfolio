@@ -28,7 +28,6 @@ export default function Hero() {
 
     useEffect(() => {
         function handleSnapMandatory() {
-            console.log("yo")
             const sections = document.querySelectorAll("section")
             let allSectionsTallEnough = true
 
@@ -105,7 +104,7 @@ export default function Hero() {
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
-                            <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">
+                            <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l z-10">
                                 <div className="inline-block animate-[helloAnimation_2s_ease-in-out_infinite]">👋</div>
                                 <span> Hello, moi c’est Thibaut</span>
                             </div>
@@ -116,7 +115,7 @@ export default function Hero() {
                                 </span>
                             </h1>
                             {displayConfetti && <ConfettiBoom position={frontendCoordinates} />}
-                            <div>
+                            <div className="z-10">
                                 <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
                                 <Link href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">
                                     <motion.span
