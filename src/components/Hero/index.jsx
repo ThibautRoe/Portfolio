@@ -66,7 +66,9 @@ export default function Hero() {
             handleResizeHero()
         }
 
-        handleResize()
+        setTimeout(() => {
+            handleResize()
+        }, 500) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
 
         window.addEventListener("resize", handleResize)
         window.addEventListener("orientationChange", handleResize)

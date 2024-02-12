@@ -54,7 +54,7 @@ export default function Header() {
             sections = document.querySelectorAll(".nav-anchor")
             navLi = document.querySelectorAll("nav ul li")
             initObserver()
-        }, 500) //Timeout because document.querySelectorAll(".nav-anchor") returns an empty array if triggered too soon
+        }, 500) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
 
         return () => {
             sectionObserver.disconnect()
