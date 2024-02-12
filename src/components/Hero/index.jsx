@@ -35,12 +35,14 @@ export default function Hero() {
                 if (section.offsetHeight > window.innerHeight) {
                     document.body.classList.remove("snap-mandatory", "snap-y")
                     allSectionsTallEnough = false
+                    console.log("no snap")
                 } else {
                     allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
                 }
 
                 if (allSectionsTallEnough) {
                     document.body.classList.add("snap-mandatory", "snap-y")
+                    console.log("snap")
                 }
             })
         }
