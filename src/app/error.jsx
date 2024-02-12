@@ -15,7 +15,8 @@ export default function Error({ error, reset }) {
         const removeSplashScreen = () => {
             const loader = document.getElementById("splashScreen")
             if (loader) {
-                document.body.style.overflow = "auto"
+                document.body.classList.remove("overflow-hidden")
+                document.body.classList.add("overflow-y-auto", "overflow-x-hidden")
                 loader.remove()
             }
         }

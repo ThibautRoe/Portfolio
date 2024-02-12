@@ -27,23 +27,8 @@ export default function Hero() {
     const [displayConfetti, setDisplayConfetti] = useState(false)
 
     useEffect(() => {
-        function handleResizeHero() {
-            const header = document.querySelector("header")
-            const nav = document.querySelector("nav")
-            const heroSection = document.getElementById("hero")
-
-            if (header && heroSection) {
-                heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
-            }
-
-            if (nav && heroSection) {
-                heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-            }
-
-            handleSnapMandatory()
-        }
-
         function handleSnapMandatory() {
+            console.log("yo")
             const sections = document.querySelectorAll("section")
             let allSectionsTallEnough = true
 
@@ -61,37 +46,62 @@ export default function Hero() {
             })
         }
 
-        handleResizeHero()
+        function handleResizeHero() {
+            const header = document.querySelector("header")
+            const nav = document.querySelector("nav")
+            const heroSection = document.getElementById("hero")
 
-        window.addEventListener("resize", handleResizeHero)
+            if (header && heroSection) {
+                heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
+            }
+
+            if (nav && heroSection) {
+                heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
+        function handleResize() {
+            handleSnapMandatory()
+            handleResizeHero()
+        }
+
+        handleResize()
+
+        window.addEventListener("resize", handleResize)
+        window.addEventListener("orientationChange", handleResize)
 
         return () => {
-            window.removeEventListener("resize", handleResizeHero)
+            window.removeEventListener("resize", handleResize)
+            window.removeEventListener("orientationChange", handleResize)
         }
     }, [])
 
     function getFrontendCoordinates() {
         if (frontendRef.current) {
             const rect = frontendRef.current.getBoundingClientRect()
+            const heroSection = document.getElementById("hero")
+
             setFrontendCoordinates({
-                x: (rect.left + rect.width / 2) / window.innerWidth,
-                y: (rect.top - rect.height / 2) / window.innerHeight,
+                x: (rect.left + rect.width / 2) / heroSection.offsetWidth,
+                y: rect.top / heroSection.offsetHeight,
             })
         }
     }
 
     function handleConfetti() {
-        getFrontendCoordinates()
-        setDisplayConfetti(true)
-        setTimeout(() => setDisplayConfetti(false), 4000)
+        if (!displayConfetti) {
+            getFrontendCoordinates()
+            setDisplayConfetti(true)
+            setTimeout(() => setDisplayConfetti(false), 4000)
+        }
     }
 
     return (
         <section
             id="hero"
-            className="relative bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-800 dark:to-neutral-700 flex min-h-screen"
+            className="bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-800 dark:to-neutral-700 flex min-h-screen"
         >
-            <div className="u-container grid grid-rows-[1fr_auto] flex-grow">
+            <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
                         <div className="flex flex-col gap-s-fl-l-xl">
@@ -99,13 +109,9 @@ export default function Hero() {
                                 <div className="inline-block animate-[helloAnimation_2s_ease-in-out_infinite]">👋</div>
                                 <span> Hello, moi c’est Thibaut</span>
                             </div>
-                            <h1 className="font-paytoneOne text-t-fl-3xl">
+                            <h1 className="font-paytoneOne text-t-fl-3xl z-10">
                                 Développeur web{" "}
-                                <span
-                                    ref={frontendRef}
-                                    onMouseEnter={handleConfetti}
-                                    className="relative transparent-fill hover:text-neutral-50"
-                                >
+                                <span ref={frontendRef} onMouseEnter={handleConfetti} className="transparent-fill hover:text-neutral-50">
                                     front-end
                                 </span>
                             </h1>
@@ -133,8 +139,8 @@ export default function Hero() {
                 <div className="flex justify-center">
                     <AnimatedMouse />
                 </div>
+                <ToggleDarkModeButton />
             </div>
-            <ToggleDarkModeButton />
         </section>
     )
 }

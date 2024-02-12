@@ -5,7 +5,8 @@ import Loader from "@/components/Loader"
 
 export default function SplashScreen() {
     useEffect(() => {
-        document.body.style.overflow = "hidden"
+        document.body.classList.add("overflow-hidden")
+
         function handleFocusTrap(e) {
             const focusTrap = document.getElementById("focusTrap")
 

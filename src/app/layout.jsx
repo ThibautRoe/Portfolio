@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
                 <meta property="og:title" content="Thibaut Roegiers" />
                 <meta property="og:description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />
             </head>
-            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth overflow-auto">
+            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-50 scroll-smooth">
                 {/* <DynamicTestViewport /> */}
                 <SplashScreen />
                 {children}
