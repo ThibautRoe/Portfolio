@@ -30,17 +30,20 @@ export default function Hero() {
         function handleSnapMandatory() {
             const sections = document.querySelectorAll("section")
             let allSectionsTallEnough = true
+            console.log("couscous")
 
             sections.forEach((section) => {
                 if (section.offsetHeight > window.innerHeight) {
                     document.body.classList.remove("snap-mandatory", "snap-y")
                     allSectionsTallEnough = false
+                    console.log("pas snap")
                 } else {
                     allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
                 }
 
                 if (allSectionsTallEnough) {
                     document.body.classList.add("snap-mandatory", "snap-y")
+                    console.log("snap")
                 }
             })
         }
@@ -92,7 +95,9 @@ export default function Hero() {
     }
 
     function handleConfetti() {
-        if (!displayConfetti) {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+        if (!reduceMotion && !displayConfetti) {
             getFrontendCoordinates()
             setDisplayConfetti(true)
             setTimeout(() => setDisplayConfetti(false), 4000)

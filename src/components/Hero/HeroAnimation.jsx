@@ -10,6 +10,8 @@ export default function HeroAnimation() {
     useDarkMode()
 
     useEffect(() => {
+        const playerElement = document.querySelector("dotlottie-player")
+
         const removeSplashScreen = () => {
             const loader = document.getElementById("splashScreen")
             if (loader) {
@@ -20,12 +22,20 @@ export default function HeroAnimation() {
         }
 
         const initPlayer = async () => {
-            const playerElement = document.querySelector("dotlottie-player")
-
             if (playerElement) {
                 setPlayer(playerElement)
-                playerElement.addEventListener("ready", removeSplashScreen())
+                playerElement.addEventListener("ready", handlePlayerReady())
             }
+        }
+
+        function handlePlayerReady() {
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+            if (reduceMotion) {
+                setTimeout(() => playerElement.pause(), 100)
+            }
+
+            setTimeout(() => removeSplashScreen(), 100)
         }
 
         initPlayer()
@@ -34,7 +44,7 @@ export default function HeroAnimation() {
             const playerElement = document.querySelector("dotlottie-player")
 
             if (playerElement) {
-                playerElement.removeEventListener("ready", removeSplashScreen())
+                playerElement.removeEventListener("ready", handlePlayerReady())
             }
         }
     }, [])
@@ -57,8 +67,8 @@ export default function HeroAnimation() {
                 <dotlottie-player
                     class="w-[70dvw] sm:w-[65dvw] lg:w-full"
                     src={heroAnimationPath}
-                    loop
-                    autoplay
+                    loop=""
+                    autoplay=""
                     onClick={toggleAnimation}
                 ></dotlottie-player>
             </div>
