@@ -30,20 +30,19 @@ export default function Hero() {
         function handleSnapMandatory() {
             const sections = document.querySelectorAll("section")
             let allSectionsTallEnough = true
-            console.log("couscous")
 
             sections.forEach((section) => {
                 if (section.offsetHeight > window.innerHeight) {
                     document.body.classList.remove("snap-mandatory", "snap-y")
                     allSectionsTallEnough = false
-                    console.log("pas snap")
+                    console.log("pas snap", section.id)
                 } else {
                     allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
                 }
 
                 if (allSectionsTallEnough) {
                     document.body.classList.add("snap-mandatory", "snap-y")
-                    console.log("snap")
+                    console.log("snap", section.id)
                 }
             })
         }
@@ -63,8 +62,8 @@ export default function Hero() {
         }
 
         function handleResize() {
-            handleSnapMandatory()
             handleResizeHero()
+            setTimeout(() => handleSnapMandatory(), 100) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
         }
 
         setTimeout(() => {
