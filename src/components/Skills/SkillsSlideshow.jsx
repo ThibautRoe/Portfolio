@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { InView } from "react-intersection-observer"
 import SkillCard from "./SkillCard"
 import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
@@ -46,13 +47,33 @@ export default function SkillsSlideshow({ skills }) {
         >
             {skills.map((skill) => (
                 <swiper-slide key={skill.name} lazy="true" class="skills-slide flex flex-col items-center px-s-fl-l">
-                    <h3 className="font-paytoneOne text-t-fl-l">{skill.name}</h3>
+                    <InView triggerOnce>
+                        {({ inView, ref, entry }) => (
+                            <h3
+                                ref={ref}
+                                className={`font-paytoneOne text-t-fl-l motion-safe:animate-fade-up motion-safe:animate-delay-300 ${
+                                    inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                }`}
+                            >
+                                {skill.name}
+                            </h3>
+                        )}
+                    </InView>
                     <div className="flex flex-grow items-center pt-s-fl-s pb-s-fl-l">
-                        <div className="flex flex-wrap justify-center gap-s-fl-xl">
-                            {skill.value.map((item) => (
-                                <SkillCard key={item.id} item={item} />
-                            ))}
-                        </div>
+                        <InView triggerOnce>
+                            {({ inView, ref, entry }) => (
+                                <div
+                                    ref={ref}
+                                    className={`flex flex-wrap justify-center gap-s-fl-xl motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
+                                        inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                    }`}
+                                >
+                                    {skill.value.map((item) => (
+                                        <SkillCard key={item.id} item={item} />
+                                    ))}
+                                </div>
+                            )}
+                        </InView>
                     </div>
                 </swiper-slide>
             ))}

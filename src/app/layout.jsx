@@ -3,7 +3,7 @@ import SplashScreen from "@/components/SplashScreen"
 import "@/assets/globals.css"
 
 /* import dynamic from "next/dynamic"
-const DynamicTestViewport = dynamic(() => import("../components/TestViewport"), { ssr: false }) */
+const DynamicTestViewport = dynamic(() => import("@/components/TestViewport"), { ssr: false }) */
 
 export default function RootLayout({ children }) {
     return (

@@ -3,14 +3,17 @@
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import ProjectCard from "./ProjectCard"
+import useReduceMotion from "@/hooks/useReduceMotion"
 import "./ProjectsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
 export default function ProjectsSlideshow({ projects }) {
+    const reduceMotion = useReduceMotion()
+
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
-        delay: 1000,
+        delay: 2000,
     })
 
     useEffect(() => {
@@ -18,24 +21,32 @@ export default function ProjectsSlideshow({ projects }) {
         const projectsVideos = document.querySelectorAll(".projects-swiper video")
 
         if (swiperEl && projectsVideos) {
-            projectsVideos.forEach((item) => {
-                item.addEventListener("ended", () => {
-                    item.currentTime = 0
+            projectsVideos.forEach((video) => {
+                video.addEventListener("ended", () => {
+                    video.currentTime = 0
                 })
-                item.addEventListener("contextmenu", (e) => e.preventDefault())
+                video.addEventListener("contextmenu", (e) => e.preventDefault())
             })
 
             swiperEl.addEventListener("swiperslidechangetransitionend", () => {
                 const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+                const playButtonActiveVideo = activeSlideVideo.nextElementSibling
 
-                projectsVideos.forEach((item) => {
-                    if (!item.paused) {
-                        item.pause()
-                        item.currentTime = 0
+                projectsVideos.forEach((video) => {
+                    const playButton = video.nextElementSibling
+
+                    if (!video.paused) {
+                        video.pause()
                     }
+
+                    video.currentTime = 0
+
+                    playButton.classList.remove("hidden")
                 })
 
-                if (activeSlideVideo) {
+                if (activeSlideVideo && !reduceMotion) {
+                    playButtonActiveVideo.classList.add("hidden")
+
                     activeSlideVideo.play()
                 }
             })
@@ -45,20 +56,42 @@ export default function ProjectsSlideshow({ projects }) {
     useEffect(() => {
         const projectsVideos = document.querySelectorAll(".projects-swiper video")
         const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+        const playButtonActiveVideo = activeSlideVideo.nextElementSibling
 
         if (!inView && projectsVideos) {
             projectsVideos.forEach((video) => {
+                const playButton = video.nextElementSibling
+
                 if (!video.paused) {
                     video.pause()
-                    video.currentTime = 0
                 }
+                video.currentTime = 0
+
+                playButton.classList.remove("hidden")
             })
         }
 
-        if (inView && activeSlideVideo) {
+        if (inView && activeSlideVideo && !reduceMotion) {
+            playButtonActiveVideo.classList.add("hidden")
+
             activeSlideVideo.play()
         }
     }, [inView])
+
+    function toggleVideo() {
+        const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
+        const playButtonActiveVideo = activeSlideVideo.nextElementSibling
+
+        if (!activeSlideVideo.paused) {
+            activeSlideVideo.pause()
+
+            playButtonActiveVideo.classList.remove("hidden")
+        } else {
+            playButtonActiveVideo.classList.add("hidden")
+
+            activeSlideVideo.play()
+        }
+    }
 
     return (
         <swiper-container
@@ -78,6 +111,7 @@ export default function ProjectsSlideshow({ projects }) {
             {projects.map((item) => (
                 <swiper-slide key={`slide-${item.id}`} /* lazy="true" */ class="projects-slide flex justify-center items-center pb-s-fl-m">
                     <ProjectCard
+                        actionOnClick={toggleVideo}
                         training={item.training}
                         name={item.name}
                         coverUrl={item.coverUrl}

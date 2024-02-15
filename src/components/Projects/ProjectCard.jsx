@@ -5,9 +5,23 @@ import BaseIcon from "@/components/Icons/BaseIcon"
 import IconGithubProjectCard from "@/components/Icons/src/NotAnimated/IconGithubProjectCard"
 import IconFigma from "@/components/Icons/src/NotAnimated/IconFigma"
 import IconArrowOutFromSquare from "@/components/Icons/src/NotAnimated/IconArrowOutFromSquare"
+import PlayButton from "@/components/PlayButton"
 
 export default function ProjectCard(props) {
-    const { training, name, coverUrl, coverVideoUrl, coverBlur, activity, description, techStack, github, figma, livePreview } = props
+    const {
+        actionOnClick,
+        training,
+        name,
+        coverUrl,
+        coverVideoUrl,
+        coverBlur,
+        activity,
+        description,
+        techStack,
+        github,
+        figma,
+        livePreview,
+    } = props
 
     return (
         <div className="relative flex flex-grow flex-col min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg">
@@ -20,14 +34,23 @@ export default function ProjectCard(props) {
             )}
             <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
                 {coverVideoUrl ? (
-                    <video
-                        muted
-                        playsInline
-                        src={`${coverVideoUrl}#t=0.001`} /* Trick to get the first frame to show on iOS, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */
-                        className="absolute w-full h-full object-cover object-top"
-                    >
-                        Votre navigateur ne prend pas en charge les vidéos
-                    </video>
+                    <>
+                        <video
+                            onClick={actionOnClick}
+                            muted
+                            playsInline
+                            src={`${coverVideoUrl}#t=0.001`} /* Trick to get the first frame to show on iOS, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */
+                            className="absolute w-full h-full object-cover object-top"
+                        >
+                            Votre navigateur ne prend pas en charge les vidéos
+                        </video>
+                        <PlayButton
+                            actionOnClick={actionOnClick}
+                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-600"
+                            width="3em"
+                            height="3em"
+                        />
+                    </>
                 ) : (
                     <Image
                         src={coverUrl}

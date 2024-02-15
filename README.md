@@ -5,7 +5,9 @@ This is the source code of my personal portfolio: https://thibautroegiers.dev
 ## Technologies
 
 -   [Next.js](https://nextjs.org/)
--   [Tailwind](https://tailwindcss.com/)
+-   [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+-   [Tailwind CSS](https://tailwindcss.com/)
+-   [Tailwind CSS Animated](https://www.tailwindcss-animated.com/)
 -   [Framer Motion](https://www.framer.com/motion/)
 -   [Swiper](https://swiperjs.com/)
 -   [Contentful](https://www.contentful.com/)
@@ -30,4 +32,4 @@ npm run build    # Build for production
 npm run start    # Locally preview production build, default server: http://localhost:3000
 ```
 
-_Tested with Node.js 20.9.0 and NPM 10.1.0_
+_Tested with Node.js 20.11.1 and NPM 10.2.4_
