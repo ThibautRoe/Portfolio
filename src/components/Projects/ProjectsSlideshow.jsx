@@ -3,6 +3,9 @@
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import ProjectCard from "./ProjectCard"
+import AnimatedButton from "@/components/AnimatedButton"
+import BaseIcon from "@/components/Icons/BaseIcon"
+import IconChevronRight from "@/components/Icons/src/Animated/IconChevronRight"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import "./ProjectsSlideshow.css"
 import { register } from "swiper/element/bundle"
@@ -30,7 +33,7 @@ export default function ProjectsSlideshow({ projects }) {
 
             swiperEl.addEventListener("swiperslidechangetransitionend", () => {
                 const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-                const playButtonActiveVideo = activeSlideVideo.nextElementSibling
+                const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
 
                 projectsVideos.forEach((video) => {
                     const playButton = video.nextElementSibling
@@ -56,7 +59,7 @@ export default function ProjectsSlideshow({ projects }) {
     useEffect(() => {
         const projectsVideos = document.querySelectorAll(".projects-swiper video")
         const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-        const playButtonActiveVideo = activeSlideVideo.nextElementSibling
+        const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
 
         if (!inView && projectsVideos) {
             projectsVideos.forEach((video) => {
@@ -80,7 +83,7 @@ export default function ProjectsSlideshow({ projects }) {
 
     function toggleVideo() {
         const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-        const playButtonActiveVideo = activeSlideVideo.nextElementSibling
+        const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
 
         if (!activeSlideVideo.paused) {
             activeSlideVideo.pause()
@@ -126,6 +129,20 @@ export default function ProjectsSlideshow({ projects }) {
                     />
                 </swiper-slide>
             ))}
+            <swiper-slide key={`slide-malt-profile`} class="projects-slide flex justify-center items-center pb-s-fl-m">
+                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-br from-neutral-400 to-neutral-500 dark:from-neutral-500 dark:to-neutral-700 drop-shadow-lg">
+                    <AnimatedButton
+                        link="https://www.google.fr/" /* TODO Mettre le lien vers mon profil */
+                        text="Plus de projets"
+                        bigText
+                        iconBefore={
+                            <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
+                                <IconChevronRight />
+                            </BaseIcon>
+                        }
+                    />
+                </div>
+            </swiper-slide>
         </swiper-container>
     )
 }

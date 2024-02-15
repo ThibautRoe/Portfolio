@@ -4,7 +4,7 @@ export default function PlayButton(props) {
     const { actionOnClick, className, width, height } = props
 
     return (
-        <button className={className} onClick={actionOnClick}>
+        <button className={className} onClick={actionOnClick} title="Lancer la lecture" aria-label="Lancer la lecture">
             <svg className="play-button-icon" width={width} height={height} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <path
                     className="stroke-solid"

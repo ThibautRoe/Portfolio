@@ -17,7 +17,12 @@ export default function ToggleDarkModeButton() {
     }
 
     return (
-        <button className="absolute right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m" onClick={() => toggleDarkMode()}>
+        <button
+            className="absolute right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m"
+            onClick={() => toggleDarkMode()}
+            title="Mode sombre / clair"
+            aria-label="Mode sombre / clair"
+        >
             <BaseIcon width="2em" height="2em" viewBox="0 0 24 24">
                 <IconTheme />
             </BaseIcon>
