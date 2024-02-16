@@ -7,7 +7,6 @@ import AnimatedButton from "@/components/AnimatedButton"
 import BaseIcon from "@/components/Icons/BaseIcon"
 import IconChevronRight from "@/components/Icons/src/Animated/IconChevronRight"
 import useReduceMotion from "@/hooks/useReduceMotion"
-import "./ProjectsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
@@ -122,7 +121,7 @@ export default function ProjectsSlideshow({ projects }) {
     return (
         <swiper-container
             ref={ref}
-            class="projects-swiper w-full"
+            class="projects-swiper"
             a11y="true"
             cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
             effect="cards"
@@ -135,7 +134,7 @@ export default function ProjectsSlideshow({ projects }) {
             pagination-clickable="true"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.id}`} /* lazy="true" */ class="projects-slide flex justify-center items-center pb-s-fl-m">
+                <swiper-slide key={`slide-${item.id}`} /* lazy="true" */ class="projects-slide flex justify-center items-center">
                     <ProjectCard
                         actionOnClick={toggleVideo}
                         training={item.training}
@@ -152,8 +151,8 @@ export default function ProjectsSlideshow({ projects }) {
                     />
                 </swiper-slide>
             ))}
-            <swiper-slide key={`slide-malt-profile`} class="projects-slide flex justify-center items-center pb-s-fl-m">
-                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-br from-neutral-400 to-neutral-500 dark:from-neutral-500 dark:to-neutral-700 drop-shadow-lg">
+            <swiper-slide key={`slide-malt-profile`} class="projects-slide flex justify-center items-center">
+                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 drop-shadow-lg">
                     <AnimatedButton
                         link="" /* TODO Mettre le lien vers mon profil */
                         text="Plus de projets"

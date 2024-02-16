@@ -7,6 +7,10 @@ module.exports = {
     darkMode: "class",
     theme: {
         colors: {
+            transparent: "transparent",
+            current: "currentColor",
+            black: colors.black,
+            white: colors.white,
             neutral: colors.neutral,
             custom: {
                 100: "#fff6d9",

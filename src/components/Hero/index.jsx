@@ -29,70 +29,6 @@ export default function Hero() {
     const [displayConfetti, setDisplayConfetti] = useState(false)
     const reduceMotion = useReduceMotion()
 
-    useEffect(() => {
-        function handleSnapMandatory() {
-            const sections = document.querySelectorAll("section")
-            let allSectionsTallEnough = true
-
-            sections.forEach((section) => {
-                if (section.offsetHeight > window.innerHeight) {
-                    document.body.classList.remove("snap-mandatory", "snap-y")
-                    allSectionsTallEnough = false
-                } else {
-                    allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
-                }
-
-                if (allSectionsTallEnough) {
-                    document.body.classList.add("snap-mandatory", "snap-y")
-                }
-            })
-        }
-
-        function handleResizeHero() {
-            const header = document.querySelector("header")
-            const nav = document.querySelector("nav")
-            const heroSection = document.getElementById("hero")
-
-            if (header && heroSection) {
-                heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
-            }
-
-            if (nav && heroSection) {
-                heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
-            }
-        }
-
-        function handleResize() {
-            handleResizeHero()
-            handleSnapMandatory()
-        }
-
-        function handleOrientationChange() {
-            handleResizeHero()
-            setTimeout(() => handleSnapMandatory(), 300) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
-        }
-
-        if (!/Mobi|Android/i.test(navigator.userAgent)) {
-            window.addEventListener("resize", handleResize)
-            handleResize()
-        }
-
-        if ("onorientationchange" in window) {
-            window.addEventListener("orientationchange", handleOrientationChange)
-            handleOrientationChange()
-        }
-
-        return () => {
-            if (!/Mobi|Android/i.test(navigator.userAgent)) {
-                window.removeEventListener("resize", handleResize)
-            }
-
-            if ("onorientationchange" in window) {
-                window.removeEventListener("orientationchange", handleOrientationChange)
-            }
-        }
-    }, [])
-
     function getFrontendCoordinates() {
         if (frontendRef.current) {
             const frontEndText = frontendRef.current.getBoundingClientRect()
@@ -113,11 +49,98 @@ export default function Hero() {
         }
     }
 
+    useEffect(() => {
+        let resizeTimer
+
+        function cancelTransitionDurationWhileResizing() {
+            const root = document.documentElement
+            root.style.setProperty("--transition-all", "0s")
+            root.style.setProperty("--transition-svg", "0s")
+        }
+
+        function restoreTransitionDuration() {
+            const root = document.documentElement
+            root.style.setProperty("--transition-all", "2s")
+            root.style.setProperty("--transition-svg", "0.5s")
+        }
+
+        function handleResizeHero() {
+            const header = document.querySelector("header")
+            const nav = document.querySelector("nav")
+            const heroSection = document.getElementById("hero")
+
+            if (header && heroSection) {
+                heroSection.style.minHeight = `calc(100dvh - ${header.offsetHeight}px)`
+            }
+
+            if (nav && heroSection) {
+                heroSection.style.paddingBottom = window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+            }
+        }
+
+        function handleSnapMandatory() {
+            const sections = document.querySelectorAll("section")
+            let allSectionsTallEnough = true
+
+            sections.forEach((section) => {
+                if (section.offsetHeight > window.innerHeight) {
+                    document.body.classList.remove("snap-mandatory", "snap-y")
+                    allSectionsTallEnough = false
+                } else {
+                    allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
+                }
+
+                if (allSectionsTallEnough) {
+                    document.body.classList.add("snap-mandatory", "snap-y")
+                }
+            })
+        }
+
+        function handleResizeDesktop() {
+            clearTimeout(resizeTimer)
+            cancelTransitionDurationWhileResizing()
+            handleResizeHero()
+            handleSnapMandatory()
+            resizeTimer = setTimeout(() => {
+                restoreTransitionDuration()
+            }, 250)
+        }
+
+        function handleResizeMobile() {
+            clearTimeout(resizeTimer)
+            cancelTransitionDurationWhileResizing()
+            handleResizeHero()
+            setTimeout(() => handleSnapMandatory(), 300) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
+            resizeTimer = setTimeout(() => {
+                restoreTransitionDuration()
+            }, 250)
+        }
+
+        if (!/Mobi|Android/i.test(navigator.userAgent)) {
+            window.addEventListener("resize", handleResizeDesktop)
+            handleResizeDesktop()
+        }
+
+        if ("onorientationchange" in window) {
+            window.addEventListener("resize", handleResizeMobile)
+            handleResizeMobile()
+        }
+
+        return () => {
+            if (!/Mobi|Android/i.test(navigator.userAgent)) {
+                window.removeEventListener("resize", handleResizeDesktop)
+            }
+
+            if ("onorientationchange" in window) {
+                window.removeEventListener("resize", handleResizeMobile)
+            }
+
+            clearTimeout(resizeTimer)
+        }
+    }, [])
+
     return (
-        <section
-            id="hero"
-            className="bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-800 dark:to-neutral-700 flex min-h-screen"
-        >
+        <section id="hero" className="bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-800 flex min-h-screen">
             <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">

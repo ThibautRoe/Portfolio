@@ -47,6 +47,33 @@
     /* @link https://utopia.fyi/clamp/calculator?a=318,1914,0—23|30—46 */
     --fluid-ribbon-left: clamp(0rem, -0.2864rem + 1.4411vw, 1.4375rem);
     --fluid-ribbon-top: clamp(1.875rem, 1.6758rem + 1.0025vw, 2.875rem);
+
+    /***** COLOR TRANSITIONS *****/
+    --transition-all: 2s;
+    --transition-svg: 0.5s;
+
+    /***** SWIPER COLORS *****/
+    --swiper-navigation-color: theme("colors.neutral.50");
+    --swiper-pagination-color: theme("colors.neutral.50");
+    --swiper-navigation-sides-offset: calc(-1 * var(--space-s));
+    --swiper-pagination-bottom: calc(-1 * var(--space-l));
+}
+
+:root.dark {
+    /***** SWIPER COLORS *****/
+    --swiper-pagination-bullet-inactive-color: theme("colors.neutral.200");
+}
+
+@layer base {
+    *:not(svg, svg *),
+    .svg-with-transition {
+        @apply transition-colors duration-[--transition-all];
+    }
+
+    svg,
+    svg * {
+        @apply transition-colors duration-[--transition-svg];
+    }
 }
 
 @layer utilities {
@@ -61,19 +88,6 @@
         display: grid;
         gap: var(--grid-gutter);
     }
-}
-
-swiper-container::part(button-prev),
-swiper-container::part(button-next) {
-    color: theme("colors.neutral.50");
-}
-
-swiper-container::part(bullet-active) {
-    background-color: theme("colors.neutral.50");
-}
-
-:root.dark swiper-container::part(bullet) {
-    background-color: theme("colors.neutral.200");
 }
 
 .wavy-underline::after {

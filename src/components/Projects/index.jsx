@@ -27,7 +27,7 @@ export default function Projects({ projects }) {
     return (
         <section
             id="projects"
-            className="nav-anchor bg-gradient-to-b from-custom-400 to-custom-300 dark:from-neutral-900 dark:to-neutral-800 overflow-hidden snap-start flex flex-col min-h-screen"
+            className="nav-anchor bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 overflow-hidden snap-start flex flex-col min-h-screen"
         >
             <div className="u-container flex flex-col flex-grow gap-s-fl-xl">
                 <InView triggerOnce>
@@ -46,11 +46,13 @@ export default function Projects({ projects }) {
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`flex flex-grow items-stretch justify-center motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
+                            className={`flex flex-grow items-center motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
-                            <ProjectsSlideshow projects={projects} />
+                            <div>
+                                <ProjectsSlideshow projects={projects} />
+                            </div>
                         </div>
                     )}
                 </InView>

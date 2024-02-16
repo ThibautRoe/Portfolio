@@ -26,12 +26,12 @@ export default function Presentation() {
 
     return (
         <section id="about" className="nav-anchor bg-neutral-100 dark:bg-neutral-800 snap-start flex flex-col min-h-screen">
-            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl text-custom-600 dark:text-neutral-50 w-full">
+            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
+                            className={`text-center font-paytoneOne text-t-fl-xl text-custom-600 dark:text-neutral-50 motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
@@ -48,47 +48,56 @@ export default function Presentation() {
                                     inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                                 }`}
                             >
-                                <span>Moi c'est Thibaut, </span>
-                                <span className="font-bold">ingénieur</span>
-                                <span> de formation, je suis </span>
-                                <span className="font-bold">développeur web</span>
-                                <span> fullstack spécialisé dans le </span>
-                                <span className="font-bold">front-end</span>.
+                                {/* text color on each element to avoid problem with color transition when switching dark mode */}
+                                <span className="text-custom-600 dark:text-neutral-50">Moi c'est Thibaut, </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">ingénieur</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> de formation, je suis </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">développeur web</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> fullstack spécialisé dans le </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">front-end</span>.
                                 <br />
                                 <br />
-                                <span>Passionné d'</span>
-                                <span className="font-bold">escalade</span>
-                                <span>, de </span>
-                                <span className="font-bold">voyages</span>
-                                <span>, de </span>
-                                <span className="font-bold">vans aménagés</span>
-                                <span> et de </span>
-                                <span className="font-bold">bricolage</span>
-                                <span>, j'ai aussi une </span>
-                                <span className="font-bold">grande passion pour l'informatique et les nouvelles technologies</span>
-                                <span>.</span>
+                                <span className="text-custom-600 dark:text-neutral-50">Passionné d'</span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">escalade</span>
+                                <span className="text-custom-600 dark:text-neutral-50">, de </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">voyages</span>
+                                <span className="text-custom-600 dark:text-neutral-50">, de </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">vans aménagés</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> et de </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">bricolage</span>
+                                <span className="text-custom-600 dark:text-neutral-50">, j'ai aussi une </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">
+                                    grande passion pour l'informatique et les nouvelles technologies
+                                </span>
+                                <span className="text-custom-600 dark:text-neutral-50">.</span>
                                 <br />
                                 <br />
-                                <span>Depuis l'assemblage de mon 1er PC à 15 ans, cette </span>
-                                <span className="font-bold">passion</span>
-                                <span> n'a fait que croître.</span>
+                                <span className="text-custom-600 dark:text-neutral-50">
+                                    Depuis l'assemblage de mon 1er PC à 15 ans, cette{" "}
+                                </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">passion</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> n'a fait que croître.</span>
                                 <br />
                                 <br />
-                                <span className="font-bold">Autodidacte</span>
-                                <span>, j'ai bâti des bases solides en HTML/CSS/JS, que j'ai récemment perfectionnées grâce à une </span>
-                                <span className="font-bold">formation certifiante</span>.
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">Autodidacte</span>
+                                <span className="text-custom-600 dark:text-neutral-50">
+                                    , j'ai bâti des bases solides en HTML/CSS/JS, que j'ai récemment perfectionnées grâce à une{" "}
+                                </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">formation certifiante</span>.
                                 <br />
                                 <br />
-                                <span>Je maîtrise les </span>
-                                <span className="font-bold">dernières technologies et frameworks</span>
-                                <span> tels que React / Next.js.</span>
+                                <span className="text-custom-600 dark:text-neutral-50">Je maîtrise les </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">dernières technologies et frameworks</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> tels que React / Next.js.</span>
                                 <br />
                                 <br />
-                                <span>J'offre aujourd'hui toute mon </span>
-                                <span className="font-bold">expertise</span>
-                                <span> à mes clients, en garantissant </span>
-                                <span className="font-bold">écoute, rigueur, professionnalisme et flexibilité</span>
-                                <span>.</span>
+                                <span className="text-custom-600 dark:text-neutral-50">J'offre aujourd'hui toute mon </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">expertise</span>
+                                <span className="text-custom-600 dark:text-neutral-50"> à mes clients, en garantissant </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">
+                                    écoute, rigueur, professionnalisme et flexibilité
+                                </span>
+                                <span className="text-custom-600 dark:text-neutral-50">.</span>
                                 <br />
                                 <br />
                                 <span className="font-bold text-custom-400 dark:text-custom-300">
