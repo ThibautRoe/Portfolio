@@ -7,7 +7,7 @@ import IconChevronRight from "@/components/Icons/src/Animated/IconChevronRight"
 
 export default function NotFound() {
     useEffect(() => {
-        const removeSplashScreen = () => {
+        function removeSplashScreen() {
             const loader = document.getElementById("splashScreen")
             if (loader) {
                 document.body.classList.remove("overflow-hidden")

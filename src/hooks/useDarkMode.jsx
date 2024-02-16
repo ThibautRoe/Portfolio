@@ -13,6 +13,7 @@ export default function useDarkMode() {
         //     setDarkMode("dark")
         //     root.classList.add("dark")
         // }
+        // Finalement je force le dark mode au tout 1er chargement de la page, avec "dark" en dur sur l'élément <html> dans layout.jsx
 
         if (darkModeLocalStorage && darkModeLocalStorage === "light") {
             setDarkMode("light")

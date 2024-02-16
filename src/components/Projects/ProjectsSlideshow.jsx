@@ -13,88 +13,111 @@ register()
 
 export default function ProjectsSlideshow({ projects }) {
     const reduceMotion = useReduceMotion()
+    const projectsSwiperSelector = ".projects-swiper"
+    const activeVideoSelector = ".projects-swiper .swiper-slide-active video"
 
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
         delay: 2000,
     })
 
+    function findPlayButton(video) {
+        let playButton = video.nextElementSibling
+        while (playButton && playButton.tagName.toLowerCase() !== "button") {
+            playButton = playButton.nextElementSibling
+        }
+        return playButton
+    }
+
+    function pauseVideo(video, playButton, doNotReset) {
+        if (!video.paused) {
+            video.pause()
+        }
+        if (!doNotReset) {
+            video.currentTime = 0
+        }
+        playButton.classList.remove("hidden")
+    }
+
+    function playVideo(video, playButton) {
+        playButton.classList.add("hidden")
+        if (video.paused) {
+            video.play()
+        }
+    }
+
+    function handleVideosOnSlideChange() {
+        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
+        const activeSlideVideo = document.querySelector(activeVideoSelector)
+
+        projectsVideos.forEach((video) => {
+            if (video !== activeSlideVideo) {
+                pauseVideo(video, findPlayButton(video))
+            } else if (!reduceMotion) {
+                playVideo(video, findPlayButton(video))
+            }
+        })
+    }
+
+    function handleVideoEnded(event) {
+        const video = event.target
+        const playButton = findPlayButton(video)
+        video.currentTime = 0
+        playButton?.classList.remove("hidden")
+    }
+
+    function handleContextMenu(event) {
+        event.preventDefault()
+    }
+
+    function toggleVideo() {
+        const activeSlideVideo = document.querySelector(activeVideoSelector)
+        const doNoReset = true
+
+        if (activeSlideVideo) {
+            if (!activeSlideVideo.paused) {
+                pauseVideo(activeSlideVideo, findPlayButton(activeSlideVideo), doNoReset)
+            } else {
+                playVideo(activeSlideVideo, findPlayButton(activeSlideVideo))
+            }
+        }
+    }
+
     useEffect(() => {
-        const swiperEl = document.querySelector(".projects-swiper")
-        const projectsVideos = document.querySelectorAll(".projects-swiper video")
+        const swiperEl = document.querySelector(projectsSwiperSelector)
+        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
 
         if (swiperEl && projectsVideos) {
+            swiperEl.addEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
             projectsVideos.forEach((video) => {
-                video.addEventListener("ended", () => {
-                    video.currentTime = 0
-                })
-                video.addEventListener("contextmenu", (e) => e.preventDefault())
+                video.addEventListener("ended", handleVideoEnded)
+                video.addEventListener("contextmenu", handleContextMenu)
             })
+        }
 
-            swiperEl.addEventListener("swiperslidechangetransitionend", () => {
-                const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-                const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
-
+        return () => {
+            if (swiperEl && projectsVideos) {
+                swiperEl.removeEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
                 projectsVideos.forEach((video) => {
-                    const playButton = video.nextElementSibling
-
-                    if (!video.paused) {
-                        video.pause()
-                    }
-
-                    video.currentTime = 0
-
-                    playButton.classList.remove("hidden")
+                    video.removeEventListener("ended", handleVideoEnded)
+                    video.removeEventListener("contextmenu", handleContextMenu)
                 })
-
-                if (activeSlideVideo && !reduceMotion) {
-                    playButtonActiveVideo.classList.add("hidden")
-
-                    activeSlideVideo.play()
-                }
-            })
+            }
         }
     }, [])
 
     useEffect(() => {
-        const projectsVideos = document.querySelectorAll(".projects-swiper video")
-        const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-        const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
+        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
+        const activeSlideVideo = document.querySelector(activeVideoSelector)
 
         if (!inView && projectsVideos) {
-            projectsVideos.forEach((video) => {
-                const playButton = video.nextElementSibling
-
-                if (!video.paused) {
-                    video.pause()
-                }
-                video.currentTime = 0
-
-                playButton.classList.remove("hidden")
-            })
+            projectsVideos.forEach((video) => pauseVideo(video, findPlayButton(video)))
         }
 
         if (inView && activeSlideVideo && !reduceMotion) {
-            playButtonActiveVideo.classList.add("hidden")
-
-            activeSlideVideo.play()
+            playVideo(activeSlideVideo, findPlayButton(activeSlideVideo))
         }
     }, [inView])
-
-    function toggleVideo() {
-        const activeSlideVideo = document.querySelector(".projects-swiper .swiper-slide-active video")
-        const playButtonActiveVideo = activeSlideVideo?.nextElementSibling
-
-        if (!activeSlideVideo.paused) {
-            activeSlideVideo.pause()
-
-            playButtonActiveVideo.classList.remove("hidden")
-        } else {
-            playButtonActiveVideo.classList.add("hidden")
-
-            activeSlideVideo.play()
-        }
-    }
 
     return (
         <swiper-container
@@ -132,7 +155,7 @@ export default function ProjectsSlideshow({ projects }) {
             <swiper-slide key={`slide-malt-profile`} class="projects-slide flex justify-center items-center pb-s-fl-m">
                 <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-br from-neutral-400 to-neutral-500 dark:from-neutral-500 dark:to-neutral-700 drop-shadow-lg">
                     <AnimatedButton
-                        link="https://www.google.fr/" /* TODO Mettre le lien vers mon profil */
+                        link="" /* TODO Mettre le lien vers mon profil */
                         text="Plus de projets"
                         bigText
                         iconBefore={

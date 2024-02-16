@@ -8,21 +8,19 @@ import { register } from "swiper/element/bundle"
 register()
 
 export default function SkillsSlideshow({ skills }) {
-    function handleUpdateSpaceBetweenSlides() {
-        const swiperEl = document.querySelector(".skills-swiper")
-        const skillCard = document.querySelector(".skill-card")
-
-        if (swiperEl && skillCard) {
-            const spaceXsValue = getComputedStyle(skillCard).getPropertyValue("border-radius")
-            // Je me base sur ça car le border-radius des skill cards utilise déjà --space-xs et c'est ce que je veux pour "space-between" de swiper
-            // Comme swipper n'accèpte pas de variables ou autre et qu'il n'accèpte que string ou number pour "space-between",
-            // je suis obligé de récupérer la valeur de --space-xs à l'instant T et de lui passer comme nombre
-            swiperEl.setAttribute("space-between", spaceXsValue)
-        }
-    }
-
     useEffect(() => {
-        handleUpdateSpaceBetweenSlides()
+        function handleUpdateSpaceBetweenSlides() {
+            const swiperEl = document.querySelector(".skills-swiper")
+            const skillCard = document.querySelector(".skill-card")
+
+            if (swiperEl && skillCard) {
+                const spaceXsValue = getComputedStyle(skillCard).getPropertyValue("border-radius")
+                // Je me base sur ça car le border-radius des skill cards utilise déjà --space-xs et c'est ce que je veux pour "space-between" de swiper
+                // Comme swipper n'accèpte pas de variables ou autre et qu'il n'accèpte que string ou number pour "space-between",
+                // je suis obligé de récupérer la valeur de --space-xs à l'instant T et de lui passer comme nombre
+                swiperEl.setAttribute("space-between", spaceXsValue)
+            }
+        }
 
         window.addEventListener("resize", handleUpdateSpaceBetweenSlides)
 

@@ -12,10 +12,24 @@ export default function HeroAnimation() {
     const [player, setPlayer] = useState()
     const [playerIsPlaying, setPlayerIsPlaying] = useState(false)
     const reduceMotion = useReduceMotion()
-    useDarkMode()
+    const darkMode = useDarkMode()
+
+    function toggleAnimation() {
+        player.togglePlay()
+        setPlayerIsPlaying(!playerIsPlaying)
+    }
 
     useEffect(() => {
         const playerElement = document.querySelector("dotlottie-player")
+
+        function removeSplashScreen() {
+            const loader = document.getElementById("splashScreen")
+            if (loader) {
+                document.body.classList.remove("overflow-hidden")
+                document.body.classList.add("overflow-y-auto", "overflow-x-hidden")
+                loader.remove()
+            }
+        }
 
         function initPlayer() {
             if (playerElement) {
@@ -33,15 +47,6 @@ export default function HeroAnimation() {
             removeSplashScreen()
         }
 
-        function removeSplashScreen() {
-            const loader = document.getElementById("splashScreen")
-            if (loader) {
-                document.body.classList.remove("overflow-hidden")
-                document.body.classList.add("overflow-y-auto", "overflow-x-hidden")
-                loader.remove()
-            }
-        }
-
         initPlayer()
 
         return () => {
@@ -50,11 +55,6 @@ export default function HeroAnimation() {
             }
         }
     }, [reduceMotion])
-
-    function toggleAnimation() {
-        player.togglePlay()
-        setPlayerIsPlaying(!playerIsPlaying)
-    }
 
     return (
         <InView triggerOnce>

@@ -64,21 +64,32 @@ export default function Hero() {
 
         function handleResize() {
             handleResizeHero()
-            setTimeout(() => handleSnapMandatory(), 100) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
+            handleSnapMandatory()
         }
 
-        setTimeout(() => {
-            handleSnapMandatory()
-        }, 600) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
+        function handleOrientationChange() {
+            handleResizeHero()
+            setTimeout(() => handleSnapMandatory(), 300) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
+        }
 
-        handleResizeHero()
+        if (!/Mobi|Android/i.test(navigator.userAgent)) {
+            window.addEventListener("resize", handleResize)
+            handleResize()
+        }
 
-        window.addEventListener("resize", handleResize)
-        window.addEventListener("orientationChange", handleResize)
+        if ("onorientationchange" in window) {
+            window.addEventListener("orientationchange", handleOrientationChange)
+            handleOrientationChange()
+        }
 
         return () => {
-            window.removeEventListener("resize", handleResize)
-            window.removeEventListener("orientationChange", handleResize)
+            if (!/Mobi|Android/i.test(navigator.userAgent)) {
+                window.removeEventListener("resize", handleResize)
+            }
+
+            if ("onorientationchange" in window) {
+                window.removeEventListener("orientationchange", handleOrientationChange)
+            }
         }
     }, [])
 

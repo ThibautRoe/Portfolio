@@ -15,7 +15,7 @@ export default function Header() {
     useEffect(() => {
         let sections = {}
         let navLi = {}
-        let timeouts = {}
+        let timeouts = []
 
         const highlightNavLi = (currentSectionId) => {
             navLi.forEach((li) => {
@@ -58,6 +58,7 @@ export default function Header() {
 
         return () => {
             sectionObserver.disconnect()
+            timeouts.forEach((timeout) => clearTimeout(timeout))
         }
     }, [])
 

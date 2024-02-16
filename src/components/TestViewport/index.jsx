@@ -7,16 +7,14 @@ import { useRef, useEffect } from "react"
 export default function TestViewport() {
     const viewportWidthTextRef = useRef(null)
 
-    function updateViewportWidth() {
-        const viewportWidthText = viewportWidthTextRef.current
-
-        if (viewportWidthText) {
-            viewportWidthText.innerText = window.innerWidth + "px"
-        }
-    }
-
     useEffect(() => {
-        updateViewportWidth()
+        function updateViewportWidth() {
+            const viewportWidthText = viewportWidthTextRef.current
+
+            if (viewportWidthText) {
+                viewportWidthText.innerText = window.innerWidth + "px"
+            }
+        }
 
         window.addEventListener("resize", updateViewportWidth)
 

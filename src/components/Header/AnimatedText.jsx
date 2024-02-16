@@ -1,48 +1,54 @@
 "use client"
 
-import { useRef, useEffect, useState, createElement } from "react"
+import { useRef, useEffect, createElement } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
-
-const defaultAnimations = {
-    hidden: {
-        opacity: 0,
-        x: 0,
-        y: -10,
-    },
-    visible: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        transition: {
-            duration: 0.1,
-        },
-    },
-    visibleCaret: {
-        opacity: 1,
-        x: 0,
-        y: -3,
-        transition: {
-            duration: 0.1,
-        },
-    },
-    pulsateCaret: {
-        opacity: [1, 0, 1],
-        transition: {
-            duration: 1.5,
-            repeat: Infinity,
-        },
-    },
-}
 
 export default function AnimatedText(props) {
     const { once, text, el, animation, className, repeatDelay } = props
     const textArray = Array.isArray(text) ? text : [text]
     const wrapper = el || "p"
+    const defaultAnimations = {
+        hidden: {
+            opacity: 0,
+            x: 0,
+            y: -10,
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            transition: {
+                duration: 0.1,
+            },
+        },
+        visibleCaret: {
+            opacity: 1,
+            x: 0,
+            y: -3,
+            transition: {
+                duration: 0.1,
+            },
+        },
+        pulsateCaret: {
+            opacity: [1, 0, 1],
+            transition: {
+                duration: 1.5,
+                repeat: Infinity,
+            },
+        },
+    }
     const animations = animation || defaultAnimations
     const controls = useAnimation()
     const controlsCaret = useAnimation()
     const ref = useRef(null)
     const isInView = useInView(ref, { once })
+
+    function startPulsatingCaret() {
+        setTimeout(async () => {
+            await controlsCaret.start("visibleCaret")
+            controlsCaret.start("pulsateCaret")
+        }, 1100)
+    }
 
     useEffect(() => {
         let timeout
@@ -65,13 +71,6 @@ export default function AnimatedText(props) {
 
         return () => clearTimeout(timeout)
     }, [isInView])
-
-    function startPulsatingCaret() {
-        setTimeout(async () => {
-            await controlsCaret.start("visibleCaret")
-            controlsCaret.start("pulsateCaret")
-        }, 1100)
-    }
 
     return (
         <>
