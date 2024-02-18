@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
 import SkillCard from "./SkillCard"
+import Loader from "@/components/Loader"
 import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
@@ -72,6 +73,9 @@ export default function SkillsSlideshow({ skills }) {
                                 </div>
                             )}
                         </InView>
+                    </div>
+                    <div className="swiper-lazy-preloader">
+                        <Loader />
                     </div>
                 </swiper-slide>
             ))}

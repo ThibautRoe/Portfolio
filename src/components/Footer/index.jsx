@@ -9,7 +9,7 @@ export default function Footer() {
     const year = getCurrentYear()
 
     return (
-        <footer className="bg-neutral-100 dark:bg-neutral-900">
+        <footer className="color-transition bg-neutral-100 dark:bg-neutral-900">
             <InView triggerOnce>
                 {({ inView, ref, entry }) => (
                     <div

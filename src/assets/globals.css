@@ -55,7 +55,7 @@
     /***** SWIPER COLORS *****/
     --swiper-navigation-color: theme("colors.neutral.50");
     --swiper-pagination-color: theme("colors.neutral.50");
-    --swiper-navigation-sides-offset: calc(-1 * var(--space-m-l));
+    --swiper-navigation-sides-offset: calc(-1 * var(--space-m));
     --swiper-pagination-bottom: calc(-1 * var(--space-l));
 }
 
@@ -65,8 +65,7 @@
 }
 
 @layer base {
-    *:not(svg, svg *, swiper-slide),
-    .svg-with-transition {
+    .color-transition {
         @apply transition-colors duration-[--transition-all];
     }
 

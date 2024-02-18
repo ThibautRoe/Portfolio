@@ -140,7 +140,10 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="hero" className="bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-800 flex min-h-screen">
+        <section
+            id="hero"
+            className="color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-800 flex min-h-screen"
+        >
             <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-cols-[1fr_1fr] lg:grid-rows-none">
                     <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">

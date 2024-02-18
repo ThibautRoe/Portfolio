@@ -27,7 +27,7 @@ export default function Projects({ projects }) {
     return (
         <section
             id="projects"
-            className="nav-anchor bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 overflow-hidden snap-start flex flex-col min-h-screen"
+            className="nav-anchor color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 overflow-hidden snap-start flex flex-col min-h-screen"
         >
             <div className="u-container flex flex-col flex-grow gap-s-fl-xl">
                 <InView triggerOnce>

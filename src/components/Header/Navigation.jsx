@@ -16,13 +16,13 @@ const navItems = [
 
 export default function Navigation({ activeSectionId }) {
     return (
-        <nav className="fixed lg:static bottom-0 lg:bottom-auto z-40 lg:z-10 w-full lg:w-auto text-t-fl-s lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
+        <nav className="fixed lg:static bottom-0 lg:bottom-auto z-40 lg:z-10 w-full lg:w-auto text-t-fl-s lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 color-transition border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
             <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-l">
                 {navItems.map((item) => (
                     <li
                         key={item.id}
                         className={`flex-grow lg:flex-grow-0 ${
-                            activeSectionId === item.id ? "bg-custom-200/80 dark:bg-neutral-600/95" : ""
+                            activeSectionId === item.id ? "color-transition bg-custom-200/80 dark:bg-neutral-600/95" : ""
                         }`}
                     >
                         <Link
@@ -44,8 +44,8 @@ export default function Navigation({ activeSectionId }) {
                             <span
                                 className={`${
                                     activeSectionId === item.id
-                                        ? "text-neutral-800 dark:text-neutral-100"
-                                        : "text-neutral-600 dark:text-neutral-400"
+                                        ? "color-transition text-neutral-800 dark:text-neutral-100"
+                                        : "color-transition text-neutral-600 dark:text-neutral-400"
                                 } lg:text-neutral-50 dark:lg:text-neutral-50 ${
                                     item.mobileOnly
                                         ? ""

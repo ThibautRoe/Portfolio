@@ -27,7 +27,7 @@ export default function Skills({ skills }) {
     return (
         <section
             id="skills"
-            className="nav-anchor bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 snap-start flex flex-col min-h-screen"
+            className="nav-anchor color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 snap-start flex flex-col min-h-screen"
         >
             <div className="u-container flex flex-col flex-grow items-center gap-s-fl-l-xl">
                 <InView triggerOnce>
