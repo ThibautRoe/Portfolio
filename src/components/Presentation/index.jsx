@@ -60,6 +60,8 @@ export default function Presentation() {
                                 <span className="text-custom-600 dark:text-neutral-50">Passionné d'</span>
                                 <span className="font-bold text-custom-600 dark:text-neutral-50">escalade</span>
                                 <span className="text-custom-600 dark:text-neutral-50">, de </span>
+                                <span className="font-bold text-custom-600 dark:text-neutral-50">musique</span>
+                                <span className="text-custom-600 dark:text-neutral-50">, de </span>
                                 <span className="font-bold text-custom-600 dark:text-neutral-50">voyages</span>
                                 <span className="text-custom-600 dark:text-neutral-50">, de </span>
                                 <span className="font-bold text-custom-600 dark:text-neutral-50">vans aménagés</span>

@@ -46,13 +46,11 @@ export default function Projects({ projects }) {
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`flex flex-grow items-center motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
+                            className={`flex flex-grow justify-center items-center motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
-                            <div>
-                                <ProjectsSlideshow projects={projects} />
-                            </div>
+                            <ProjectsSlideshow projects={projects} />
                         </div>
                     )}
                 </InView>

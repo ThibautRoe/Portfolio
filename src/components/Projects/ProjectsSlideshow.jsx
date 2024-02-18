@@ -121,9 +121,9 @@ export default function ProjectsSlideshow({ projects }) {
     return (
         <swiper-container
             ref={ref}
-            class="projects-swiper"
+            class="projects-swiper w-full"
             a11y="true"
-            cards-effect-slide-shadows="false" // Désactivé car l'ombre se mettait même au niveau des bords arrondis
+            cards-effect-slide-shadows="false"
             effect="cards"
             grab-cursor="true"
             keyboard="true"
@@ -134,7 +134,10 @@ export default function ProjectsSlideshow({ projects }) {
             pagination-clickable="true"
         >
             {projects.map((item) => (
-                <swiper-slide key={`slide-${item.id}`} /* lazy="true" */ class="projects-slide flex justify-center items-center">
+                <swiper-slide
+                    key={`slide-${item.id}`}
+                    /* lazy="true" */ class="self-center flex justify-center items-center drop-shadow-lg"
+                >
                     <ProjectCard
                         actionOnClick={toggleVideo}
                         training={item.training}
@@ -151,8 +154,8 @@ export default function ProjectsSlideshow({ projects }) {
                     />
                 </swiper-slide>
             ))}
-            <swiper-slide key={`slide-malt-profile`} class="projects-slide flex justify-center items-center">
-                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] min-h-[250px] max-h-[70dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 drop-shadow-lg">
+            <swiper-slide key={`slide-malt-profile`} class="self-center flex justify-center items-center drop-shadow-lg">
+                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] w-full min-h-[250px] max-h-[75dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700">
                     <AnimatedButton
                         link="" /* TODO Mettre le lien vers mon profil */
                         text="Plus de projets"

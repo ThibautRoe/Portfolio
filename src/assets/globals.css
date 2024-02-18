@@ -55,7 +55,7 @@
     /***** SWIPER COLORS *****/
     --swiper-navigation-color: theme("colors.neutral.50");
     --swiper-pagination-color: theme("colors.neutral.50");
-    --swiper-navigation-sides-offset: calc(-1 * var(--space-s));
+    --swiper-navigation-sides-offset: calc(-1 * var(--space-m-l));
     --swiper-pagination-bottom: calc(-1 * var(--space-l));
 }
 
@@ -65,7 +65,7 @@
 }
 
 @layer base {
-    *:not(svg, svg *),
+    *:not(svg, svg *, swiper-slide),
     .svg-with-transition {
         @apply transition-colors duration-[--transition-all];
     }
@@ -96,10 +96,7 @@
     }
 }
 
-/*********/
-/* reset */
-/*********/
-
+/***** RESET *****/
 /* makes sizing simpler */
 
 *,
@@ -112,16 +109,26 @@
 /* force styling of type through styling, rather than elements */
 
 * {
-    min-width: 0; /* https://youtu.be/cH8VbLM1958?si=ydZ-gooPQuIHual0 */
     margin: 0;
     padding: 0;
     font: inherit;
+}
+
+input,
+textarea {
+    min-width: 0; /* https://youtu.be/FD3aC_Ke8uk */
 }
 
 /* dark mode user-agent-styles */
 
 html {
     color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+    min-height: 100dvh;
 }
 
 /* responsive images/videos */
