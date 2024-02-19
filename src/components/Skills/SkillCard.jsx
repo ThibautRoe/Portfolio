@@ -39,9 +39,9 @@ export default function SkillCard({ item }) {
                                 rotate: rotate,
                                 whiteSpace: "nowrap",
                             }}
-                            className="rounded-s-fl-3xs bg-neutral-200 text-neutral-600 shadow-xl py-s-fl-3xs px-s-fl-2xs"
+                            className="rounded-s-fl-3xs bg-neutral-200 shadow-xl py-s-fl-3xs px-s-fl-2xs"
                         >
-                            <div className="font-bold text-t-fl-s">{item.name}</div>
+                            <div className="font-bold text-t-fl-s text-neutral-600">{item.name}</div>
                         </motion.div>
                     </div>
                 )}
@@ -56,7 +56,7 @@ export default function SkillCard({ item }) {
                     >
                         <div
                             onMouseMove={handleMouseMove}
-                            className="skill-card rounded-s-fl-xs h-s-fl-2xl w-s-fl-2xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 p-s-fl-2xs shadow-md lg:hover:shadow-lg"
+                            className="skill-card rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
                         >
                             <Image src={item.iconUrl} alt={item.name} width={100} height={100} />
                         </div>
@@ -66,7 +66,7 @@ export default function SkillCard({ item }) {
                 <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                     <div
                         onMouseMove={handleMouseMove}
-                        className="skill-card rounded-s-fl-xs h-s-fl-2xl w-s-fl-2xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 p-s-fl-2xs shadow-md lg:hover:shadow-lg"
+                        className="skill-card rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
                     >
                         <Image src={item.iconUrl} alt={item.name} width={100} height={100} />
                     </div>

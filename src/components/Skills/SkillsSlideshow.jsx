@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
 import SkillCard from "./SkillCard"
-import Loader from "@/components/Loader"
 import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
@@ -34,7 +33,7 @@ export default function SkillsSlideshow({ skills }) {
         <swiper-container
             class="skills-swiper w-full"
             a11y="true"
-            breakpoints='{"768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
+            breakpoints='{"660": {"slidesPerView": 2}, "1230": {"slidesPerView": 3}}'
             grab-cursor="true"
             keyboard="true"
             long-swipes-ratio="0.25"
@@ -45,7 +44,7 @@ export default function SkillsSlideshow({ skills }) {
             slides-per-view="1"
         >
             {skills.map((skill) => (
-                <swiper-slide key={skill.name} lazy="true" class="skills-slide flex flex-col items-center px-s-fl-l">
+                <swiper-slide key={skill.name} /* lazy="true" */ class="skills-slide flex flex-col items-center">
                     <InView triggerOnce>
                         {({ inView, ref, entry }) => (
                             <h3
@@ -58,12 +57,12 @@ export default function SkillsSlideshow({ skills }) {
                             </h3>
                         )}
                     </InView>
-                    <div className="flex flex-grow items-center pt-s-fl-s pb-s-fl-l">
+                    <div className="flex flex-grow items-center">
                         <InView triggerOnce>
                             {({ inView, ref, entry }) => (
                                 <div
                                     ref={ref}
-                                    className={`flex flex-wrap justify-center gap-s-fl-xl motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
+                                    className={`flex flex-wrap justify-center gap-s-fl-l-xl px-s-fl-s py-s-fl-l motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
                                         inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                                     }`}
                                 >
@@ -73,9 +72,6 @@ export default function SkillsSlideshow({ skills }) {
                                 </div>
                             )}
                         </InView>
-                    </div>
-                    <div className="swiper-lazy-preloader">
-                        <Loader />
                     </div>
                 </swiper-slide>
             ))}

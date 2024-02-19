@@ -62,6 +62,8 @@ module.exports = {
                 "s-fl-xs-s": "var(--space-xs-s)",
                 "s-fl-2xs-xs": "var(--space-2xs-xs)",
                 "s-fl-3xs-2xs": "var(--space-3xs-2xs)",
+                // Custom pairs
+                "s-fl-xl-3xl": "var(--space-xl-3xl)",
             },
             borderRadius: {
                 "s-fl-3xl": "var(--space-3xl)",

@@ -25,11 +25,8 @@ export default function Presentation() {
     }, [])
 
     return (
-        <section
-            id="about"
-            className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-800 snap-start flex flex-col min-h-screen"
-        >
-            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-2xl w-full">
+        <section id="about" className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-800 snap-start flex min-h-screen">
+            <div className="u-container flex flex-col flex-grow justify-center gap-s-fl-l-xl w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2

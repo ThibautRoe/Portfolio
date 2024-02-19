@@ -155,7 +155,7 @@ export default function ProjectsSlideshow({ projects }) {
                 </swiper-slide>
             ))}
             <swiper-slide key={`slide-malt-profile`} class="self-center flex justify-center items-center drop-shadow-lg">
-                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] w-full min-h-[250px] max-h-[75dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700">
+                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.45/1] w-full min-h-[285px] max-h-[75dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 pb-s-fl-l">
                     <AnimatedButton
                         link="" /* TODO Mettre le lien vers mon profil */
                         text="Plus de projets"

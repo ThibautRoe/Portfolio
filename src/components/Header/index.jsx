@@ -56,12 +56,12 @@ export default function Header() {
         >
             {/* 1px height plutôt que hidden sur mobile sinon le snap-start n'est pas pris en compte donc on le peut plus scroller sur cette section et le #home hash link ne fonctionne plus  */}
             <div className="lg:u-container">
-                <div className="flex gap-s-fl-l">
-                    <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:inline lg:z-10" />
+                <div className="flex">
+                    <AnimatedText once text="<Thibaut />" el="p" className="hidden text-t-fl-2xl lg:inline" />
                     <Navigation activeSectionId={activeSectionId} />
                     <AnimatedButton
                         link="mailto:hello@thibautroegiers.dev"
-                        linkClass="hidden lg:flex lg:z-10"
+                        linkClass="hidden lg:flex"
                         text="Contactez-moi"
                         iconBefore={
                             <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">

@@ -33,16 +33,13 @@ export default function Contact() {
     }, [])
 
     return (
-        <section
-            id="contact"
-            className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-900 snap-start flex flex-col min-h-screen"
-        >
-            <div className="u-container flex flex-grow items-center justify-center">
+        <section id="contact" className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-900 snap-start flex min-h-screen">
+            <div className="u-container flex flex-grow justify-center items-center">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`relative motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
+                            className={`relative my-s-fl-s-m motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
@@ -56,7 +53,7 @@ export default function Contact() {
                                     <IconHandshake />
                                 </BaseIcon>
                             </div>
-                            <div className="flex aspect-square flex-col items-center justify-center gap-s-fl-2xl px-s-fl-2xl-3xl">
+                            <div className="flex aspect-square flex-col items-center justify-center gap-s-fl-2xl px-s-fl-xl-3xl">
                                 <p className="font-paytoneOne text-t-fl-2xl color-transition text-custom-400 dark:text-neutral-50">
                                     Echangeons !
                                 </p>

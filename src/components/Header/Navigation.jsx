@@ -16,8 +16,8 @@ const navItems = [
 
 export default function Navigation({ activeSectionId }) {
     return (
-        <nav className="fixed lg:static bottom-0 lg:bottom-auto z-40 lg:z-10 w-full lg:w-auto text-t-fl-s lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 color-transition border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
-            <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-l">
+        <nav className="fixed lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 color-transition border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
+            <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-m-l">
                 {navItems.map((item) => (
                     <li
                         key={item.id}
