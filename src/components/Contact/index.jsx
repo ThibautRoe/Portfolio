@@ -45,7 +45,7 @@ export default function Contact() {
                         >
                             <div className="absolute aspect-square rounded-full border-2 border-custom-600 h-full animate-[spin_8s_linear_infinite]">
                                 <BaseIcon
-                                    className="svg-with-transition absolute text-t-fl-xl color-transition text-custom-600 bg-neutral-100 dark:bg-neutral-900 px-s-fl-3xs left-1/2 -translate-x-1/2 -translate-y-1/2"
+                                    className="absolute color-transition text-t-fl-xl text-custom-600 bg-neutral-100 dark:bg-neutral-900 px-s-fl-3xs left-1/2 -translate-x-1/2 -translate-y-1/2"
                                     width="2em"
                                     height="1.6em"
                                     viewBox="0 0 640 512"
@@ -54,7 +54,7 @@ export default function Contact() {
                                 </BaseIcon>
                             </div>
                             <div className="flex aspect-square flex-col items-center justify-center gap-s-fl-2xl px-s-fl-xl-3xl">
-                                <p className="font-paytoneOne text-t-fl-2xl color-transition text-custom-400 dark:text-neutral-50">
+                                <p className="font-paytoneOne text-t-fl-2xl color-transition text-neutral-500 dark:text-neutral-50">
                                     Echangeons !
                                 </p>
                                 <AnimatedButton

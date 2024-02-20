@@ -21,7 +21,7 @@ export default function AnimatedButton(props) {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
                 <button
-                    className={`flex items-center gap-s-fl-s font-bold rounded-full bg-custom-600 hover:bg-custom-700 active:bg-custom-800 shadow-md hover:shadow-lg ${
+                    className={`flex items-center gap-s-fl-s rounded-full font-bold bg-custom-600 hover:bg-custom-700 active:bg-custom-800 shadow-md hover:shadow-lg ${
                         bigText ? "text-t-fl-xl px-s-fl-l py-s-fl-xs" : "text-t-fl-l px-s-fl-m py-s-fl-2xs"
                     } ${ribbonText ? "relative" : ""}`}
                 >

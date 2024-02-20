@@ -24,7 +24,7 @@ export default function ProjectCard(props) {
     } = props
 
     return (
-        <div className="relative flex flex-grow flex-col min-h-[285px] max-h-[75dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] pb-s-fl-l">
+        <div className="relative flex flex-grow flex-col min-h-[285px] max-h-[75dvh] sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] mb-s-fl-l">
             {training && (
                 <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
                     <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-neutral-700 bg-custom-300 rotate-45">
@@ -35,13 +35,15 @@ export default function ProjectCard(props) {
             <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
                 {coverVideoUrl ? (
                     <>
-                        <video
-                            onClick={actionOnClick}
-                            muted
-                            playsInline
-                            src={`${coverVideoUrl}#t=0.001`} /* Trick to get the first frame to show on iOS, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */
-                            className="absolute w-full h-full object-cover object-top"
-                        >
+                        <video onClick={actionOnClick} muted playsInline className="absolute w-full h-full object-cover object-top">
+                            {/* #t=0.001 → Trick to get the first frame to show on iOS, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
+                            {/* <source src={`${coverVideo400pxUrl}#t=0.001`} media="all and (max-width: 400px)"></source>
+                            <source src={`${coverVideo600pxUrl}#t=0.001`} media="all and (max-width: 600px)"></source>
+                            <source src={`${coverVideo800pxUrl}#t=0.001`} media="all and (max-width: 800px)"></source>
+                            <source src={`${coverVideo1000pxUrl}#t=0.001`} media="all and (max-width: 1000px)"></source>
+                            <source src={`${coverVideo1200pxUrl}#t=0.001`} media="all and (max-width: 1200px)"></source> */}
+                            <source src={`${coverVideoUrl}#t=0.001`}></source>
+                            {/* <source src={`${coverVideoOriginalUrl}#t=0.001`}></source> */}
                             Votre navigateur ne prend pas en charge les vidéos
                         </video>
                         <PlayButton
@@ -63,7 +65,7 @@ export default function ProjectCard(props) {
                     />
                 )}
             </div>
-            <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs color-transition bg-gradient-to-t from-white/0 to-white/20 bg-custom-700 dark:bg-neutral-700 p-s-fl-2xs-xs">
+            <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs color-transition text-neutral-50 bg-gradient-to-t from-white/0 to-white/20 bg-custom-700 dark:bg-neutral-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
                     <h3 className="flex-grow font-paytoneOne">{name}</h3>
                     <div className="flex items-center gap-s-fl-l text-t-fl-l">

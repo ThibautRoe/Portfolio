@@ -16,7 +16,7 @@ const navItems = [
 
 export default function Navigation({ activeSectionId }) {
     return (
-        <nav className="fixed lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 color-transition border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
+        <nav className="fixed color-transition lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
             <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-m-l">
                 {navItems.map((item) => (
                     <li
@@ -30,11 +30,11 @@ export default function Navigation({ activeSectionId }) {
                             className={`flex flex-col items-center gap-y-s-fl-3xs p-s-fl-2xs ${item.mobileOnly ? "lg:hidden" : ""}`}
                         >
                             <BaseIcon
-                                className={`lg:hidden ${
+                                className={`lg:hidden color-transition ${
                                     activeSectionId === item.id
                                         ? "text-neutral-800 dark:text-neutral-100"
                                         : "text-neutral-600 dark:text-neutral-400"
-                                } lg:text-neutral-50 dark:lg:text-neutral-50`}
+                                } lg:text-neutral-600 dark:lg:text-neutral-50`}
                                 width="1.2em"
                                 height="1.2em"
                                 viewBox="0 0 24 24"
@@ -42,11 +42,11 @@ export default function Navigation({ activeSectionId }) {
                                 {item.icon}
                             </BaseIcon>
                             <span
-                                className={`${
+                                className={`color-transition lg:text-neutral-600 dark:lg:text-neutral-50 ${
                                     activeSectionId === item.id
-                                        ? "color-transition text-neutral-800 dark:text-neutral-100"
-                                        : "color-transition text-neutral-600 dark:text-neutral-400"
-                                } lg:text-neutral-50 dark:lg:text-neutral-50 ${
+                                        ? "text-neutral-800 dark:text-neutral-100"
+                                        : "text-neutral-600 dark:text-neutral-400"
+                                } ${
                                     item.mobileOnly
                                         ? ""
                                         : "wavy-underline relative after:absolute after:left-0 after:-bottom-[0.2em] after:w-full after:h-[0.25em] after:bg-[length:100%_100%] after:opacity-0 hover:after:opacity-100 lg:after:transition-opacity lg:after:duration-500"

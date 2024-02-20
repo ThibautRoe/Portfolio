@@ -4,8 +4,11 @@ import { useEffect } from "react"
 import AnimatedButton from "@/components/AnimatedButton"
 import BaseIcon from "@/components/Icons/BaseIcon"
 import IconChevronRight from "@/components/Icons/src/Animated/IconChevronRight"
+import useDarkMode from "@/hooks/useDarkMode"
 
 export default function NotFound() {
+    const darkMode = useDarkMode()
+
     useEffect(() => {
         function removeSplashScreen() {
             const loader = document.getElementById("splashScreen")

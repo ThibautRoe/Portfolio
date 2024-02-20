@@ -5,16 +5,16 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { InView } from "react-intersection-observer"
 import Loader from "@/components/Loader"
-// import HeroAnimation from "@/components/Hero/HeroAnimation.jsx"
-import AnimatedMouse from "@/components/AnimatedMouse"
-import ToggleDarkModeButton from "@/components/ToggleDarkModeButton"
-import ConfettiBoom from "@/components/ConfettiBoom"
+// import HeroAnimation from "@/components/Hero/HeroAnimation"
+import AnimatedMouse from "@/components/Hero/AnimatedMouse"
+import ToggleDarkModeButton from "@/components/Hero/ToggleDarkModeButton"
+import ConfettiBoom from "@/components/Hero/ConfettiBoom"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import "./Hero.css"
 
 import dynamic from "next/dynamic"
 
-const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation.jsx"), {
+const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation"), {
     ssr: false,
     loading: () => (
         <div className="flex items-center justify-center">
@@ -50,20 +50,6 @@ export default function Hero() {
     }
 
     useEffect(() => {
-        let resizeTimer
-
-        function cancelTransitionDurationWhileResizing() {
-            const root = document.documentElement
-            root.style.setProperty("--transition-all", "0s")
-            root.style.setProperty("--transition-svg", "0s")
-        }
-
-        function restoreTransitionDuration() {
-            const root = document.documentElement
-            root.style.setProperty("--transition-all", "2s")
-            root.style.setProperty("--transition-svg", "0.5s")
-        }
-
         function handleResizeHero() {
             const header = document.querySelector("header")
             const nav = document.querySelector("nav")
@@ -97,23 +83,13 @@ export default function Hero() {
         }
 
         function handleResizeDesktop() {
-            clearTimeout(resizeTimer)
-            cancelTransitionDurationWhileResizing()
             handleResizeHero()
             handleSnapMandatory()
-            resizeTimer = setTimeout(() => {
-                restoreTransitionDuration()
-            }, 250)
         }
 
         function handleResizeMobile() {
-            clearTimeout(resizeTimer)
-            cancelTransitionDurationWhileResizing()
             handleResizeHero()
             setTimeout(() => handleSnapMandatory(), 300) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
-            resizeTimer = setTimeout(() => {
-                restoreTransitionDuration()
-            }, 250)
         }
 
         if (!/Mobi|Android/i.test(navigator.userAgent)) {
@@ -134,8 +110,6 @@ export default function Hero() {
             if ("onorientationchange" in window) {
                 window.removeEventListener("resize", handleResizeMobile)
             }
-
-            clearTimeout(resizeTimer)
         }
     }, [])
 
@@ -146,7 +120,7 @@ export default function Hero() {
         >
             <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-rows-none lg:grid-cols-[1fr_1fr]">
-                    <div className="flex items-center justify-center mt-s-fl-m lg:mt-0">
+                    <div className="flex justify-center lg:justify-start items-center mt-s-fl-m lg:mt-0">
                         <InView triggerOnce>
                             {({ inView, ref, entry }) => (
                                 <div
@@ -164,7 +138,7 @@ export default function Hero() {
                                         <span
                                             ref={frontendRef}
                                             onMouseEnter={handleConfetti}
-                                            className="transparent-fill hover:text-neutral-50"
+                                            className="text-stroke transparent-fill hover:text-neutral-600 dark:hover:text-neutral-50"
                                         >
                                             front-end
                                         </span>

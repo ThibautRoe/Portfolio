@@ -2,8 +2,16 @@ import BaseIcon from "@/components/Icons/BaseIcon"
 import IconTheme from "@/components/Icons/src/Animated/IconTheme"
 
 export default function ToggleDarkModeButton() {
+    let toogleTimer
+
     function toggleDarkMode() {
+        clearTimeout(toogleTimer)
+
         const root = window.document.documentElement
+        const textStroke = document.querySelector(".text-stroke")
+
+        root.style.setProperty("--color-transition-duration", "2s")
+        textStroke.classList.remove("transparent-fill")
 
         if (root.classList.contains("light")) {
             root.classList.remove("light")
@@ -14,6 +22,12 @@ export default function ToggleDarkModeButton() {
             root.classList.add("light")
             localStorage.setItem("darkmode", "light")
         }
+
+        toogleTimer = setTimeout(() => {
+            root.style.setProperty("--color-transition-duration", "0s")
+
+            textStroke.classList.add("transparent-fill")
+        }, 2000)
     }
 
     return (

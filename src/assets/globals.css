@@ -52,8 +52,7 @@
     --fluid-ribbon-left: clamp(0.125rem, -0.1294rem + 1.2965vi, 1.5625rem);
 
     /***** COLOR TRANSITIONS *****/
-    --transition-all: 2s;
-    --transition-svg: 0.5s;
+    --color-transition-duration: 0s;
 
     /***** SWIPER COLORS *****/
     --swiper-navigation-color: theme("colors.neutral.50");
@@ -67,16 +66,9 @@
     --swiper-pagination-bullet-inactive-color: theme("colors.neutral.200");
 }
 
-@layer base {
-    svg,
-    svg * {
-        @apply transition-colors duration-[--transition-svg];
-    }
-}
-
 @layer utilities {
     .color-transition {
-        @apply transition-colors duration-[--transition-all];
+        @apply transition-colors duration-[--color-transition-duration];
     }
 
     .u-container {
