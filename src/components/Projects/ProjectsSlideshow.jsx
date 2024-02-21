@@ -142,8 +142,8 @@ export default function ProjectsSlideshow({ projects }) {
                         actionOnClick={toggleVideo}
                         training={item.training}
                         name={item.name}
+                        coverVideos={item.coverVideos}
                         coverUrl={item.coverUrl}
-                        coverVideoUrl={item.coverVideoUrl}
                         coverBlur={item.coverBlur}
                         activity={item.activity}
                         description={item.description}
