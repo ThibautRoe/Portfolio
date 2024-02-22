@@ -14,12 +14,12 @@ export default function RootLayout({ children }) {
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
             <head>
                 <title>Thibaut Roegiers - Développeur web front-end</title>
-                <meta name="description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />
+                <meta name="description" content="Développeur web & web mobile front-end indépendant" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://thibautroegiers.dev/" />
                 <meta property="og:site_name" content="Thibaut Roegiers" />
                 <meta property="og:title" content="Thibaut Roegiers" />
-                <meta property="og:description" content="J’adore <coder /> des sites modernes, dynamiques et responsive !" />
+                <meta property="og:description" content="Développeur web & web mobile front-end indépendant" />
             </head>
             <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-600 dark:text-neutral-50 scroll-smooth">
                 {/* <DynamicTestViewport /> */}

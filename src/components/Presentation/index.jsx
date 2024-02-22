@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
 
-/* eslint-disable react/no-unescaped-entities */
 export default function Presentation() {
     useEffect(() => {
         function handleResizeAbout() {

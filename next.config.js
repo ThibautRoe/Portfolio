@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
+
 module.exports = {
+    output: "export",
     images: {
         remotePatterns: [
             {
@@ -9,5 +11,7 @@ module.exports = {
                 pathname: "/2mfu638sar6t/**",
             },
         ],
+        loader: "custom",
+        loaderFile: "./src/components/ContentfulImageLoader/index.jsx",
     },
 }
