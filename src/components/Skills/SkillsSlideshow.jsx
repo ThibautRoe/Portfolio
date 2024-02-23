@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
 import SkillCard from "./SkillCard"
-import "./SkillsSlideshow.css"
 import { register } from "swiper/element/bundle"
 register()
 
@@ -21,6 +20,8 @@ export default function SkillsSlideshow({ skills }) {
                 swiperEl.setAttribute("space-between", spaceXsValue)
             }
         }
+
+        handleUpdateSpaceBetweenSlides()
 
         window.addEventListener("resize", handleUpdateSpaceBetweenSlides)
 
@@ -44,7 +45,7 @@ export default function SkillsSlideshow({ skills }) {
             slides-per-view="1"
         >
             {skills.map((skill) => (
-                <swiper-slide key={skill.name} /* lazy="true" */ class="skills-slide flex flex-col items-center">
+                <swiper-slide key={skill.name} /* lazy="true" */ class="skills-slide flex flex-col items-center mb-s-fl-l">
                     <InView triggerOnce>
                         {({ inView, ref, entry }) => (
                             <h3

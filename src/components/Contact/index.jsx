@@ -54,9 +54,9 @@ export default function Contact() {
                                 </BaseIcon>
                             </div>
                             <div className="flex aspect-square flex-col items-center justify-center gap-s-fl-2xl px-s-fl-xl-3xl">
-                                <p className="font-paytoneOne text-t-fl-2xl color-transition text-neutral-500 dark:text-neutral-50">
+                                <h2 className="font-paytoneOne text-t-fl-2xl color-transition text-neutral-500 dark:text-neutral-50">
                                     Echangeons !
-                                </p>
+                                </h2>
                                 <AnimatedButton
                                     link="mailto:hello@thibautroegiers.dev"
                                     text="CONTACT"
