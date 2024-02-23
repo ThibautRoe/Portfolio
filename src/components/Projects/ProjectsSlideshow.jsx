@@ -39,6 +39,7 @@ export default function ProjectsSlideshow({ projects }) {
     }
 
     function playVideo(video, playButton) {
+        // video.classList.remove("blur-md", "scale-110")
         playButton.classList.add("hidden")
         if (video.paused) {
             video.play()

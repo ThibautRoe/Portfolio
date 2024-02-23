@@ -32,27 +32,37 @@ export default function ProjectCard(props) {
                     </span>
                 </div>
             )}
-            <div className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden">
+            <div
+                className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden"
+                style={{ backgroundImage: `url(${coverBlur})`, backgroundSize: "cover" }}
+            >
                 {coverVideos.coverVideoOriginalUrl ? (
                     <>
-                        <video onClick={actionOnClick} muted playsInline className="absolute w-full h-full object-cover object-top">
+                        <video
+                            onClick={actionOnClick}
+                            poster={coverBlur}
+                            muted
+                            preload="none"
+                            playsInline
+                            className="absolute w-full h-full object-cover object-top" // blur-md scale-110
+                        >
                             {/* #t=0.001 → Trick to get the first frame to show on iOS no poster is set, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
                             {coverVideos.coverVideoW400Url && (
-                                <source src={`${coverVideos.coverVideoW400Url}#t=0.001`} media="all and (max-width: 436px)"></source>
+                                <source src={coverVideos.coverVideoW400Url} media="all and (max-width: 436px)"></source>
                             )}
                             {coverVideos.coverVideoW600Url && (
-                                <source src={`${coverVideos.coverVideoW600Url}#t=0.001`} media="all and (max-width: 683px)"></source>
+                                <source src={coverVideos.coverVideoW600Url} media="all and (max-width: 683px)"></source>
                             )}
                             {coverVideos.coverVideoW800Url && (
-                                <source src={`${coverVideos.coverVideoW800Url}#t=0.001`} media="all and (max-width: 958px)"></source>
+                                <source src={coverVideos.coverVideoW800Url} media="all and (max-width: 958px)"></source>
                             )}
                             {coverVideos.coverVideoW1000Url && (
-                                <source src={`${coverVideos.coverVideoW1000Url}#t=0.001`} media="all and (max-width: 1345px)"></source>
+                                <source src={coverVideos.coverVideoW1000Url} media="all and (max-width: 1345px)"></source>
                             )}
                             {coverVideos.coverVideoW1200Url && (
-                                <source src={`${coverVideos.coverVideoW1200Url}#t=0.001`} media="all and (max-width: 1720px)"></source>
+                                <source src={coverVideos.coverVideoW1200Url} media="all and (max-width: 1720px)"></source>
                             )}
-                            <source src={`${coverVideos.coverVideoOriginalUrl}#t=0.001`}></source>
+                            <source src={coverVideos.coverVideoOriginalUrl}></source>
                             Votre navigateur ne prend pas en charge les vidéos
                         </video>
                         <PlayButton
