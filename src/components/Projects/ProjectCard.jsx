@@ -33,20 +33,20 @@ export default function ProjectCard(props) {
                 </div>
             )}
             <div
-                className="relative aspect-[16/9] rounded-t-s-fl-s overflow-hidden"
-                style={{ backgroundImage: `url(${coverBlur})`, backgroundSize: "cover" }}
+                className="relative aspect-[16/9] rounded-t-s-fl-s bg-cover overflow-hidden"
+                style={{ backgroundImage: `url(${coverBlur})` }}
             >
                 {coverVideos.coverVideoOriginalUrl ? (
                     <>
                         <video
                             onClick={actionOnClick}
-                            poster={coverBlur}
+                            // poster={coverBlur} // Inutile finalement avec coverBlur comme background de la div parente
                             muted
                             preload="none"
                             playsInline
                             className="absolute w-full h-full object-cover object-top" // blur-md scale-110
                         >
-                            {/* #t=0.001 → Trick to get the first frame to show on iOS no poster is set, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
+                            {/* Si preload, rajouter #t=0.001 à la fin de l'url des vidéos → Trick to get the first frame to show on iOS no poster is set, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
                             {coverVideos.coverVideoW400Url && (
                                 <source src={coverVideos.coverVideoW400Url} media="all and (max-width: 436px)"></source>
                             )}

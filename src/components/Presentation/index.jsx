@@ -2,8 +2,11 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
+import getCurrentAge from "@/utils/getCurrentAge"
 
 export default function Presentation() {
+    const age = getCurrentAge()
+
     useEffect(() => {
         function handleResizeAbout() {
             const nav = document.querySelector("nav")
@@ -51,7 +54,7 @@ export default function Presentation() {
                                 }`}
                             >
                                 {/* text color on each element to avoid problem with color transition when switching dark mode */}
-                                <span>Moi c'est Thibaut, </span>
+                                <span>Moi c'est Thibaut, {age} ans et originaire de Montpellier, </span>
                                 <span className="font-bold">ingénieur</span>
                                 <span> de formation, je suis </span>
                                 <span className="font-bold">développeur web</span>
