@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html
-            lang="fr_FR"
+            lang="fr"
             className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} antialiased overflow-hidden dark`}
         >
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
