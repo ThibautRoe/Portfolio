@@ -5,22 +5,29 @@ import "@/assets/globals.css"
 /* import dynamic from "next/dynamic"
 const DynamicTestViewport = dynamic(() => import("@/components/TestViewport"), { ssr: false }) */
 
+export const metadata = {
+    title: "Thibaut Roegiers",
+    description: "Développeur web & web mobile front-end indépendant",
+    openGraph: {
+        title: "Thibaut Roegiers",
+        description: "Développeur web & web mobile front-end indépendant",
+        url: "https://thibautroegiers.dev/",
+        siteName: "Thibaut Roegiers",
+        locale: "fr_FR",
+        type: "website",
+    },
+    verification: {
+        google: "google", //TODO
+    },
+}
+
 export default function RootLayout({ children }) {
     return (
         <html
-            lang="fr"
+            lang="fr_FR"
             className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} antialiased overflow-hidden dark`}
         >
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
-            <head>
-                <title>Thibaut Roegiers - Développeur web front-end</title>
-                <meta name="description" content="Développeur web & web mobile front-end indépendant" />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://thibautroegiers.dev/" />
-                <meta property="og:site_name" content="Thibaut Roegiers" />
-                <meta property="og:title" content="Thibaut Roegiers" />
-                <meta property="og:description" content="Développeur web & web mobile front-end indépendant" />
-            </head>
             <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-600 dark:text-neutral-50 scroll-smooth">
                 {/* <DynamicTestViewport /> */}
                 <SplashScreen />
