@@ -154,7 +154,8 @@ export default function ProjectsSlideshow({ projects }) {
                     // See this commit for code before this changes: https://github.com/ThibautRoe/Portfolio/commit/4341c3641906e2de53f53d262ab9e33782970ca4
                     key={`slide-${item.id}`}
                     slot={`slide-${index}`}
-                    /* lazy="true" */ className="project-slide self-center flex justify-center items-center drop-shadow-lg"
+                    /* lazy="true" */
+                    className="project-slide self-center flex justify-center items-center drop-shadow-lg"
                 >
                     <ProjectCard
                         actionOnClick={toggleVideo}

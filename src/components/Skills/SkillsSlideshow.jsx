@@ -44,8 +44,14 @@ export default function SkillsSlideshow({ skills }) {
             pagination-clickable="true"
             slides-per-view="1"
         >
-            {skills.map((skill) => (
-                <swiper-slide key={skill.name} /* lazy="true" */ class="skills-slide flex flex-col items-center mb-s-fl-l">
+            {skills.map((skill, index) => (
+                <div
+                    // See projects slideshow for why <div slot="slide-x"> instead of <swiper-slide>, even if it's not necessary for the skills slideshow because I don't use the "card" effet, it resolved a warning I had in the console...
+                    key={skill.name}
+                    slot={`slide-${index}`}
+                    /* lazy="true" */
+                    className="skill-slide flex flex-col items-center h-full mb-s-fl-l"
+                >
                     <InView triggerOnce>
                         {({ inView, ref, entry }) => (
                             <h3
@@ -74,7 +80,7 @@ export default function SkillsSlideshow({ skills }) {
                             )}
                         </InView>
                     </div>
-                </swiper-slide>
+                </div>
             ))}
         </swiper-container>
     )
