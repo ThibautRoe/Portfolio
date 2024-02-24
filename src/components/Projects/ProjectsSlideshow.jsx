@@ -91,8 +91,8 @@ export default function ProjectsSlideshow({ projects }) {
         if (swiperEl && projectsVideos) {
             swiperEl.addEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
             projectsVideos.forEach((video) => {
-                video.addEventListener("ended", handleVideoEnded)
                 video.addEventListener("contextmenu", handleContextMenu)
+                video.addEventListener("ended", handleVideoEnded)
             })
         }
 
@@ -100,16 +100,17 @@ export default function ProjectsSlideshow({ projects }) {
             if (swiperEl && projectsVideos) {
                 swiperEl.removeEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
                 projectsVideos.forEach((video) => {
-                    video.removeEventListener("ended", handleVideoEnded)
                     video.removeEventListener("contextmenu", handleContextMenu)
+                    video.removeEventListener("ended", handleVideoEnded)
                 })
             }
         }
-    }, [])
+    }, [reduceMotion]) // reduceMotion plutôt que [] car sinon le useEffect est appelé avant que reduceMotion ne soit initialisé avec le résultat de useReduceMotion() et les eventListeners seront initialisés avec des fonctions qui prendront "undefined" comme valeur pour reduceMotion
 
     useEffect(() => {
         const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
         const activeSlideVideo = document.querySelector(activeVideoSelector)
+        console.log(reduceMotion)
 
         if (!inView && projectsVideos) {
             projectsVideos.forEach((video) => pauseVideo(video, findPlayButton(video)))

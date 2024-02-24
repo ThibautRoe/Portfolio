@@ -94,7 +94,7 @@ export default function ProjectCard(props) {
                         alt={name}
                         placeholder="blur"
                         blurDataURL={coverBlur}
-                        sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw" //TODO
+                        sizes="(max-width: 436px) 400px, (max-width: 683px) 600px, (max-width: 958px) 800px, (max-width: 1345px) 1000px, (max-width: 1720px) 1200px, 1460px"
                         fill
                         className="w-full h-full object-cover object-top"
                     />

@@ -82,34 +82,18 @@ export default function Hero() {
             })
         }
 
-        function handleResizeDesktop() {
+        function handleResizeAndSnap() {
             handleResizeHero()
-            handleSnapMandatory()
+            setTimeout(() => handleSnapMandatory(), 300)
+            //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height and  because on page refresh if the browser automaticaly scrolls to previous section in view before the refresh it can screw things up
         }
 
-        function handleResizeMobile() {
-            handleResizeHero()
-            setTimeout(() => handleSnapMandatory(), 300) //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height
-        }
-
-        if (!/Mobi|Android/i.test(navigator.userAgent)) {
-            window.addEventListener("resize", handleResizeDesktop)
-            handleResizeDesktop()
-        }
-
-        if ("onorientationchange" in window) {
-            window.addEventListener("resize", handleResizeMobile)
-            handleResizeMobile()
-        }
+        window.addEventListener("resize", handleResizeAndSnap)
+        //FYI, on mobile when the orientationchange event fires, the resize event also fires so no need to add another eventListener
+        handleResizeAndSnap()
 
         return () => {
-            if (!/Mobi|Android/i.test(navigator.userAgent)) {
-                window.removeEventListener("resize", handleResizeDesktop)
-            }
-
-            if ("onorientationchange" in window) {
-                window.removeEventListener("resize", handleResizeMobile)
-            }
+            window.removeEventListener("resize", handleResizeAndSnap)
         }
     }, [])
 
