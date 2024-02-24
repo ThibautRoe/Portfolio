@@ -10,6 +10,7 @@ import PlayButton from "@/components/PlayButton"
 export default function ProjectCard(props) {
     const {
         actionOnClick,
+        preload,
         training,
         name,
         coverVideos,
@@ -33,36 +34,51 @@ export default function ProjectCard(props) {
                 </div>
             )}
             <div
-                className="relative aspect-[16/9] rounded-t-s-fl-s bg-cover overflow-hidden"
-                style={{ backgroundImage: `url(${coverBlur})` }}
+                className={`relative aspect-[16/9] rounded-t-s-fl-s bg-neutral-600 ${preload === "none" ? "bg-cover" : ""} overflow-hidden`}
+                style={coverVideos.coverVideoOriginalUrl && preload === "none" ? { backgroundImage: `url(${coverBlur})` } : null}
             >
                 {coverVideos.coverVideoOriginalUrl ? (
                     <>
                         <video
                             onClick={actionOnClick}
-                            // poster={coverBlur} // Inutile finalement avec coverBlur comme background de la div parente
                             muted
-                            preload="none"
                             playsInline
-                            className="absolute w-full h-full object-cover object-top" // blur-md scale-110
+                            poster={preload === "none" ? coverBlur : ""}
+                            preload={preload}
+                            className={`absolute w-full h-full object-cover object-top ${preload === "none" ? "blur-md" : ""}`}
                         >
-                            {/* Si preload, rajouter #t=0.001 à la fin de l'url des vidéos → Trick to get the first frame to show on iOS no poster is set, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
+                            {/* #t=0.001 à la fin de l'url des vidéos → Trick to get the first frame to show on iOS no poster is set, see: https://muffinman.io/blog/hack-for-ios-safari-to-display-html-video-thumbnail/ */}
                             {coverVideos.coverVideoW400Url && (
-                                <source src={coverVideos.coverVideoW400Url} media="all and (max-width: 436px)"></source>
+                                <source
+                                    src={`${coverVideos.coverVideoW400Url}${preload === "auto" ? "#t=0.001" : ""}`}
+                                    media="all and (max-width: 436px)"
+                                ></source>
                             )}
                             {coverVideos.coverVideoW600Url && (
-                                <source src={coverVideos.coverVideoW600Url} media="all and (max-width: 683px)"></source>
+                                <source
+                                    src={`${coverVideos.coverVideoW600Url}${preload === "auto" ? "#t=0.001" : ""}`}
+                                    media="all and (max-width: 683px)"
+                                ></source>
                             )}
                             {coverVideos.coverVideoW800Url && (
-                                <source src={coverVideos.coverVideoW800Url} media="all and (max-width: 958px)"></source>
+                                <source
+                                    src={`${coverVideos.coverVideoW800Url}${preload === "auto" ? "#t=0.001" : ""}`}
+                                    media="all and (max-width: 958px)"
+                                ></source>
                             )}
                             {coverVideos.coverVideoW1000Url && (
-                                <source src={coverVideos.coverVideoW1000Url} media="all and (max-width: 1345px)"></source>
+                                <source
+                                    src={`${coverVideos.coverVideoW1000Url}${preload === "auto" ? "#t=0.001" : ""}`}
+                                    media="all and (max-width: 1345px)"
+                                ></source>
                             )}
                             {coverVideos.coverVideoW1200Url && (
-                                <source src={coverVideos.coverVideoW1200Url} media="all and (max-width: 1720px)"></source>
+                                <source
+                                    src={`${coverVideos.coverVideoW1200Url}${preload === "auto" ? "#t=0.001" : ""}`}
+                                    media="all and (max-width: 1720px)"
+                                ></source>
                             )}
-                            <source src={coverVideos.coverVideoOriginalUrl}></source>
+                            <source src={`${coverVideos.coverVideoOriginalUrl}${preload === "auto" ? "#t=0.001" : ""}`}></source>
                             Votre navigateur ne prend pas en charge les vidéos
                         </video>
                         <PlayButton
@@ -78,7 +94,7 @@ export default function ProjectCard(props) {
                         alt={name}
                         placeholder="blur"
                         blurDataURL={coverBlur}
-                        sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw"
+                        sizes="(max-width: 1025px) 95vw, (max-width: 1500px) 85vw, 75vw" //TODO
                         fill
                         className="w-full h-full object-cover object-top"
                     />

@@ -1,10 +1,10 @@
 .transparent-fill {
-    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-width: 0.028em;
     -webkit-text-stroke-color: #525252;
 }
 
 :root.dark .transparent-fill {
-    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-width: 0.028em;
     -webkit-text-stroke-color: #fafafa;
 }
 

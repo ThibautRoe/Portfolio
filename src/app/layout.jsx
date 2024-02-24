@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             className={`${nunito.variable} ${paytoneOne.variable} ${gloriaHallelujah.variable} antialiased overflow-hidden dark`}
         >
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render, so for now default to dark mode on first load and dark mode applied by HeroAnimation component when removing SplashScreen when animation starts*/}
-            <body className="h-dvh w-dvw font-nunito text-t-fl-base text-neutral-600 dark:text-neutral-50 scroll-smooth">
+            <body className="h-dvh w-dvw scroll-smooth font-nunito text-t-fl-base text-neutral-600 dark:text-neutral-50">
                 {/* <DynamicTestViewport /> */}
                 <SplashScreen />
                 {children}

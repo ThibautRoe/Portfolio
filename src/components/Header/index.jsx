@@ -23,7 +23,7 @@ export default function Header() {
                                 setActiveSectionId(section.target.id)
                             }
                             // window.location.hash = section.target.id
-                        }, 200)
+                        }, 250)
                     } else {
                         clearTimeout(timeouts[section.target.id])
                     }

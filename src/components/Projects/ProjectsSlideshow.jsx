@@ -12,12 +12,13 @@ register()
 
 export default function ProjectsSlideshow({ projects }) {
     const reduceMotion = useReduceMotion()
+    const preload = "auto"
     const projectsSwiperSelector = ".projects-swiper"
     const activeVideoSelector = ".projects-swiper .swiper-slide-active video"
 
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
-        delay: 2000,
+        delay: 1500,
     })
 
     function findPlayButton(video) {
@@ -39,7 +40,7 @@ export default function ProjectsSlideshow({ projects }) {
     }
 
     function playVideo(video, playButton) {
-        // video.classList.remove("blur-md", "scale-110")
+        video.classList.remove("blur-md")
         playButton.classList.add("hidden")
         if (video.paused) {
             video.play()
@@ -141,6 +142,7 @@ export default function ProjectsSlideshow({ projects }) {
                 >
                     <ProjectCard
                         actionOnClick={toggleVideo}
+                        preload={preload}
                         training={item.training}
                         name={item.name}
                         coverVideos={item.coverVideos}
