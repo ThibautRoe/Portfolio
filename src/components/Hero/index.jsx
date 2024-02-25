@@ -88,9 +88,10 @@ export default function Hero() {
             //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height and  because on page refresh if the browser automaticaly scrolls to previous section in view before the refresh it can screw things up
         }
 
+        handleResizeAndSnap()
+
         window.addEventListener("resize", handleResizeAndSnap)
         //FYI, on mobile when the orientationchange event fires, the resize event also fires so no need to add another eventListener
-        handleResizeAndSnap()
 
         return () => {
             window.removeEventListener("resize", handleResizeAndSnap)

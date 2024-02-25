@@ -6,7 +6,7 @@ export default function useDarkMode() {
     const [darkmode, setDarkMode] = useState("dark")
 
     useEffect(() => {
-        const root = window.document.documentElement
+        const root = document.documentElement
         const darkModeLocalStorage = localStorage.getItem("darkmode")
 
         // if (!darkModeLocalStorage || (darkModeLocalStorage && darkModeLocalStorage === "dark")) {

@@ -24,9 +24,8 @@ export default function HeroAnimation() {
 
         function removeSplashScreen() {
             const loader = document.getElementById("splashScreen")
+
             if (loader) {
-                document.body.classList.remove("overflow-hidden")
-                document.body.classList.add("overflow-y-auto", "overflow-x-hidden")
                 loader.remove()
             }
         }

@@ -50,7 +50,7 @@ export default function Projects({ projects }) {
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
-                            <ProjectsSlideshow projects={projects} />
+                            <ProjectsSlideshow projects={projects} sectionInView={inView} />
                         </div>
                     )}
                 </InView>

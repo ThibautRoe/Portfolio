@@ -7,7 +7,7 @@ export default function ToggleDarkModeButton() {
     function toggleDarkMode() {
         clearTimeout(toogleTimer)
 
-        const root = window.document.documentElement
+        const root = document.documentElement
         const textStroke = document.querySelector(".text-stroke")
 
         root.style.setProperty("--color-transition-duration", "2s")

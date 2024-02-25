@@ -10,7 +10,7 @@ import useReduceMotion from "@/hooks/useReduceMotion"
 import { register } from "swiper/element/bundle"
 register()
 
-export default function ProjectsSlideshow({ projects }) {
+export default function ProjectsSlideshow({ projects, sectionInView }) {
     const projectsSwiperSelector = ".projects-swiper"
     const slideSelector = ".project-slide"
     const activeSlideSelector = ".swiper-slide-active"
@@ -48,10 +48,19 @@ export default function ProjectsSlideshow({ projects }) {
     }
 
     function playVideo(video, playButton) {
-        video.classList.remove("blur-md")
-        playButton.classList.add("hidden")
         if (video.paused) {
-            video.play()
+            const playPromise = video.play()
+
+            if (playPromise !== undefined) {
+                playPromise
+                    .then((_) => {
+                        video.classList.remove("blur-md")
+                        playButton.classList.add("hidden")
+                    })
+                    .catch((error) => {
+                        console.error("Failed to play video", error)
+                    })
+            }
         }
     }
 
@@ -101,9 +110,6 @@ export default function ProjectsSlideshow({ projects }) {
             projectsVideos.forEach((video) => {
                 video.addEventListener("contextmenu", handleContextMenu)
                 video.addEventListener("ended", handleVideoEnded)
-                video.addEventListener("suspend", () => {
-                    console.log("couscous") //TODO
-                })
             })
         }
 
@@ -113,7 +119,6 @@ export default function ProjectsSlideshow({ projects }) {
                 projectsVideos.forEach((video) => {
                     video.removeEventListener("contextmenu", handleContextMenu)
                     video.removeEventListener("ended", handleVideoEnded)
-                    video.removeEventListener("suspend", handleVideoEnded) // TODO
                 })
             }
         }
@@ -158,6 +163,7 @@ export default function ProjectsSlideshow({ projects }) {
                     className="project-slide self-center flex justify-center items-center drop-shadow-lg"
                 >
                     <ProjectCard
+                        sectionInView={sectionInView}
                         actionOnClick={toggleVideo}
                         preload={preload}
                         training={item.training}
