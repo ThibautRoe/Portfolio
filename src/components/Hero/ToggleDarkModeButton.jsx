@@ -1,5 +1,5 @@
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconTheme from "@/components/Icons/src/Animated/IconTheme"
+import IconTheme from "@/components/Icons/src/AnimatedOnRender/IconTheme"
 
 export default function ToggleDarkModeButton() {
     let toogleTimer
@@ -32,7 +32,7 @@ export default function ToggleDarkModeButton() {
 
     return (
         <button
-            className="absolute right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m"
+            className="fixed z-10 right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m"
             onClick={toggleDarkMode}
             title="Mode sombre / clair"
             aria-label="Mode sombre / clair"

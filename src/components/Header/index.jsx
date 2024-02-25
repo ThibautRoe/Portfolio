@@ -5,7 +5,7 @@ import AnimatedText from "@/components/Header/AnimatedText"
 import Navigation from "@/components/Header/Navigation"
 import AnimatedButton from "@/components/AnimatedButton"
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconMail from "@/components/Icons/src/Animated/IconMail"
+import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
 
 export default function Header() {
     const [activeSectionId, setActiveSectionId] = useState("home")

@@ -5,7 +5,7 @@ import { InView } from "react-intersection-observer"
 import AnimatedButton from "@/components/AnimatedButton"
 import BaseIcon from "@/components/Icons/BaseIcon"
 import IconHandshake from "@/components/Icons/src/NotAnimated/IconHandshake"
-import IconMail from "@/components/Icons/src/Animated/IconMail"
+import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
 
 export default function Contact() {
     useEffect(() => {

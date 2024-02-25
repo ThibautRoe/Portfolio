@@ -1,10 +1,10 @@
 import Link from "next/link"
 import BaseIcon from "@/components/Icons/BaseIcon"
-import IconHome from "@/components/Icons/src/Animated/IconHome"
-import IconPerson from "@/components/Icons/src/Animated/IconPerson"
-import IconCode from "@/components/Icons/src/Animated/IconCode"
-import IconGithubNavBar from "@/components/Icons/src/Animated/IconGithubNavBar"
-import IconMail from "@/components/Icons/src/Animated/IconMail"
+import IconHome from "@/components/Icons/src/AnimatedOnRender/IconHome"
+import IconPerson from "@/components/Icons/src/AnimatedOnRender/IconPerson"
+import IconCode from "@/components/Icons/src/AnimatedOnRender/IconCode"
+import IconGithubNavBar from "@/components/Icons/src/AnimatedOnRender/IconGithubNavBar"
+import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
 
 const navItems = [
     { id: "home", text: "Accueil", icon: <IconHome />, mobileOnly: true },
