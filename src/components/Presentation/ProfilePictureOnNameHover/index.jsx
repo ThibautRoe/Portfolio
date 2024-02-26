@@ -17,11 +17,12 @@ export default function ProfilePictureOnNameHover({ name }) {
 
     return (
         <div
-            className="inline relative cursor-pointer"
+            className="inline-block relative cursor-pointer"
             onMouseEnter={() => setShowProfilePicture(true)}
             onMouseLeave={() => setShowProfilePicture(false)}
         >
             <AnimatePresence mode="wait">
+                {/* TODO : prevent profile picture to show up if on mobile? */}
                 {showProfilePicture && (
                     <div className="absolute bottom-s-fl-xl left-1/2 -translate-x-1/2 z-30 w-[9.5em] aspect-square">
                         <motion.div
@@ -48,10 +49,7 @@ export default function ProfilePictureOnNameHover({ name }) {
                     </div>
                 )}
             </AnimatePresence>
-            <span
-                className="font-bold underline decoration-dotted underline-offset-[0.175em] animate-[neonAnimation_12s_ease-in-out_infinite]"
-                onMouseMove={handleMouseMove}
-            >
+            <span className="font-bold lg:animate-[neonAnimation_12s_ease-in-out_infinite]" onMouseMove={handleMouseMove}>
                 {name}
             </span>
         </div>
