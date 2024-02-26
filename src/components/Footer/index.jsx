@@ -32,7 +32,12 @@ export default function Footer() {
                                 </motion.span>
                             </Link>
                             <span className="color-transition text-neutral-600 dark:text-neutral-50"> and ❤️ | © {year} </span>
-                            <Link href="mailto:hello@thibautroegiers.dev" target="_blank" rel="noopener noreferrer">
+                            <Link
+                                href="mailto:hello@thibautroegiers.dev"
+                                aria-label="Contactez-moi"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <motion.span
                                     tabIndex="-1"
                                     whileHover={{ scale: 1.05 }}

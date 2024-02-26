@@ -112,7 +112,7 @@ export default function ProjectCard(props) {
                                 href={github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Voir le code sur Github (nouvel onglet)"
+                                aria-label="Voir le code sur Github"
                                 className="hover:shadow-md"
                             >
                                 <motion.div
@@ -132,7 +132,7 @@ export default function ProjectCard(props) {
                                 href={figma}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Voir la maquette sur Figma (nouvel onglet)"
+                                aria-label="Voir la maquette sur Figma"
                                 className="hover:shadow-md"
                             >
                                 <motion.div
@@ -152,7 +152,7 @@ export default function ProjectCard(props) {
                                 href={livePreview}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Voir le site (nouvel onglet)"
+                                aria-label="Voir le site"
                                 className="hover:shadow-md"
                             >
                                 <motion.div

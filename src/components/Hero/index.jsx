@@ -130,7 +130,12 @@ export default function Hero() {
                                     </h1>
                                     <div>
                                         <span>J’adore &lt;coder /&gt; des sites modernes, dynamiques et </span>
-                                        <Link href="https://utopia.fyi/" target="_blank" rel="noopener noreferrer">
+                                        <Link
+                                            href="https://utopia.fyi/"
+                                            aria-label="Fluid Responsive Design"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             <motion.span
                                                 tabIndex="-1"
                                                 whileHover={{ scale: 1.05 }}

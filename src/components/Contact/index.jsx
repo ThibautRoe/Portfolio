@@ -59,6 +59,7 @@ export default function Contact() {
                                 </h2>
                                 <AnimatedButton
                                     link="mailto:hello@thibautroegiers.dev"
+                                    ariaLabel="Contactez-moi"
                                     text="CONTACT"
                                     bigText
                                     iconAfter={
