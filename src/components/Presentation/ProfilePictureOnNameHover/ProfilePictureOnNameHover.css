@@ -1,0 +1,23 @@
+:root {
+    --main-neon-color: 242, 150, 30;
+    --secondary-neon-color: 228, 225, 202;
+}
+
+@keyframes neonAnimation {
+    70% {
+        text-shadow: none;
+    }
+    75% {
+        text-shadow: 0 0 6px rgba(var(--secondary-neon-color), 0.92), 0 0 30px rgba(var(--secondary-neon-color), 0.34),
+            0 0 12px rgba(var(--main-neon-color), 0.52), 0 0 21px rgba(var(--main-neon-color), 0.92),
+            0 0 34px rgba(var(--main-neon-color), 0.78), 0 0 54px rgba(var(--main-neon-color), 0.92);
+    }
+    80% {
+        text-shadow: 0 0 6px rgba(var(--secondary-neon-color), 0.98), 0 0 30px rgba(var(--secondary-neon-color), 0.42),
+            0 0 12px rgba(var(--main-neon-color), 0.58), 0 0 22px rgba(var(--main-neon-color), 0.84),
+            0 0 38px rgba(var(--main-neon-color), 0.88), 0 0 60px rgba(var(--main-neon-color), 1);
+    }
+    85% {
+        text-shadow: none;
+    }
+}

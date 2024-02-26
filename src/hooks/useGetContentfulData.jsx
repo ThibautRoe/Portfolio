@@ -1,6 +1,12 @@
 import { createClient } from "contentful"
 
 export default async function useGetContentfulData() {
+    async function getRemoteSvgInline(url) {
+        const response = await fetch(url)
+        const svg = await response.text()
+        return svg
+    }
+
     const client = createClient({
         space: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -38,38 +44,47 @@ export default async function useGetContentfulData() {
     const skillsFrontend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Frontend")
     skillsFrontend.sort((a, b) => a.fields.order - b.fields.order)
 
-    const formattedskillsFrontend = skillsFrontend.map((item) => {
-        return {
-            id: item.sys.id,
-            name: item.fields.name,
-            iconUrl: "https:" + item.fields.icon.fields.file.url,
-            officialWebsite: item.fields.url,
-        }
-    })
+    const formattedskillsFrontend = await Promise.all(
+        skillsFrontend.map(async (item) => {
+            return {
+                id: item.sys.id,
+                name: item.fields.name,
+                iconUrl: "https:" + item.fields.icon.fields.file.url,
+                // iconSvg: await getRemoteSvgInline(`https:${item.fields.icon.fields.file.url}`),
+                officialWebsite: item.fields.url,
+            }
+        })
+    )
 
     const skillsBackend = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Backend")
     skillsBackend.sort((a, b) => a.fields.order - b.fields.order)
 
-    const formattedskillsBackend = skillsBackend.map((item) => {
-        return {
-            id: item.sys.id,
-            name: item.fields.name,
-            iconUrl: "https:" + item.fields.icon.fields.file.url,
-            officialWebsite: item.fields.url,
-        }
-    })
+    const formattedskillsBackend = await Promise.all(
+        skillsBackend.map(async (item) => {
+            return {
+                id: item.sys.id,
+                name: item.fields.name,
+                iconUrl: "https:" + item.fields.icon.fields.file.url,
+                // iconSvg: await getRemoteSvgInline(`https:${item.fields.icon.fields.file.url}`),
+                officialWebsite: item.fields.url,
+            }
+        })
+    )
 
     const skillsOther = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Other")
     skillsOther.sort((a, b) => a.fields.order - b.fields.order)
 
-    const formattedskillsOther = skillsOther.map((item) => {
-        return {
-            id: item.sys.id,
-            name: item.fields.name,
-            iconUrl: "https:" + item.fields.icon.fields.file.url,
-            officialWebsite: item.fields.url,
-        }
-    })
+    const formattedskillsOther = await Promise.all(
+        skillsOther.map(async (item) => {
+            return {
+                id: item.sys.id,
+                name: item.fields.name,
+                iconUrl: "https:" + item.fields.icon.fields.file.url,
+                // iconSvg: await getRemoteSvgInline(`https:${item.fields.icon.fields.file.url}`),
+                officialWebsite: item.fields.url,
+            }
+        })
+    )
 
     const skillsSoftskill = response.items.filter((item) => item.sys.contentType.sys.id === "skill" && item.fields.type === "Softskill")
     skillsSoftskill.sort((a, b) => a.fields.order - b.fields.order)

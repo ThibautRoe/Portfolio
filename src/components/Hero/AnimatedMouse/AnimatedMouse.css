@@ -38,13 +38,3 @@
         top: 20%;
     }
 }
-
-@keyframes helloAnimation {
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(30deg);
-    }
-}

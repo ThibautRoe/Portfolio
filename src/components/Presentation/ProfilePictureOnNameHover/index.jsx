@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useMotionValue, useSpring, useTransform, AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import ProfilePicture from "@/public/images/profile_picture.webp"
+import "./ProfilePictureOnNameHover.css"
 
 export default function ProfilePictureOnNameHover({ name }) {
     const [showProfilePicture, setShowProfilePicture] = useState(false)
@@ -47,7 +48,10 @@ export default function ProfilePictureOnNameHover({ name }) {
                     </div>
                 )}
             </AnimatePresence>
-            <span className="font-bold underline decoration-dotted underline-offset-[0.175em]" onMouseMove={handleMouseMove}>
+            <span
+                className="font-bold underline decoration-dotted underline-offset-[0.175em] animate-[neonAnimation_12s_ease-in-out_infinite]"
+                onMouseMove={handleMouseMove}
+            >
                 {name}
             </span>
         </div>

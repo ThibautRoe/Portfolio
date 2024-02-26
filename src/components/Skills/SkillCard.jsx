@@ -56,9 +56,9 @@ export default function SkillCard({ item }) {
                     >
                         <div
                             onMouseMove={handleMouseMove}
-                            className="skill-card rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
+                            className="skill-card flex justify-center items-center rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
                         >
-                            <Image src={item.iconUrl} alt={item.name} width={100} height={100} />
+                            <Image src={item.iconUrl} alt={item.name} width={100} height={100} className="max-w-full max-h-full" />
                         </div>
                     </motion.div>
                 </Link>
@@ -66,9 +66,9 @@ export default function SkillCard({ item }) {
                 <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                     <div
                         onMouseMove={handleMouseMove}
-                        className="skill-card rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
+                        className="skill-card flex justify-center items-center rounded-s-fl-xs w-s-fl-2xl h-s-fl-2xl p-s-fl-2xs overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-300 shadow-md lg:hover:shadow-lg"
                     >
-                        <Image src={item.iconUrl} alt={item.name} width={100} height={100} />
+                        <Image src={item.iconUrl} alt={item.name} width={100} height={100} className="max-w-full max-h-full" />
                     </div>
                 </motion.div>
             )}

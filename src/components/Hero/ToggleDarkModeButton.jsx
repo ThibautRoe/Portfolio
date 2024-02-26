@@ -32,7 +32,7 @@ export default function ToggleDarkModeButton() {
 
     return (
         <button
-            className="fixed z-10 right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m"
+            className="absolute z-10 right-[--grid-gutter] top-s-fl-m lg:top-auto lg:bottom-s-fl-m"
             onClick={toggleDarkMode}
             title="Mode sombre / clair"
             aria-label="Mode sombre / clair"
