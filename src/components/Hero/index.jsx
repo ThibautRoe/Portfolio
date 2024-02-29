@@ -120,11 +120,7 @@ export default function Hero() {
                                     </div>
                                     <h1 className="font-paytoneOne text-t-fl-3xl">
                                         Développeur web{" "}
-                                        <span
-                                            ref={frontendRef}
-                                            onMouseEnter={handleConfetti}
-                                            className="text-stroke transparent-fill hover:text-neutral-600 dark:hover:text-neutral-50"
-                                        >
+                                        <span ref={frontendRef} onMouseEnter={handleConfetti} className="transparent-fill">
                                             front-end
                                         </span>
                                     </h1>

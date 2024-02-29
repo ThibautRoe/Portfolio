@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react"
 import { InView } from "react-intersection-observer"
 import "@dotlottie/player-component"
-import useDarkMode from "@/hooks/useDarkMode"
 import useReduceMotion from "@/hooks/useReduceMotion"
+import useDarkMode from "@/hooks/useDarkMode"
 import PlayButton from "@/components/PlayButton"
 
 export default function HeroAnimation() {

@@ -4,8 +4,10 @@ import Link from "next/link"
 import Image from "next/image"
 import React, { useState } from "react"
 import { useMotionValue, useSpring, useTransform, AnimatePresence, motion } from "framer-motion"
+import useTouchOnlyDevice from "@/hooks/useTouchOnlyDevice"
 
 export default function SkillCard({ item }) {
+    const touchOnlyDevice = useTouchOnlyDevice()
     const [hoveredIndex, setHoveredIndex] = useState(null)
     const springConfig = { stiffness: 100, damping: 5 }
     const x = useMotionValue(0)
@@ -17,7 +19,19 @@ export default function SkillCard({ item }) {
     }
 
     return (
-        <div className="relative" onMouseEnter={() => setHoveredIndex(item.id)} onMouseLeave={() => setHoveredIndex(null)}>
+        <div
+            className="relative"
+            onMouseEnter={() => {
+                if (!touchOnlyDevice) {
+                    setHoveredIndex(item.id)
+                }
+            }}
+            onMouseLeave={() => {
+                if (!touchOnlyDevice) {
+                    setHoveredIndex(null)
+                }
+            }}
+        >
             <AnimatePresence mode="wait">
                 {hoveredIndex === item.id && (
                     <div className="absolute -top-s-fl-l left-1/2 -translate-x-1/2 z-30">

@@ -11,14 +11,12 @@ export default function ToggleDarkModeButton() {
 
         root.style.setProperty("--color-transition-duration", "2s")
 
-        if (root.classList.contains("light")) {
-            root.classList.remove("light")
-            root.classList.add("dark")
-            localStorage.setItem("darkmode", "dark")
-        } else if (root.classList.contains("dark")) {
+        if (root.classList.contains("dark")) {
             root.classList.remove("dark")
-            root.classList.add("light")
-            localStorage.setItem("darkmode", "light")
+            localStorage.theme = "light"
+        } else {
+            root.classList.add("dark")
+            localStorage.theme = "dark"
         }
 
         toogleTimer = setTimeout(() => {
