@@ -37,9 +37,9 @@ export default function PresentationText() {
             <br />
             <br />
             <span className="font-bold">Autodidacte</span>
-            <span>, j'ai bâti des bases solides en HTML/CSS/JS, que j'ai récemment perfectionnées grâce à une </span>
+            <span>, j'avais depuis longtemps des bases solides en HTML/CSS/JS, que j'ai perfectionnées grâce à une </span>
             <span className="font-bold">formation certifiante</span>
-            .
+            <span> que j'ai suivie et validée.</span>
             <br />
             <br />
             <span>Je maîtrise les </span>
