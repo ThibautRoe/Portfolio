@@ -35,7 +35,7 @@ export default function Presentation() {
             id="about"
             className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-50 snap-start flex min-h-screen"
         >
-            <div className="u-container flex flex-col gap-s-fl-l-xl w-full">
+            <div className="u-container flex flex-col gap-s-fl-l-xl">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2

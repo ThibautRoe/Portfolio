@@ -29,12 +29,12 @@ export default function Skills({ skills }) {
             id="skills"
             className="nav-anchor color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 snap-start flex min-h-screen"
         >
-            <div className="u-container flex flex-col flex-grow items-center gap-s-fl-l-xl">
+            <div className="u-container flex flex-col gap-s-fl-l-xl">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
+                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
                                 inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
                             }`}
                         >
@@ -42,7 +42,7 @@ export default function Skills({ skills }) {
                         </h2>
                     )}
                 </InView>
-                <div className="flex flex-grow self-stretch">
+                <div className="flex flex-grow">
                     <SkillsSlideshow skills={skills} />
                 </div>
             </div>
