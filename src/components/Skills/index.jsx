@@ -29,7 +29,7 @@ export default function Skills({ skills }) {
             id="skills"
             className="nav-anchor color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 snap-start flex min-h-screen"
         >
-            <div className="u-container flex flex-col gap-s-fl-l-xl">
+            <div className="u-container flex flex-col gap-s-fl-l-xl w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2

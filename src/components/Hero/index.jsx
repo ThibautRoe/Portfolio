@@ -100,7 +100,7 @@ export default function Hero() {
 
     return (
         <>
-            <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
+            <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow w-full">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-rows-none lg:grid-cols-[1fr_1fr]">
                     <div className="flex justify-center lg:justify-start items-center mt-s-fl-m lg:mt-0">
                         <InView triggerOnce>

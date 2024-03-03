@@ -29,7 +29,7 @@ export default function Projects({ projects }) {
             id="projects"
             className="nav-anchor color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-900 overflow-hidden snap-start flex min-h-screen"
         >
-            <div className="u-container flex flex-col gap-s-fl-xl">
+            <div className="u-container flex flex-col gap-s-fl-xl w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <h2

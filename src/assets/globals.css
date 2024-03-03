@@ -86,8 +86,7 @@
     }
 
     .u-container {
-        /* max-width: var(--grid-max-width); */ /* Original */
-        max-width: min(100dvw, var(--grid-max-width)); /* Fix for swiper */
+        max-width: var(--grid-max-width);
         padding-inline: var(--grid-gutter);
         padding-block: var(--space-s-m);
         margin-inline: auto;

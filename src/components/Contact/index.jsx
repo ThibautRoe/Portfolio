@@ -34,7 +34,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-900 snap-start flex min-h-screen">
-            <div className="u-container flex flex-grow justify-center items-center">
+            <div className="u-container flex flex-grow justify-center items-center w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <div
