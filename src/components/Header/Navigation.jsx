@@ -67,20 +67,25 @@ export default function Navigation({ header, activeSectionId }) {
     } else {
         return (
             <DropdownMenuRadioGroup value={activeSectionId}>
-                {navItems.map((item) => (
-                    <DropdownMenuRadioItem
-                        key={item.id}
-                        value={item.id}
-                        className="text-t-fl-s focus:bg-neutral-100/90 dark:focus:bg-neutral-600/90"
-                    >
-                        <Link href={`#${item.id}`} className="flex gap-s-fl-3xs">
-                            <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
-                                {item.icon}
-                            </BaseIcon>
-                            <span>{item.text}</span>
-                        </Link>
-                    </DropdownMenuRadioItem>
-                ))}
+                <nav>
+                    <ul>
+                        {navItems.map((item) => (
+                            <li key={item.id}>
+                                <DropdownMenuRadioItem
+                                    value={item.id}
+                                    className="text-t-fl-s focus:bg-neutral-100/90 dark:focus:bg-neutral-600/90"
+                                >
+                                    <Link href={`#${item.id}`} className="flex gap-s-fl-3xs">
+                                        <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
+                                            {item.icon}
+                                        </BaseIcon>
+                                        <span>{item.text}</span>
+                                    </Link>
+                                </DropdownMenuRadioItem>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </DropdownMenuRadioGroup>
         )
     }

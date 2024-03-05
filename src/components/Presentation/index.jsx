@@ -40,9 +40,10 @@ export default function Presentation() {
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`text-center font-paytoneOne text-t-fl-xl motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
+                            // TODO motion-reduce:animate-none et enlever motion-safe: dans tout le projet
                         >
                             Présentation
                         </h2>
