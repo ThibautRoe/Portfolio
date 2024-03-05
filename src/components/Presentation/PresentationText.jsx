@@ -1,5 +1,5 @@
 import ProfilePictureOnNameHover from "@/components/Presentation/ProfilePictureOnNameHover"
-import getCurrentAge from "@/utils/getCurrentAge"
+import { getCurrentAge } from "@/lib/utils"
 
 export default function PresentationText() {
     const age = getCurrentAge()

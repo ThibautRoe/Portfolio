@@ -1,5 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { nunito, paytoneOne, gloriaHallelujah } from "@/utils/fonts"
+import { nunito, paytoneOne, gloriaHallelujah } from "@/lib/fonts"
 import SplashScreen from "@/components/SplashScreen"
 import "@/assets/globals.css"
 
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             // The downside is that it breaks scroll position restoration on all browsers but Firefox. Scroll restoration on anchors links (http://thibautroegiers.dev/#skills for example) on page refresh still works on Firefox and Safari but not on Chrome based browsers (Chrome, Opera, Arc, etc.).
         >
             <head>
-                <link rel="preload" as="fetch" crossorigin="anonymous" type="application/zip+lottie" href="/hero-animation.lottie" />
+                <link rel="preload" as="fetch" crossOrigin="anonymous" type="application/zip+lottie" href="/hero-animation.lottie" />
                 {/* Can't find a way to easily preload assets with Next.js app router without using <head> (not supposed to use it like that) */}
             </head>
             {/* TODO Can't find a way for SplashScreen to get darkmode right on first render if "darkMode: "class"" set in Tailwind config (allowing manual toggling of dark mode)

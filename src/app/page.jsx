@@ -1,18 +1,10 @@
 import useGetContentfulData from "@/hooks/useGetContentfulData"
-import Header from "@/components/Header"
-import Main from "@/components/Main"
-import Footer from "@/components/Footer"
+import HomePage from "@/components/HomePage"
 
-export default async function HomePage() {
+export default async function Page() {
     // await new Promise((res) => setTimeout(res, 5000)) // To test loading.jsx page
 
     const { formattedSkills, formattedProjects } = await useGetContentfulData()
 
-    return (
-        <>
-            <Header />
-            <Main skills={formattedSkills} projects={formattedProjects} />
-            <Footer />
-        </>
-    )
+    return <HomePage skills={formattedSkills} projects={formattedProjects} />
 }

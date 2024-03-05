@@ -6,9 +6,9 @@ export default function IconBurgerMenu({ isOpen }) {
             className={`ham ${isOpen ? "active" : ""}`}
             fill="none"
             stroke="currentColor"
-            stroke-width="0.3em"
-            stroke-linecap="round"
-            stroke-dasharray="40 121"
+            strokeWidth="0.3em"
+            strokeLinecap="round"
+            strokeDasharray="40 121"
             viewBox="16 25 67 50"
             width="2.2em"
             xmlns="http://www.w3.org/2000/svg"

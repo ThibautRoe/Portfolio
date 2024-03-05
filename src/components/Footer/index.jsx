@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
 import Link from "next/link"
-import getCurrentYear from "@/utils/getCurrentYear"
+import { getCurrentYear } from "@/lib/utils"
 
 export default function Footer() {
     const year = getCurrentYear()

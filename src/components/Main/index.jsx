@@ -9,7 +9,7 @@ import Projects from "@/components/Projects"
 // import ContactForm from "@/components/ContactForm"
 import Contact from "@/components/Contact"
 
-export default function Main({ skills, projects }) {
+export default function Main({ activeSectionId, skills, projects }) {
     const { ref, inView, entry } = useInView({
         threshold: 0.001,
     })
@@ -24,7 +24,7 @@ export default function Main({ skills, projects }) {
                 <Hero />
             </section>
             <main>
-                {!inView ? <StickyBurgerMenu /> : null}
+                {!inView ? <StickyBurgerMenu activeSectionId={activeSectionId} /> : null}
                 <Presentation />
                 <Skills skills={skills} />
                 <Projects projects={projects} />
