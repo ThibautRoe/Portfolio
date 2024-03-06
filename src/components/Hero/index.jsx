@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { InView } from "react-intersection-observer"
-import Loader from "@/components/Loader"
+import Loader from "@/components/ui/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation"
 import AnimatedMouse from "@/components/Hero/AnimatedMouse"
 import ToggleDarkModeButton from "@/components/Hero/ToggleDarkModeButton"
@@ -107,8 +107,8 @@ export default function Hero() {
                             {({ inView, ref, entry }) => (
                                 <div
                                     ref={ref}
-                                    className={`flex flex-col gap-s-fl-l-xl motion-safe:animate-fade-up motion-safe:animate-delay-300 ${
-                                        inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                    className={`flex flex-col gap-s-fl-l-xl motion-reduce:animate-none animate-fade-up animate-delay-300 ${
+                                        inView ? "animate-play" : "animate-stop"
                                     }`}
                                 >
                                     <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">

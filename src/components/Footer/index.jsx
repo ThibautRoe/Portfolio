@@ -14,8 +14,8 @@ export default function Footer() {
                 {({ inView, ref, entry }) => (
                     <div
                         ref={ref}
-                        className={`u-container py-s-fl-s text-t-fl-xs flex justify-center motion-safe:animate-fade-up motion-safe:animate-delay-300 ${
-                            inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                        className={`u-container py-s-fl-s text-t-fl-xs flex justify-center motion-reduce:animate-none animate-fade-up animate-delay-300 ${
+                            inView ? "animate-play" : "animate-stop"
                         }`}
                     >
                         <div>

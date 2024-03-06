@@ -1,10 +1,13 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconHome from "@/components/Icons/src/AnimatedOnRender/IconHome"
-import IconPerson from "@/components/Icons/src/AnimatedOnRender/IconPerson"
-import IconCode from "@/components/Icons/src/AnimatedOnRender/IconCode"
-import IconGithubNavBar from "@/components/Icons/src/AnimatedOnRender/IconGithubNavBar"
-import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
+import BaseIcon from "@/components/ui/Icons/BaseIcon"
+import IconHome from "@/components/ui/Icons/src/AnimatedOnRender/IconHome"
+import IconPerson from "@/components/ui/Icons/src/AnimatedOnRender/IconPerson"
+import IconCode from "@/components/ui/Icons/src/AnimatedOnRender/IconCode"
+import IconGithubNavBar from "@/components/ui/Icons/src/AnimatedOnRender/IconGithubNavBar"
+import IconMail from "@/components/ui/Icons/src/AnimatedOnRender/IconMail"
 import { DropdownMenuRadioGroup, DropdownMenuRadioItem } from "@/components/ui/dropdown-menu"
 
 export const navItems = [
@@ -15,7 +18,48 @@ export const navItems = [
     { id: "contact", text: "Contact", icon: <IconMail />, mobileOnly: true },
 ]
 
-export default function Navigation({ header, activeSectionId }) {
+export default function Navigation({ header }) {
+    const [activeSectionId, setActiveSectionId] = useState("home")
+
+    useEffect(() => {
+        let sections = []
+        let timeouts = []
+        const delayInit = header ? 500 : 0
+        const delayUpdate = header ? 250 : 0
+
+        const sectionObserver = new IntersectionObserver(
+            (sections, observer) => {
+                sections.forEach((section) => {
+                    if (section.isIntersecting) {
+                        timeouts[section.target.id] = setTimeout(() => {
+                            setActiveSectionId(section.target.id)
+                            // window.location.hash = section.target.id
+                        }, delayUpdate)
+                    } else {
+                        clearTimeout(timeouts[section.target.id])
+                    }
+                })
+            },
+            { threshold: 0.6 }
+        )
+
+        const initObserver = () => {
+            sections.forEach((section) => {
+                sectionObserver.observe(section)
+            })
+        }
+
+        setTimeout(() => {
+            sections = document.querySelectorAll(".nav-anchor")
+            initObserver()
+        }, delayInit) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon for header
+
+        return () => {
+            sectionObserver.disconnect()
+            timeouts.forEach((timeout) => clearTimeout(timeout))
+        }
+    }, [])
+
     if (header) {
         return (
             <nav className="fixed color-transition lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">

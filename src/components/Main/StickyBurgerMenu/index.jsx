@@ -9,17 +9,15 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import Navigation from "@/components/Header/Navigation"
+import Navigation from "@/components/Navigation"
 
-export default function StickyBurgerMenu({ activeSectionId }) {
+export default function StickyBurgerMenu() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
         <div className="z-10 sticky hidden lg:block h-0 max-w-[min(100dvw,var(--grid-max-width))] mx-auto px-[--grid-gutter] top-s-fl-s-m">
             <div className="flex justify-end">
-                {/* TODO : normalement shadcn utilise tailwindcss-animate, moi j'utilise tailwindcss-animated, voir pour adapter
-                La navigation au clavier marche mais pas pour valider
-                */}
+                {/* TODO : normalement shadcn utilise tailwindcss-animate, moi j'utilise tailwindcss-animated, voir pour adapter */}
                 <DropdownMenu onOpenChange={() => setIsOpen(!isOpen)}>
                     <DropdownMenuTrigger aria-label="Menu de navigation" className="focus:outline-none">
                         <IconBurgerMenu isOpen={isOpen} />
@@ -30,7 +28,7 @@ export default function StickyBurgerMenu({ activeSectionId }) {
                     >
                         <DropdownMenuLabel className="text-center text-t-fl-base font-bold">Navigation</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <Navigation header={false} activeSectionId={activeSectionId} />
+                        <Navigation header={false} />
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

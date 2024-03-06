@@ -3,9 +3,9 @@
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import ProjectCard from "./ProjectCard"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconChevronRight from "@/components/Icons/src/AnimatedOnRender/IconChevronRight"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/Icons/BaseIcon"
+import IconChevronRight from "@/components/ui/Icons/src/AnimatedOnRender/IconChevronRight"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import { register } from "swiper/element/bundle"
 register()

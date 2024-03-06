@@ -1,10 +1,10 @@
 import AnimatedText from "@/components/Header/AnimatedText"
-import Navigation from "@/components/Header/Navigation"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
+import Navigation from "@/components/Navigation"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/Icons/BaseIcon"
+import IconMail from "@/components/ui/Icons/src/AnimatedOnRender/IconMail"
 
-export default function Header({ activeSectionId }) {
+export default function Header() {
     return (
         <header
             id="home"
@@ -14,7 +14,7 @@ export default function Header({ activeSectionId }) {
             <div className="lg:u-container">
                 <div className="flex">
                     <AnimatedText once text="<Thibaut />" el="p" className="hidden lg:inline text-t-fl-2xl" />
-                    <Navigation header={true} activeSectionId={activeSectionId} />
+                    <Navigation header={true} />
                     <AnimatedButton
                         link="mailto:hello@thibautroegiers.dev"
                         linkClass="hidden lg:flex"

@@ -2,10 +2,10 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconHandshake from "@/components/Icons/src/NotAnimated/IconHandshake"
-import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/Icons/BaseIcon"
+import IconHandshake from "@/components/ui/Icons/src/NotAnimated/IconHandshake"
+import IconMail from "@/components/ui/Icons/src/AnimatedOnRender/IconMail"
 
 export default function Contact() {
     useEffect(() => {
@@ -39,8 +39,8 @@ export default function Contact() {
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`relative my-s-fl-s-m motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`relative my-s-fl-s-m motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             <div className="absolute aspect-square rounded-full border-2 border-custom-600 dark:border-custom-700 h-full animate-[spin_8s_linear_infinite]">

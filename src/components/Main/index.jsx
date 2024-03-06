@@ -4,18 +4,16 @@ import { useInView } from "react-intersection-observer"
 import Hero from "@/components/Hero"
 import StickyBurgerMenu from "@/components/Main/StickyBurgerMenu"
 import Presentation from "@/components/Presentation"
-import Skills from "@/components/Skills"
-import Projects from "@/components/Projects"
 // import ContactForm from "@/components/ContactForm"
 import Contact from "@/components/Contact"
 
-export default function Main({ activeSectionId, skills, projects }) {
+export default function Main({ skillsAndProjectsComponent }) {
     const { ref, inView, entry } = useInView({
         threshold: 0.001,
     })
 
     return (
-        <>
+        <main>
             <section
                 ref={ref}
                 id="hero"
@@ -23,13 +21,10 @@ export default function Main({ activeSectionId, skills, projects }) {
             >
                 <Hero />
             </section>
-            <main>
-                {!inView ? <StickyBurgerMenu activeSectionId={activeSectionId} /> : null}
-                <Presentation />
-                <Skills skills={skills} />
-                <Projects projects={projects} />
-                <Contact />
-            </main>
-        </>
+            {!inView ? <StickyBurgerMenu /> : null}
+            <Presentation />
+            {skillsAndProjectsComponent}
+            <Contact />
+        </main>
     )
 }

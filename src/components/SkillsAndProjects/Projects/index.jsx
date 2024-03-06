@@ -34,8 +34,8 @@ export default function Projects({ projects }) {
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`text-center font-paytoneOne text-t-fl-xl motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             Mes réalisations
@@ -46,8 +46,8 @@ export default function Projects({ projects }) {
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`flex flex-grow justify-center items-center motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`flex flex-grow justify-center items-center motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             <ProjectsSlideshow projects={projects} sectionInView={inView} />

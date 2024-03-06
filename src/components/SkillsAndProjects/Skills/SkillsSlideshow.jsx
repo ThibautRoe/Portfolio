@@ -56,8 +56,8 @@ export default function SkillsSlideshow({ skills }) {
                         {({ inView, ref, entry }) => (
                             <h3
                                 ref={ref}
-                                className={`font-paytoneOne text-t-fl-l motion-safe:animate-fade-up motion-safe:animate-delay-300 ${
-                                    inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                className={`font-paytoneOne text-t-fl-l motion-reduce:animate-none animate-fade-up animate-delay-300 ${
+                                    inView ? "animate-play" : "animate-stop"
                                 }`}
                             >
                                 {skill.name}
@@ -69,8 +69,8 @@ export default function SkillsSlideshow({ skills }) {
                             {({ inView, ref, entry }) => (
                                 <div
                                     ref={ref}
-                                    className={`flex flex-wrap justify-center gap-s-fl-l-xl px-s-fl-s py-s-fl-l motion-safe:animate-fade motion-safe:animate-delay-300 motion-safe:animate-duration-[2500ms] ${
-                                        inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                    className={`flex flex-wrap justify-center gap-s-fl-l-xl px-s-fl-s py-s-fl-l motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
+                                        inView ? "animate-play" : "animate-stop"
                                     }`}
                                 >
                                     {skill.value.map((item) => (

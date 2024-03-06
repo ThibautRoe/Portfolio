@@ -5,7 +5,7 @@ import { InView } from "react-intersection-observer"
 import "@dotlottie/player-component"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import useDarkMode from "@/hooks/useDarkMode"
-import PlayButton from "@/components/PlayButton"
+import PlayButton from "@/components/ui/PlayButton"
 
 export default function HeroAnimation() {
     const heroAnimationPath = "/hero-animation.lottie"
@@ -60,8 +60,8 @@ export default function HeroAnimation() {
             {({ inView, ref, entry }) => (
                 <div
                     ref={ref}
-                    className={`flex items-center justify-center motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                        inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                    className={`flex items-center justify-center motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                        inView ? "animate-play" : "animate-stop"
                     }`}
                 >
                     <div className="relative flex flex-grow items-center justify-center">

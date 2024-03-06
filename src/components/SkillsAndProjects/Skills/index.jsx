@@ -34,8 +34,8 @@ export default function Skills({ skills }) {
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`text-center font-paytoneOne text-t-fl-xl motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             Mes compétences

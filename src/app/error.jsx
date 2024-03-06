@@ -2,8 +2,8 @@
 
 import { useEffect } from "react"
 import { motion } from "framer-motion"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconChevronRight from "@/components/Icons/src/AnimatedOnRender/IconChevronRight"
+import BaseIcon from "@/components/ui/Icons/BaseIcon"
+import IconChevronRight from "@/components/ui/Icons/src/AnimatedOnRender/IconChevronRight"
 
 export default function Error({ error, reset }) {
     useEffect(() => {
