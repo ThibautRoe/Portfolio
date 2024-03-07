@@ -6,8 +6,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { InView } from "react-intersection-observer"
 import PresentationText from "@/components/presentation/presentation-text"
-import BaseIcon from "@/components/ui/icons/BaseIcon"
-import IconDownload from "@/components/ui/icons/src/AnimatedInfiniteLoop/IconDownload"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconDownload from "@/components/ui/icons/src/animated-infinite-loop/icon-download"
 import CV from "@/public/images/cv.webp"
 
 export default function Presentation() {

@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import BaseIcon from "@/components/ui/icons/BaseIcon"
-import IconHome from "@/components/ui/icons/src/AnimatedOnRender/IconHome"
-import IconPerson from "@/components/ui/icons/src/AnimatedOnRender/IconPerson"
-import IconCode from "@/components/ui/icons/src/AnimatedOnRender/IconCode"
-import IconGithubNavBar from "@/components/ui/icons/src/AnimatedOnRender/IconGithubNavBar"
-import IconMail from "@/components/ui/icons/src/AnimatedOnRender/IconMail"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconHome from "@/components/ui/icons/src/animated-on-render/icon-home"
+import IconPerson from "@/components/ui/icons/src/animated-on-render/icon-person"
+import IconCode from "@/components/ui/icons/src/animated-on-render/icon-code"
+import IconGithubNavBar from "@/components/ui/icons/src/animated-on-render/icon-github-navbar"
+import IconMail from "@/components/ui/icons/src/animated-on-render/icon-mail"
 import { DropdownMenuRadioGroup, DropdownMenuRadioItem } from "@/components/ui/dropdown-menu"
 
 export const navItems = [
