@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import IconBurgerMenu from "@/components/main/sticky-burger-menu/icon-burger-menu"
+import IconBurgerMenu from "@/components/Main/StickyBurgerMenu/IconBurgerMenu"
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -9,7 +9,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import Navigation from "@/components/navigation"
+import Navigation from "@/components/Navigation"
 
 export default function StickyBurgerMenu() {
     const [isOpen, setIsOpen] = useState(false)

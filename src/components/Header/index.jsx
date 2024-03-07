@@ -1,5 +1,5 @@
-import AnimatedText from "@/components/header/animated-text"
-import Navigation from "@/components/navigation"
+import AnimatedText from "@/components/Header/animated-text"
+import Navigation from "@/components/Navigation"
 import AnimatedButton from "@/components/ui/animated-button"
 import BaseIcon from "@/components/ui/icons/base-icon"
 import IconMail from "@/components/ui/icons/src/animated-on-render/icon-mail"

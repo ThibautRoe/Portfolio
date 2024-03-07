@@ -5,7 +5,7 @@ import { InView } from "react-intersection-observer"
 import "@dotlottie/player-component"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import useDarkMode from "@/hooks/useDarkMode"
-import PlayButton from "@/components/ui/play-button"
+import PlayButton from "@/components/ui/PlayButton"
 
 export default function HeroAnimation() {
     const heroAnimationPath = "/hero-animation.lottie"

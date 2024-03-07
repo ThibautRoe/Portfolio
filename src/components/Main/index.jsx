@@ -1,11 +1,11 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import Hero from "@/components/hero"
-import StickyBurgerMenu from "@/components/main/sticky-burger-menu"
-import Presentation from "@/components/presentation"
-// import ContactForm from "@/components/contact-form"
-import Contact from "@/components/contact"
+import Hero from "@/components/Hero"
+import StickyBurgerMenu from "@/components/Main/StickyBurgerMenu"
+import Presentation from "@/components/Presentation"
+// import ContactForm from "@/components/ContactForm"
+import Contact from "@/components/Contact"
 
 export default function Main({ skillsAndProjectsComponent }) {
     const { ref, inView, entry } = useInView({

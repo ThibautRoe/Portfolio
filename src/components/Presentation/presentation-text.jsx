@@ -1,4 +1,4 @@
-import ProfilePictureOnNameHover from "@/components/presentation/profile-picture-on-name-hover"
+import ProfilePictureOnNameHover from "@/components/Presentation/ProfilePictureOnNameHover"
 import { getCurrentAge } from "@/lib/utils"
 
 export default function PresentationText() {

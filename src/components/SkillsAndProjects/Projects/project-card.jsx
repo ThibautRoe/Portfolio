@@ -5,7 +5,7 @@ import BaseIcon from "@/components/ui/icons/base-icon"
 import IconGithubProjectCard from "@/components/ui/icons/src/not-animated/icon-github-project-card"
 import IconFigma from "@/components/ui/icons/src/not-animated/icon-figma"
 import IconArrowOutFromSquare from "@/components/ui/icons/src/not-animated/icon-arrow-out-from-square"
-import PlayButton from "@/components/ui/play-button"
+import PlayButton from "@/components/ui/PlayButton"
 
 export default function ProjectCard(props) {
     const {
