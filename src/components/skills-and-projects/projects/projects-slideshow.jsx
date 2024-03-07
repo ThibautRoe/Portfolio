@@ -2,10 +2,10 @@
 
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import ProjectCard from "./ProjectCard"
+import ProjectCard from "./project-card"
 import AnimatedButton from "@/components/ui/animated-button"
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconChevronRight from "@/components/ui/Icons/src/AnimatedOnRender/IconChevronRight"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconChevronRight from "@/components/ui/icons/src/AnimatedOnRender/IconChevronRight"
 import useReduceMotion from "@/hooks/useReduceMotion"
 import { register } from "swiper/element/bundle"
 register()

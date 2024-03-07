@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
-import SkillsSlideshow from "./SkillsSlideshow"
+import SkillsSlideshow from "./skills-slideshow"
 
 export default function Skills({ skills }) {
     useEffect(() => {

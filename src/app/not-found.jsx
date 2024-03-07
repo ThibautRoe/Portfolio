@@ -2,8 +2,8 @@
 
 import { useEffect } from "react"
 import AnimatedButton from "@/components/ui/animated-button"
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconChevronRight from "@/components/ui/Icons/src/AnimatedOnRender/IconChevronRight"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconChevronRight from "@/components/ui/icons/src/AnimatedOnRender/IconChevronRight"
 import useDarkMode from "@/hooks/useDarkMode"
 
 export default function NotFound() {

@@ -4,17 +4,17 @@ import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { InView } from "react-intersection-observer"
-import Loader from "@/components/ui/Loader"
+import Loader from "@/components/ui/loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation"
-import AnimatedMouse from "@/components/Hero/AnimatedMouse"
-import ToggleDarkModeButton from "@/components/Hero/ToggleDarkModeButton"
-import ConfettiBoom from "@/components/Hero/ConfettiBoom"
+import AnimatedMouse from "@/components/hero/animated-mouse"
+import ToggleDarkModeButton from "@/components/hero/toggle-dark-mode-button"
+import ConfettiBoom from "@/components/hero/confetti-boom"
 import useReduceMotion from "@/hooks/useReduceMotion"
-import "./Hero.css"
+import "./hero.css"
 
 import dynamic from "next/dynamic"
 
-const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation"), {
+const DynamicHeroAnimation = dynamic(() => import("@/components/hero/hero-animation"), {
     ssr: false,
     loading: () => (
         <div className="flex items-center justify-center">

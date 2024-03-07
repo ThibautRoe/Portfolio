@@ -1,5 +1,5 @@
 import Link from "next/link"
-import "./AnimatedMouse.css"
+import "./animated-mouse.css"
 
 export default function AnimatedMouse() {
     return (

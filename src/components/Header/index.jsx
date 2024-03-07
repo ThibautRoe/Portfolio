@@ -1,8 +1,8 @@
-import AnimatedText from "@/components/Header/AnimatedText"
-import Navigation from "@/components/Navigation"
+import AnimatedText from "@/components/header/animated-text"
+import Navigation from "@/components/navigation"
 import AnimatedButton from "@/components/ui/animated-button"
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconMail from "@/components/ui/Icons/src/AnimatedOnRender/IconMail"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconMail from "@/components/ui/icons/src/AnimatedOnRender/IconMail"
 
 export default function Header() {
     return (

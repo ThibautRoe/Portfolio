@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
-import SkillCard from "./SkillCard"
+import SkillCard from "./skill-card"
 import { register } from "swiper/element/bundle"
 register()
 

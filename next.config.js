@@ -12,6 +12,6 @@ module.exports = {
             },
         ],
         loader: "custom",
-        loaderFile: "./src/lib/contentfulImageLoader.js",
+        loaderFile: "./src/lib/contentful-image-loader.js",
     },
 }

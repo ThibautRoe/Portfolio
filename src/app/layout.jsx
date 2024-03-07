@@ -1,6 +1,6 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { nunito, paytoneOne, gloriaHallelujah } from "@/lib/fonts"
-import SplashScreen from "@/components/SplashScreen"
+import SplashScreen from "@/components/splash-screen"
 import "@/assets/globals.css"
 
 /* import dynamic from "next/dynamic"

@@ -1,5 +1,5 @@
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconTheme from "@/components/ui/Icons/src/AnimatedOnRender/IconTheme"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconTheme from "@/components/ui/icons/src/AnimatedOnRender/IconTheme"
 
 export default function ToggleDarkModeButton() {
     let toogleTimer

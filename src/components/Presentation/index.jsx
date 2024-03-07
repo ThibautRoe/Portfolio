@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { InView } from "react-intersection-observer"
-import PresentationText from "@/components/Presentation/PresentationText"
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconDownload from "@/components/ui/Icons/src/AnimatedInfiniteLoop/IconDownload"
+import PresentationText from "@/components/presentation/presentation-text"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconDownload from "@/components/ui/icons/src/AnimatedInfiniteLoop/IconDownload"
 import CV from "@/public/images/cv.webp"
 
 export default function Presentation() {

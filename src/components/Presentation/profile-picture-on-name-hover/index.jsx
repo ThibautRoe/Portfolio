@@ -4,7 +4,7 @@ import Image from "next/image"
 import { InView } from "react-intersection-observer"
 import useTouchOnlyDevice from "@/hooks/useTouchOnlyDevice"
 import ProfilePicture from "@/public/images/profile_picture.webp"
-import "./ProfilePictureOnNameHover.css"
+import "./profile-picture-on-name-hover.css"
 
 export default function ProfilePictureOnNameHover({ name }) {
     const touchOnlyDevice = useTouchOnlyDevice()

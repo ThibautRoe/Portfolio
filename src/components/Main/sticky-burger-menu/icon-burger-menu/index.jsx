@@ -1,4 +1,4 @@
-import "./IconBurgerMenu.css"
+import "./icon-burger-menu.css"
 
 export default function IconBurgerMenu({ isOpen }) {
     return (

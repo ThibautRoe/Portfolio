@@ -1,7 +1,7 @@
 "use client"
 
 import { useForm } from "react-hook-form"
-import sendEmail from "@/lib/sendEmail"
+import sendEmail from "@/lib/send-email"
 
 export default function ContactForm() {
     const {

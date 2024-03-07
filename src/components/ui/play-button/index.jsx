@@ -1,4 +1,4 @@
-import "./PlayButton.css"
+import "./play-button.css"
 
 export default function PlayButton(props) {
     const { actionOnClick, className, width, height } = props

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import Loader from "@/components/ui/Loader"
+import Loader from "@/components/ui/loader"
 
 export default function SplashScreen() {
     useEffect(() => {

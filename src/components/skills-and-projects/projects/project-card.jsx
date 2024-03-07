@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import BaseIcon from "@/components/ui/Icons/BaseIcon"
-import IconGithubProjectCard from "@/components/ui/Icons/src/NotAnimated/IconGithubProjectCard"
-import IconFigma from "@/components/ui/Icons/src/NotAnimated/IconFigma"
-import IconArrowOutFromSquare from "@/components/ui/Icons/src/NotAnimated/IconArrowOutFromSquare"
-import PlayButton from "@/components/ui/PlayButton"
+import BaseIcon from "@/components/ui/icons/BaseIcon"
+import IconGithubProjectCard from "@/components/ui/icons/src/NotAnimated/IconGithubProjectCard"
+import IconFigma from "@/components/ui/icons/src/NotAnimated/IconFigma"
+import IconArrowOutFromSquare from "@/components/ui/icons/src/NotAnimated/IconArrowOutFromSquare"
+import PlayButton from "@/components/ui/play-button"
 
 export default function ProjectCard(props) {
     const {

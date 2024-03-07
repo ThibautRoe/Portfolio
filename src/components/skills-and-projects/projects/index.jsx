@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
-import ProjectsSlideshow from "./ProjectsSlideshow"
+import ProjectsSlideshow from "./projects-slideshow"
 
 export default function Projects({ projects }) {
     useEffect(() => {
