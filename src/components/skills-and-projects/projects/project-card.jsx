@@ -26,18 +26,18 @@ export default function ProjectCard(props) {
     } = props
 
     return (
-        <div className="relative flex flex-grow flex-col min-h-[285px] max-h-[75dvh] max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] mb-s-fl-l">
-            {training && (
-                <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
-                    <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-neutral-700 bg-custom-300 rotate-45">
-                        - Projet de formation -
-                    </span>
-                </div>
-            )}
+        <div className="flex flex-col justify-center w-full min-h-[285px] max-h-[75dvh]">
             <div
                 className={`relative aspect-[16/9] rounded-t-s-fl-s bg-neutral-600 ${preload === "none" ? "bg-cover" : ""} overflow-hidden`}
                 style={coverVideos.coverVideoOriginalUrl && preload === "none" ? { backgroundImage: `url(${coverBlur})` } : null}
             >
+                {training && (
+                    <div className="ribbon absolute z-10 w-[150px] h-[150px] top-0 right-0 overflow-hidden">
+                        <span className="absolute w-[225px] top-[--fluid-ribbon-top] -left-[--fluid-ribbon-left] py-s-fl-3xs text-center text-t-fl-xs text-neutral-700 bg-custom-300 rotate-45">
+                            - Projet de formation -
+                        </span>
+                    </div>
+                )}
                 {coverVideos.coverVideoOriginalUrl ? (
                     <>
                         <video

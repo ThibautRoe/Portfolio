@@ -12,8 +12,7 @@ register()
 
 export default function ProjectsSlideshow({ projects, sectionInView }) {
     const projectsSwiperSelector = ".projects-swiper"
-    const slideSelector = ".project-slide"
-    const activeSlideSelector = ".swiper-slide-active"
+    const activeSlideSelector = ".projects-swiper .swiper-slide-active video"
     const reduceMotion = useReduceMotion()
     const preload = "auto"
 
@@ -21,13 +20,6 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
         threshold: 0.5,
         delay: 1500,
     })
-
-    function findActiveSlideVideo() {
-        const activeSlideShadowDom = document.querySelector(projectsSwiperSelector).shadowRoot.querySelector(activeSlideSelector).part[1]
-        const activeVideoLightDom = document.querySelector(`${slideSelector}[slot='${activeSlideShadowDom}'] video`)
-
-        return activeVideoLightDom
-    }
 
     function findPlayButton(video) {
         let playButton = video.nextElementSibling
@@ -66,7 +58,7 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
 
     function handleVideosOnSlideChange() {
         const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
-        const activeSlideVideo = findActiveSlideVideo()
+        const activeSlideVideo = document.querySelector(activeSlideSelector)
 
         projectsVideos.forEach((video) => {
             if (video !== activeSlideVideo) {
@@ -89,7 +81,7 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
     }
 
     function toggleVideo() {
-        const activeSlideVideo = findActiveSlideVideo()
+        const activeSlideVideo = document.querySelector(activeSlideSelector)
         const doNoReset = true
 
         if (activeSlideVideo) {
@@ -126,7 +118,7 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
 
     useEffect(() => {
         const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
-        const activeSlideVideo = findActiveSlideVideo()
+        const activeSlideVideo = document.querySelector(activeSlideSelector)
 
         if (!inView && projectsVideos) {
             projectsVideos.forEach((video) => pauseVideo(video, findPlayButton(video)))
@@ -140,10 +132,11 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
     return (
         <swiper-container
             ref={ref}
-            class="projects-swiper w-full"
+            class="projects-swiper w-full h-full"
             a11y="true"
-            cards-effect-slide-shadows="false"
-            effect="cards"
+            centered-slides="true"
+            effect="coverflow"
+            coverflow-effect-slide-shadows="false"
             grab-cursor="true"
             keyboard="true"
             long-swipes-ratio="0.25"
@@ -151,16 +144,14 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
             navigation="true"
             pagination="true"
             pagination-clickable="true"
+            slides-per-view="auto"
+            stretch="500"
         >
-            {projects.map((item, index) => (
-                <div
-                    // <div slot="slide-x"> instead of <swiper-slide> to prevent a bug in Safari desktop: https://swiperjs.com/blog/slide-slots-in-v10-1-0
-                    // Works great on Safari but it has downsides: the <swiper-slide> (with classes like "swiper-slide-active") are in the shadow DOM and <video> are in the light DOM so it's less easy than before to identify which video is on the active slide
-                    // See this commit for code before this changes: https://github.com/ThibautRoe/Portfolio/commit/4341c3641906e2de53f53d262ab9e33782970ca4
-                    key={`slide-${item.id}`}
-                    slot={`slide-${index}`}
+            {projects.map((item) => (
+                <swiper-slide
+                    key={item.id}
                     /* lazy="true" */
-                    className="project-slide self-center flex justify-center items-center drop-shadow-lg"
+                    class="project-slide flex items-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg pb-s-fl-l"
                 >
                     <ProjectCard
                         sectionInView={sectionInView}
@@ -178,14 +169,10 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
                         figma={item.figma}
                         livePreview={item.livePreview}
                     />
-                </div>
+                </swiper-slide>
             ))}
-            <div
-                key={`slide-malt-profile`}
-                slot={`slide-${projects.length}`}
-                className="project-slide self-center flex justify-center items-center drop-shadow-lg"
-            >
-                <div className="rounded-s-fl-s flex flex-grow justify-center items-center aspect-[1.5/1] w-full min-h-[285px] max-h-[75dvh] max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 mb-s-fl-l">
+            <swiper-slide class="project-slide flex items-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg pb-s-fl-l">
+                <div className="rounded-s-fl-s flex justify-center items-center aspect-[1.5/1] w-full min-h-[285px] max-h-[75dvh] color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700">
                     <h3>
                         <AnimatedButton
                             link="https://www.malt.fr/profile/thibautroegiers"
@@ -199,7 +186,7 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
                         />
                     </h3>
                 </div>
-            </div>
+            </swiper-slide>
         </swiper-container>
     )
 }
