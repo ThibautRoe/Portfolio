@@ -18,7 +18,6 @@ export default function StickyBurgerMenu() {
         <div className="z-10 sticky hidden lg:block h-0 max-w-[min(100dvw,var(--grid-max-width))] mx-auto px-[--grid-gutter] top-s-fl-s-m">
             <div className="flex justify-end">
                 {/* TODO : normalement shadcn utilise tailwindcss-animate, moi j'utilise tailwindcss-animated, voir pour adapter */}
-                {/* TODO : voir pour changer le délai d'animation des icônes */}
                 <DropdownMenu onOpenChange={() => setIsOpen(!isOpen)}>
                     <DropdownMenuTrigger aria-label="Menu de navigation" className="focus:outline-none">
                         <IconBurgerMenu isOpen={isOpen} />
@@ -29,7 +28,7 @@ export default function StickyBurgerMenu() {
                     >
                         <DropdownMenuLabel className="text-center text-t-fl-base font-bold">Navigation</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <Navigation header={false} />
+                        <Navigation header={false} delay={0} />
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

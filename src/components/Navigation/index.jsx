@@ -10,16 +10,16 @@ import IconGithubNavBar from "@/components/ui/icons/src/animated-on-render/icon-
 import IconMail from "@/components/ui/icons/src/animated-on-render/icon-mail"
 import { DropdownMenuRadioGroup, DropdownMenuRadioItem } from "@/components/ui/dropdown-menu"
 
-export const navItems = [
-    { id: "home", text: "Accueil", icon: <IconHome />, mobileOnly: true },
-    { id: "about", text: "Présentation", icon: <IconPerson />, mobileOnly: false },
-    { id: "skills", text: "Compétences", icon: <IconCode />, mobileOnly: false },
-    { id: "projects", text: "Réalisations", icon: <IconGithubNavBar />, mobileOnly: false },
-    { id: "contact", text: "Contact", icon: <IconMail />, mobileOnly: true },
-]
-
-export default function Navigation({ header }) {
+export default function Navigation({ header, delay }) {
     const [activeSectionId, setActiveSectionId] = useState("home")
+
+    const navItems = [
+        { id: "home", text: "Accueil", icon: <IconHome delay={delay} />, mobileOnly: true },
+        { id: "about", text: "Présentation", icon: <IconPerson delay={delay} />, mobileOnly: false },
+        { id: "skills", text: "Compétences", icon: <IconCode delay={delay} />, mobileOnly: false },
+        { id: "projects", text: "Réalisations", icon: <IconGithubNavBar delay={delay} />, mobileOnly: false },
+        { id: "contact", text: "Contact", icon: <IconMail delay={delay} />, mobileOnly: true },
+    ]
 
     useEffect(() => {
         let sections = []

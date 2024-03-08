@@ -1,18 +1,21 @@
-export default function IconTheme() {
+export default function IconTheme({ delay }) {
+    const defaultDelay = 0
+    const delayToApply = typeof delay !== "undefined" ? delay : defaultDelay
+
     return (
         <>
             <defs>
                 <mask id="lineMdLightDarkLoop0">
                     <circle cx={7.5} cy={7.5} r={5.5} fill="#fff"></circle>
                     <circle cx={7.5} cy={7.5} r={5.5}>
-                        <animate fill="freeze" attributeName="cx" begin="0s" dur="0.6s" values="7.5;11"></animate>
-                        <animate fill="freeze" attributeName="r" begin="0s" dur="0.6s" values="5.5;6.5"></animate>
+                        <animate fill="freeze" attributeName="cx" begin={`${delayToApply}s`} dur="0.6s" values="7.5;11"></animate>
+                        <animate fill="freeze" attributeName="r" begin={`${delayToApply}s`} dur="0.6s" values="5.5;6.5"></animate>
                     </circle>
                 </mask>
                 <mask id="lineMdLightDarkLoop1">
                     <g fill="#fff">
                         <circle cx={12} cy={9} r={5.5}>
-                            <animate fill="freeze" attributeName="cy" begin="1.5s" dur="0.75s" values="9;15"></animate>
+                            <animate fill="freeze" attributeName="cy" begin={`${delayToApply + 1.5}s`} dur="0.75s" values="9;15"></animate>
                         </circle>
                         <g>
                             <g fillOpacity={0}>
@@ -21,11 +24,11 @@ export default function IconTheme() {
                                 <use href="#lineMdLightDarkLoop2" transform="rotate(-25 12 15)"></use>
                                 <use href="#lineMdLightDarkLoop2" transform="rotate(25 12 15)"></use>
                                 <use href="#lineMdLightDarkLoop2" transform="rotate(75 12 15)"></use>
-                                <set attributeName="fill-opacity" begin="2.25s" to={1}></set>
+                                <set attributeName="fill-opacity" begin={`${delayToApply + 2.25}s`} to={1}></set>
                             </g>
                             <animateTransform
                                 attributeName="transform"
-                                begin="0s"
+                                begin={`${delayToApply}s`}
                                 dur="7.5s"
                                 repeatCount="indefinite"
                                 type="rotate"
@@ -45,12 +48,18 @@ export default function IconTheme() {
                     >
                         <animate
                             attributeName="d"
-                            begin="0s"
+                            begin={`${delayToApply}s`}
                             dur="9s"
                             repeatCount="indefinite"
                             values="M0 12h22;M2 12h22;M0 12h22"
                         ></animate>
-                        <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.75s" dur="0.6s" values="26;52"></animate>
+                        <animate
+                            fill="freeze"
+                            attributeName="stroke-dashoffset"
+                            begin={`${delayToApply + 0.75}s`}
+                            dur="0.6s"
+                            values="26;52"
+                        ></animate>
                     </path>
                 </mask>
                 <symbol id="lineMdLightDarkLoop2">
@@ -58,7 +67,7 @@ export default function IconTheme() {
                         <animate
                             fill="freeze"
                             attributeName="d"
-                            begin="2.25s"
+                            begin={`${delayToApply + 2.25}s`}
                             dur="0.6s"
                             values="M11 18h2L12 20z;M10.5 21.5h3L12 24z"
                         ></animate>
