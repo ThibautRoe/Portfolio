@@ -174,7 +174,7 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
                     </SwiperSlide>
                 ))}
                 <SwiperSlide className="project-slide self-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] pb-s-fl-l">
-                    <div className="rounded-s-fl-s flex justify-center items-center color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 aspect-[1.5/1] w-full min-h-[300px] max-h-[75dvh] drop-shadow-lg">
+                    <div className="rounded-s-fl-s flex justify-center items-center color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 aspect-[1.5/1] w-full min-h-[270px] max-h-[75dvh] drop-shadow-lg">
                         <h3>
                             <AnimatedButton
                                 link="https://www.malt.fr/profile/thibautroegiers"
