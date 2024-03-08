@@ -7,8 +7,15 @@ import AnimatedButton from "@/components/ui/animated-button"
 import BaseIcon from "@/components/ui/icons/base-icon"
 import IconChevronRight from "@/components/ui/icons/src/animated-on-render/icon-chevron-right"
 import useReduceMotion from "@/hooks/useReduceMotion"
-import { register } from "swiper/element/bundle"
-register()
+import { Swiper, SwiperSlide } from "swiper/react"
+import { A11y, EffectCoverflow, Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/a11y"
+import "swiper/css/effect-coverflow"
+import "swiper/css/keyboard"
+import "swiper/css/mousewheel"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
 export default function ProjectsSlideshow({ projects, sectionInView }) {
     const projectsSwiperSelector = ".projects-swiper"
@@ -56,30 +63,6 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
         }
     }
 
-    function handleVideosOnSlideChange() {
-        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
-        const activeSlideVideo = document.querySelector(activeSlideSelector)
-
-        projectsVideos.forEach((video) => {
-            if (video !== activeSlideVideo) {
-                pauseVideo(video, findPlayButton(video))
-            } else if (!reduceMotion) {
-                playVideo(video, findPlayButton(video))
-            }
-        })
-    }
-
-    function handleVideoEnded(event) {
-        const video = event.target
-        const playButton = findPlayButton(video)
-        video.currentTime = 0
-        playButton?.classList.remove("hidden")
-    }
-
-    function handleContextMenu(event) {
-        event.preventDefault()
-    }
-
     function toggleVideo() {
         const activeSlideVideo = document.querySelector(activeSlideSelector)
         const doNoReset = true
@@ -93,28 +76,40 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
         }
     }
 
-    useEffect(() => {
-        const swiperEl = document.querySelector(projectsSwiperSelector)
+    function handleVideoEnded(event) {
+        const video = event.target
+        const playButton = findPlayButton(video)
+        video.currentTime = 0
+        playButton?.classList.remove("hidden")
+    }
+
+    function handleVideosOnSlideChange() {
+        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
+        const activeSlideVideo = document.querySelector(activeSlideSelector)
+
+        projectsVideos.forEach((video) => {
+            if (video !== activeSlideVideo) {
+                pauseVideo(video, findPlayButton(video))
+            } else if (!reduceMotion) {
+                playVideo(video, findPlayButton(video))
+            }
+        })
+    }
+
+    function handleContextMenu(event) {
+        event.preventDefault()
+    }
+
+    function initVideosEventHandlers() {
         const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
 
-        if (swiperEl && projectsVideos) {
-            swiperEl.addEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
+        if (projectsVideos) {
             projectsVideos.forEach((video) => {
                 video.addEventListener("contextmenu", handleContextMenu)
                 video.addEventListener("ended", handleVideoEnded)
             })
         }
-
-        return () => {
-            if (swiperEl && projectsVideos) {
-                swiperEl.removeEventListener("swiperslidechangetransitionend", handleVideosOnSlideChange)
-                projectsVideos.forEach((video) => {
-                    video.removeEventListener("contextmenu", handleContextMenu)
-                    video.removeEventListener("ended", handleVideoEnded)
-                })
-            }
-        }
-    }, [reduceMotion]) // reduceMotion plutôt que [] car sinon le useEffect est appelé avant que reduceMotion ne soit initialisé avec le résultat de useReduceMotion() et les eventListeners seront initialisés avec des fonctions qui prendront "undefined" comme valeur pour reduceMotion
+    }
 
     useEffect(() => {
         const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
@@ -130,63 +125,71 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
     }, [inView])
 
     return (
-        <swiper-container
-            ref={ref}
-            class="projects-swiper w-full h-full"
-            a11y="true"
-            centered-slides="true"
-            effect="coverflow"
-            coverflow-effect-slide-shadows="false"
-            grab-cursor="true"
-            keyboard="true"
-            long-swipes-ratio="0.25"
-            mousewheel-force-to-axis="true"
-            navigation="true"
-            pagination="true"
-            pagination-clickable="true"
-            slides-per-view="auto"
-            stretch="500"
-        >
-            {projects.map((item) => (
-                <swiper-slide
-                    key={item.id}
-                    /* lazy="true" */
-                    class="project-slide flex items-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg pb-s-fl-l"
-                >
-                    <ProjectCard
-                        sectionInView={sectionInView}
-                        actionOnClick={toggleVideo}
-                        preload={preload}
-                        training={item.training}
-                        name={item.name}
-                        coverVideos={item.coverVideos}
-                        coverUrl={item.coverUrl}
-                        coverBlur={item.coverBlur}
-                        activity={item.activity}
-                        description={item.description}
-                        techStack={item.techStack}
-                        github={item.github}
-                        figma={item.figma}
-                        livePreview={item.livePreview}
-                    />
-                </swiper-slide>
-            ))}
-            <swiper-slide class="project-slide flex items-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] drop-shadow-lg pb-s-fl-l">
-                <div className="rounded-s-fl-s flex justify-center items-center aspect-[1.5/1] w-full min-h-[285px] max-h-[75dvh] color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700">
-                    <h3>
-                        <AnimatedButton
-                            link="https://www.malt.fr/profile/thibautroegiers"
-                            text="Plus de projets"
-                            bigText
-                            iconBefore={
-                                <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
-                                    <IconChevronRight />
-                                </BaseIcon>
-                            }
+        <div ref={ref} className="w-full">
+            <Swiper
+                className="projects-swiper w-full"
+                modules={[A11y, EffectCoverflow, Keyboard, Mousewheel, Navigation, Pagination]}
+                a11y={{
+                    firstSlideMessage: "Première slide",
+                    lastSlideMessage: "Dernière slide",
+                    nextSlideMessage: "Slide suivante",
+                    paginationBulletMessage: "Aller à la slide {{index}}",
+                    prevSlideMessage: "Slide précédente",
+                }}
+                centeredSlides
+                coverflowEffect={{ slideShadows: false }}
+                effect={"coverflow"}
+                grabCursor
+                keyboard
+                longSwipesRatio={0.25}
+                mousewheel={{ forceToAxis: true }}
+                navigation
+                pagination={{ clickable: true }}
+                slidesPerView={"auto"}
+                onSwiper={(swiper) => initVideosEventHandlers()}
+                onSlideChangeTransitionEnd={() => handleVideosOnSlideChange()}
+            >
+                {projects.map((item) => (
+                    <SwiperSlide
+                        key={item.id}
+                        /* lazy="true" */
+                        className="project-slide self-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] pb-s-fl-l"
+                    >
+                        <ProjectCard
+                            sectionInView={sectionInView}
+                            actionOnClick={toggleVideo}
+                            preload={preload}
+                            training={item.training}
+                            name={item.name}
+                            coverVideos={item.coverVideos}
+                            coverUrl={item.coverUrl}
+                            coverBlur={item.coverBlur}
+                            activity={item.activity}
+                            description={item.description}
+                            techStack={item.techStack}
+                            github={item.github}
+                            figma={item.figma}
+                            livePreview={item.livePreview}
                         />
-                    </h3>
-                </div>
-            </swiper-slide>
-        </swiper-container>
+                    </SwiperSlide>
+                ))}
+                <SwiperSlide className="project-slide self-center max-w-full sm:max-w-[95%] md:max-w-[90%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[75%] pb-s-fl-l">
+                    <div className="rounded-s-fl-s flex justify-center items-center color-transition bg-gradient-to-tl from-white/0 to-white/30 bg-neutral-500 dark:bg-neutral-700 aspect-[1.5/1] w-full min-h-[300px] max-h-[75dvh] drop-shadow-lg">
+                        <h3>
+                            <AnimatedButton
+                                link="https://www.malt.fr/profile/thibautroegiers"
+                                text="Plus de projets"
+                                bigText
+                                iconBefore={
+                                    <BaseIcon width="1.2em" height="1.2em" viewBox="0 0 24 24">
+                                        <IconChevronRight />
+                                    </BaseIcon>
+                                }
+                            />
+                        </h3>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+        </div>
     )
 }

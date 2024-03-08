@@ -1,85 +1,96 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState } from "react"
 import { InView } from "react-intersection-observer"
 import SkillCard from "./skill-card"
-import { register } from "swiper/element/bundle"
-register()
+import { Swiper, SwiperSlide } from "swiper/react"
+import { A11y, Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/a11y"
+import "swiper/css/keyboard"
+import "swiper/css/mousewheel"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
 export default function SkillsSlideshow({ skills }) {
-    useEffect(() => {
-        function handleUpdateSpaceBetweenSlides() {
-            const swiperEl = document.querySelector(".skills-swiper")
-            const skillCard = document.querySelector(".skill-card")
+    const [spaceXsValue, setSpaceXsValue] = useState(0)
 
-            if (swiperEl && skillCard) {
-                const spaceXsValue = getComputedStyle(skillCard).getPropertyValue("border-radius")
-                // Je me base sur ça car le border-radius des skill cards utilise déjà --space-xs et c'est ce que je veux pour "space-between" de swiper
-                // Comme swipper n'accèpte pas de variables ou autre et qu'il n'accèpte que string ou number pour "space-between",
-                // je suis obligé de récupérer la valeur de --space-xs à l'instant T et de lui passer comme nombre
-                swiperEl.setAttribute("space-between", spaceXsValue)
-            }
+    function handleUpdateSpaceBetweenSlides() {
+        const skillCard = document.querySelector(".skill-card")
+
+        if (skillCard) {
+            setSpaceXsValue(getComputedStyle(skillCard).getPropertyValue("border-radius"))
+            // Je me base sur ça car le border-radius des skill cards utilise déjà --space-xs et c'est ce que je veux pour "space-between" de swiper
+            // Comme swipper n'accèpte pas de variables ou autre et qu'il n'accèpte que string ou number pour "space-between",
+            // je suis obligé de récupérer la valeur de --space-xs à l'instant T et de lui passer comme nombre
         }
+    }
 
+    function initSpaceBetweenAndEventListener() {
         handleUpdateSpaceBetweenSlides()
-
         window.addEventListener("resize", handleUpdateSpaceBetweenSlides)
-
-        return () => {
-            window.removeEventListener("resize", handleUpdateSpaceBetweenSlides)
-        }
-    }, [])
+    }
 
     return (
-        <swiper-container
-            class="skills-swiper w-full h-full"
-            a11y="true"
-            breakpoints='{"660": {"slidesPerView": 2}, "1230": {"slidesPerView": 3}}'
-            grab-cursor="true"
-            keyboard="true"
-            long-swipes-ratio="0.25"
-            mousewheel-force-to-axis="true"
-            navigation="true"
-            pagination="true"
-            pagination-clickable="true"
-            slides-per-view="1"
+        <Swiper
+            className="skills-swiper w-full h-full"
+            modules={[A11y, Keyboard, Mousewheel, Navigation, Pagination]}
+            a11y={{
+                firstSlideMessage: "Première slide",
+                lastSlideMessage: "Dernière slide",
+                nextSlideMessage: "Slide suivante",
+                paginationBulletMessage: "Aller à la slide {{index}}",
+                prevSlideMessage: "Slide précédente",
+            }}
+            breakpoints={{ 660: { slidesPerView: 2 }, 1230: { slidesPerView: 3 } }}
+            grabCursor
+            keyboard
+            longSwipesRatio={0.25}
+            mousewheel={{ forceToAxis: true }}
+            navigation
+            pagination={{ clickable: true }}
+            slidesPerView={1}
+            spaceBetween={spaceXsValue}
+            onSwiper={(swiper) => initSpaceBetweenAndEventListener()}
         >
             {skills.map((skill) => (
-                <swiper-slide
+                <SwiperSlide
                     key={skill.name}
                     /* lazy="true" */
-                    class="skill-slide flex flex-col items-center h-full pb-s-fl-l"
+                    className="skill-slide pb-s-fl-s"
                 >
-                    <InView triggerOnce>
-                        {({ inView, ref, entry }) => (
-                            <h3
-                                ref={ref}
-                                className={`font-paytoneOne text-t-fl-l motion-reduce:animate-none animate-fade-up animate-delay-300 ${
-                                    inView ? "animate-play" : "animate-stop"
-                                }`}
-                            >
-                                {skill.name}
-                            </h3>
-                        )}
-                    </InView>
-                    <div className="flex flex-grow items-center">
+                    <div className="flex flex-col items-center w-full h-full">
                         <InView triggerOnce>
                             {({ inView, ref, entry }) => (
-                                <div
+                                <h3
                                     ref={ref}
-                                    className={`flex flex-wrap justify-center gap-s-fl-l-xl px-s-fl-s py-s-fl-l motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
+                                    className={`font-paytoneOne text-t-fl-l motion-reduce:animate-none animate-fade-up animate-delay-300 ${
                                         inView ? "animate-play" : "animate-stop"
                                     }`}
                                 >
-                                    {skill.value.map((item) => (
-                                        <SkillCard key={item.id} item={item} />
-                                    ))}
-                                </div>
+                                    {skill.name}
+                                </h3>
                             )}
                         </InView>
+                        <div className="flex flex-grow items-center">
+                            <InView triggerOnce>
+                                {({ inView, ref, entry }) => (
+                                    <div
+                                        ref={ref}
+                                        className={`flex flex-wrap justify-center gap-s-fl-l-xl px-s-fl-s py-s-fl-l motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
+                                            inView ? "animate-play" : "animate-stop"
+                                        }`}
+                                    >
+                                        {skill.value.map((item) => (
+                                            <SkillCard key={item.id} item={item} />
+                                        ))}
+                                    </div>
+                                )}
+                            </InView>
+                        </div>
                     </div>
-                </swiper-slide>
+                </SwiperSlide>
             ))}
-        </swiper-container>
+        </Swiper>
     )
 }

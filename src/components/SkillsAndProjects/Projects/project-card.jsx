@@ -26,7 +26,7 @@ export default function ProjectCard(props) {
     } = props
 
     return (
-        <div className="flex flex-col justify-center w-full min-h-[285px] max-h-[75dvh]">
+        <div className="flex flex-col w-full min-h-[300px] max-h-[75dvh] drop-shadow-lg">
             <div
                 className={`relative aspect-[16/9] rounded-t-s-fl-s bg-neutral-600 ${preload === "none" ? "bg-cover" : ""} overflow-hidden`}
                 style={coverVideos.coverVideoOriginalUrl && preload === "none" ? { backgroundImage: `url(${coverBlur})` } : null}
