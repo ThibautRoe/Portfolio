@@ -10,15 +10,10 @@ export default function Footer() {
 
     return (
         <footer className="color-transition bg-neutral-100 dark:bg-neutral-900">
-            <InView triggerOnce>
-                {({ inView, ref, entry }) => (
-                    <div
-                        ref={ref}
-                        className={`u-container py-s-fl-s text-t-fl-xs flex justify-center motion-reduce:animate-none animate-fade-up animate-delay-300 ${
-                            inView ? "animate-play" : "animate-stop"
-                        }`}
-                    >
-                        <div>
+            <div className="u-container py-s-fl-s text-t-fl-xs flex justify-center">
+                <InView triggerOnce>
+                    {({ inView, ref, entry }) => (
+                        <div ref={ref} className={`motion-reduce:animate-none animate-fade-up ${inView ? "animate-play" : "animate-stop"}`}>
                             <span className="color-transition text-neutral-600 dark:text-neutral-50">Made with </span>
                             <Link href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                                 <motion.span
@@ -49,9 +44,9 @@ export default function Footer() {
                                 </motion.span>
                             </Link>
                         </div>
-                    </div>
-                )}
-            </InView>
+                    )}
+                </InView>
+            </div>
         </footer>
     )
 }
