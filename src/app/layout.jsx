@@ -9,6 +9,7 @@ const DynamicTestViewport = dynamic(() => import("@/components/TestViewport"), {
 export const metadata = {
     title: "Thibaut Roegiers",
     description: "Développeur web & web mobile front-end indépendant",
+    metadataBase: new URL("https://thibautroegiers.dev"),
     openGraph: {
         title: "Thibaut Roegiers",
         description: "Développeur web & web mobile front-end indépendant",
