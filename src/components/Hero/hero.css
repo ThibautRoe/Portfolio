@@ -1,0 +1,22 @@
+.transparent-fill {
+    -webkit-text-stroke-width: 0.028em;
+}
+
+.transparent-fill:not(:hover) {
+    -webkit-text-fill-color: transparent;
+}
+
+.transparent-fill:hover {
+    -webkit-text-fill-color: inherit;
+    -webkit-text-stroke-width: 0;
+}
+
+@keyframes helloAnimation {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+}

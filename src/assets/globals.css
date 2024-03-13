@@ -57,21 +57,14 @@
     /***** SWIPER COLORS *****/
     --swiper-navigation-color: theme("colors.neutral.50");
     --swiper-pagination-color: theme("colors.neutral.50");
+
+    /***** SWIPER NAVIGATION POSITIONING *****/
+    --swiper-navigation-sides-offset: 0px;
 }
 
 :root.dark {
     /***** SWIPER COLORS *****/
     --swiper-pagination-bullet-inactive-color: theme("colors.neutral.200");
-}
-
-.projects-swiper {
-    --swiper-navigation-sides-offset: calc(-1 * var(--space-s-m));
-    /* --swiper-pagination-bottom: calc(-1 * var(--space-m-l)); */
-}
-
-.skills-swiper {
-    --swiper-navigation-sides-offset: 0px;
-    /* --swiper-pagination-bottom: calc(-1 * var(--space-m-l)); */
 }
 
 .wavy-underline::after {
@@ -86,8 +79,7 @@
     }
 
     .u-container {
-        /* max-width: var(--grid-max-width); */ /* Original */
-        max-width: min(100dvw, var(--grid-max-width)); /* Fix for swiper */
+        max-width: var(--grid-max-width);
         padding-inline: var(--grid-gutter);
         padding-block: var(--space-s-m);
         margin-inline: auto;

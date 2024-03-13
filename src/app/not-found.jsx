@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect } from "react"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconChevronRight from "@/components/Icons/src/AnimatedOnRender/IconChevronRight"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconChevronRight from "@/components/ui/icons/src/animated-on-render/icon-chevron-right"
 import useDarkMode from "@/hooks/useDarkMode"
 
 export default function NotFound() {

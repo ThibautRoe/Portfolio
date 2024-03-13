@@ -1,0 +1,13 @@
+.ham {
+    transition: transform 400ms;
+}
+.ham.active {
+    transform: rotate(45deg);
+}
+.line {
+    transition: stroke-dashoffset 400ms;
+}
+.ham.active .top,
+.ham.active .bottom {
+    stroke-dashoffset: -68px;
+}

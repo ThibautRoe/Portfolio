@@ -4,17 +4,17 @@ import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { InView } from "react-intersection-observer"
-import Loader from "@/components/Loader"
+import Loader from "@/components/ui/Loader"
 // import HeroAnimation from "@/components/Hero/HeroAnimation"
 import AnimatedMouse from "@/components/Hero/AnimatedMouse"
-import ToggleDarkModeButton from "@/components/Hero/ToggleDarkModeButton"
-import ConfettiBoom from "@/components/Hero/ConfettiBoom"
+import ToggleDarkModeButton from "@/components/Hero/toggle-dark-mode-button"
+import ConfettiBoom from "@/components/Hero/confetti-boom"
 import useReduceMotion from "@/hooks/useReduceMotion"
-import "./Hero.css"
+import "./hero.css"
 
 import dynamic from "next/dynamic"
 
-const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/HeroAnimation"), {
+const DynamicHeroAnimation = dynamic(() => import("@/components/Hero/hero-animation"), {
     ssr: false,
     loading: () => (
         <div className="flex items-center justify-center">
@@ -99,19 +99,16 @@ export default function Hero() {
     }, [])
 
     return (
-        <section
-            id="hero"
-            className="color-transition bg-gradient-to-b from-white/0 to-white/15 bg-custom-400 dark:bg-neutral-800 flex min-h-screen"
-        >
-            <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow">
+        <>
+            <div className="relative u-container grid grid-rows-[1fr_auto] flex-grow w-full">
                 <div className="u-grid grid-rows-[auto_auto] lg:grid-rows-none lg:grid-cols-[1fr_1fr]">
                     <div className="flex justify-center lg:justify-start items-center mt-s-fl-m lg:mt-0">
                         <InView triggerOnce>
                             {({ inView, ref, entry }) => (
                                 <div
                                     ref={ref}
-                                    className={`flex flex-col gap-s-fl-l-xl motion-safe:animate-fade-up motion-safe:animate-delay-300 ${
-                                        inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                    className={`flex flex-col gap-s-fl-l-xl motion-reduce:animate-none animate-fade-up animate-delay-300 ${
+                                        inView ? "animate-play" : "animate-stop"
                                     }`}
                                 >
                                     <div className="origin-top-left -rotate-6 font-gloriaHallelujah text-t-fl-l">
@@ -120,11 +117,7 @@ export default function Hero() {
                                     </div>
                                     <h1 className="font-paytoneOne text-t-fl-3xl">
                                         Développeur web{" "}
-                                        <span
-                                            ref={frontendRef}
-                                            onMouseEnter={handleConfetti}
-                                            className="text-stroke transparent-fill hover:text-neutral-600 dark:hover:text-neutral-50"
-                                        >
+                                        <span ref={frontendRef} onMouseEnter={handleConfetti} className="transparent-fill">
                                             front-end
                                         </span>
                                     </h1>
@@ -161,6 +154,6 @@ export default function Hero() {
                 <ToggleDarkModeButton />
             </div>
             {displayConfetti && <ConfettiBoom position={frontendCoordinates} />}
-        </section>
+        </>
     )
 }

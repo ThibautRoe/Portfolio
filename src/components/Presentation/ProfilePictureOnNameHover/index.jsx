@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { useMotionValue, useSpring, useTransform, AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
+import { InView } from "react-intersection-observer"
+import useTouchOnlyDevice from "@/hooks/useTouchOnlyDevice"
 import ProfilePicture from "@/public/images/profile_picture.webp"
-import "./ProfilePictureOnNameHover.css"
+import "./profile-picture-on-name-hover.css"
 
 export default function ProfilePictureOnNameHover({ name }) {
+    const touchOnlyDevice = useTouchOnlyDevice()
     const [showProfilePicture, setShowProfilePicture] = useState(false)
     const springConfig = { stiffness: 100, damping: 5 }
     const x = useMotionValue(0)
@@ -18,11 +21,18 @@ export default function ProfilePictureOnNameHover({ name }) {
     return (
         <div
             className="inline-block relative cursor-pointer"
-            onMouseEnter={() => setShowProfilePicture(true)}
-            onMouseLeave={() => setShowProfilePicture(false)}
+            onMouseEnter={() => {
+                if (!touchOnlyDevice) {
+                    setShowProfilePicture(true)
+                }
+            }}
+            onMouseLeave={() => {
+                if (!touchOnlyDevice) {
+                    setShowProfilePicture(false)
+                }
+            }}
         >
             <AnimatePresence mode="wait">
-                {/* TODO : prevent profile picture to show up if on mobile? */}
                 {showProfilePicture && (
                     <div className="absolute bottom-s-fl-xl left-1/2 -translate-x-1/2 z-30 w-[9.5em] aspect-square">
                         <motion.div
@@ -49,9 +59,17 @@ export default function ProfilePictureOnNameHover({ name }) {
                     </div>
                 )}
             </AnimatePresence>
-            <span className="font-bold lg:animate-[neonAnimation_12s_ease-in-out_infinite]" onMouseMove={handleMouseMove}>
-                {name}
-            </span>
+            <InView>
+                {({ inView, ref, entry }) => (
+                    <span
+                        ref={ref}
+                        className={`font-bold ${inView ? "not-touch-only-device:animate-[neonAnimation_12s_ease-in-out_infinite]" : ""}`}
+                        onMouseMove={handleMouseMove}
+                    >
+                        {name}
+                    </span>
+                )}
+            </InView>
         </div>
     )
 }

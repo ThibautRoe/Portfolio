@@ -1,54 +1,10 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import AnimatedText from "@/components/Header/AnimatedText"
-import Navigation from "@/components/Header/Navigation"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
+import AnimatedText from "@/components/Header/animated-text"
+import Navigation from "@/components/Navigation"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconMail from "@/components/ui/icons/src/animated-on-render/icon-mail"
 
 export default function Header() {
-    const [activeSectionId, setActiveSectionId] = useState("home")
-
-    useEffect(() => {
-        let sections = []
-        let timeouts = []
-
-        const sectionObserver = new IntersectionObserver(
-            (sections, observer) => {
-                sections.forEach((section) => {
-                    if (section.isIntersecting) {
-                        timeouts[section.target.id] = setTimeout(() => {
-                            if (window.innerWidth < 1024) {
-                                setActiveSectionId(section.target.id)
-                            }
-                            // window.location.hash = section.target.id
-                        }, 250)
-                    } else {
-                        clearTimeout(timeouts[section.target.id])
-                    }
-                })
-            },
-            { threshold: 0.6 }
-        )
-
-        const initObserver = () => {
-            sections.forEach((section) => {
-                sectionObserver.observe(section)
-            })
-        }
-
-        setTimeout(() => {
-            sections = document.querySelectorAll(".nav-anchor")
-            initObserver()
-        }, 500) //Timeout because document.querySelectorAll() returns an empty array if triggered too soon
-
-        return () => {
-            sectionObserver.disconnect()
-            timeouts.forEach((timeout) => clearTimeout(timeout))
-        }
-    }, [])
-
     return (
         <header
             id="home"
@@ -58,7 +14,7 @@ export default function Header() {
             <div className="lg:u-container">
                 <div className="flex">
                     <AnimatedText once text="<Thibaut />" el="p" className="hidden lg:inline text-t-fl-2xl" />
-                    <Navigation activeSectionId={activeSectionId} />
+                    <Navigation header={true} />
                     <AnimatedButton
                         link="mailto:hello@thibautroegiers.dev"
                         linkClass="hidden lg:flex"

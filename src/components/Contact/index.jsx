@@ -2,10 +2,10 @@
 
 import { useEffect } from "react"
 import { InView } from "react-intersection-observer"
-import AnimatedButton from "@/components/AnimatedButton"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconHandshake from "@/components/Icons/src/NotAnimated/IconHandshake"
-import IconMail from "@/components/Icons/src/AnimatedOnRender/IconMail"
+import AnimatedButton from "@/components/ui/animated-button"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconHandshake from "@/components/ui/icons/src/not-animated/icon-handshake"
+import IconMail from "@/components/ui/icons/src/animated-on-render/icon-mail"
 
 export default function Contact() {
     useEffect(() => {
@@ -34,13 +34,13 @@ export default function Contact() {
 
     return (
         <section id="contact" className="nav-anchor color-transition bg-neutral-100 dark:bg-neutral-900 snap-start flex min-h-screen">
-            <div className="u-container flex flex-grow justify-center items-center">
+            <div className="u-container flex flex-grow justify-center items-center w-full">
                 <InView triggerOnce>
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`relative my-s-fl-s-m motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`relative my-s-fl-s-m motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             <div className="absolute aspect-square rounded-full border-2 border-custom-600 dark:border-custom-700 h-full animate-[spin_8s_linear_infinite]">

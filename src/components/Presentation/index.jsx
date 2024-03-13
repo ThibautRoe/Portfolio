@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { InView } from "react-intersection-observer"
-import PresentationText from "@/components/Presentation/PresentationText"
-import BaseIcon from "@/components/Icons/BaseIcon"
-import IconDownload from "@/components/Icons/src/AnimatedInfiniteLoop/IconDownload"
+import PresentationText from "@/components/Presentation/presentation-text"
+import BaseIcon from "@/components/ui/icons/base-icon"
+import IconDownload from "@/components/ui/icons/src/animated-infinite-loop/icon-download"
 import CV from "@/public/images/cv.webp"
 
 export default function Presentation() {
@@ -40,8 +40,8 @@ export default function Presentation() {
                     {({ inView, ref, entry }) => (
                         <h2
                             ref={ref}
-                            className={`text-center font-paytoneOne text-t-fl-xl motion-safe:animate-fade-down motion-safe:animate-delay-300 ${
-                                inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                            className={`text-center font-paytoneOne text-t-fl-xl motion-reduce:animate-none animate-fade-down animate-delay-300 ${
+                                inView ? "animate-play" : "animate-stop"
                             }`}
                         >
                             Présentation
@@ -53,8 +53,8 @@ export default function Presentation() {
                         {({ inView, ref, entry }) => (
                             <div
                                 ref={ref}
-                                className={`self-center motion-safe:animate-fade-right motion-safe:animate-delay-300 ${
-                                    inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                className={`self-center motion-reduce:animate-none animate-fade-right animate-delay-300 ${
+                                    inView ? "animate-play" : "animate-stop"
                                 }`}
                             >
                                 <PresentationText />
@@ -65,8 +65,8 @@ export default function Presentation() {
                         {({ inView, ref, entry }) => (
                             <div
                                 ref={ref}
-                                className={`flex justify-center items-center motion-safe:animate-fade-left motion-safe:animate-delay-300 ${
-                                    inView ? "motion-safe:animate-play" : "motion-safe:animate-stop"
+                                className={`flex justify-center items-center motion-reduce:animate-none animate-fade-left animate-delay-300 ${
+                                    inView ? "animate-play" : "animate-stop"
                                 }`}
                             >
                                 <div className="color-transition flex lg:flex-col items-center gap-s-fl-m lg:p-s-fl-m text-neutral-600 dark:text-neutral-50 lg:bg-neutral-200/50 dark:lg:bg-neutral-700/20 lg:border-neutral-600 lg:border-2 lg:border-dashed lg:rounded-s-fl-2xs">

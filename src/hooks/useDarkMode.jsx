@@ -3,22 +3,18 @@
 import { useEffect, useState } from "react"
 
 export default function useDarkMode() {
-    const [darkmode, setDarkMode] = useState("dark")
+    const [darkmode, setDarkMode] = useState("")
 
     useEffect(() => {
         const root = document.documentElement
-        const darkModeLocalStorage = localStorage.getItem("darkmode")
+        const darkModeLocalStorage = localStorage.theme
 
-        // if (!darkModeLocalStorage || (darkModeLocalStorage && darkModeLocalStorage === "dark")) {
-        //     setDarkMode("dark")
-        //     root.classList.add("dark")
-        // }
-        // Finalement je force le dark mode au tout 1er chargement de la page, avec "dark" en dur sur l'élément <html> dans layou
-
-        if (darkModeLocalStorage && darkModeLocalStorage === "light") {
-            setDarkMode("light")
+        if (darkModeLocalStorage === "dark" || (!darkModeLocalStorage && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            root.classList.add("dark")
+            setDarkMode("dark")
+        } else {
             root.classList.remove("dark")
-            root.classList.add("light")
+            setDarkMode("light")
         }
     }, [])
 

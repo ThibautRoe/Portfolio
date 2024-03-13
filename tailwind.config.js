@@ -28,6 +28,9 @@ module.exports = {
             screen: "100dvh",
         },
         extend: {
+            screens: {
+                "not-touch-only-device": { raw: "(any-hover: hover) and (pointer: fine)" },
+            },
             fontFamily: {
                 nunito: ["var(--font-nunito)"],
                 paytoneOne: ["var(--font-paytoneOne)"],
