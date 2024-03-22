@@ -62,12 +62,12 @@ export default function Navigation({ header, delay }) {
 
     if (header) {
         return (
-            <nav className="fixed color-transition lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex flex-grow justify-center">
-                <ul className="flex flex-grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-m-l">
+            <nav className="fixed color-transition lg:static bottom-0 lg:bottom-auto z-40 lg:z-auto w-full lg:w-auto text-t-fl-xs lg:text-t-fl-base lg:font-bold border-t-[1px] lg:border-0 border-t-neutral-300/70 dark:border-t-neutral-800/90 bg-neutral-100/80 dark:bg-neutral-700/95 lg:bg-custom-400 dark:lg:bg-neutral-800 flex grow justify-center">
+                <ul className="flex grow items-center max-w-[600px] lg:max-w-full lg:justify-end lg:gap-s-fl-m-l">
                     {navItems.map((item) => (
                         <li
                             key={item.id}
-                            className={`flex-grow lg:flex-grow-0 ${
+                            className={`grow lg:grow-0 ${
                                 activeSectionId === item.id
                                     ? "color-transition bg-custom-200/80 lg:bg-custom-400 dark:bg-neutral-600/95 dark:lg:bg-neutral-800"
                                     : ""

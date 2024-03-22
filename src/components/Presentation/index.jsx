@@ -48,7 +48,7 @@ export default function Presentation() {
                         </h2>
                     )}
                 </InView>
-                <div className="flex-grow u-grid grid-rows-[auto_max-content] lg:grid-rows-none lg:grid-cols-[auto_max-content] lg:gap-s-fl-2xl">
+                <div className="grow u-grid grid-rows-[auto_max-content] lg:grid-rows-none lg:grid-cols-[auto_max-content] lg:gap-s-fl-2xl">
                     <InView triggerOnce>
                         {({ inView, ref, entry }) => (
                             <div

@@ -46,7 +46,7 @@ export default function Projects({ projects }) {
                     {({ inView, ref, entry }) => (
                         <div
                             ref={ref}
-                            className={`flex flex-grow items-center motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
+                            className={`flex grow items-center motion-reduce:animate-none animate-fade animate-delay-300 animate-duration-[2500ms] ${
                                 inView ? "animate-play" : "animate-stop"
                             }`}
                         >

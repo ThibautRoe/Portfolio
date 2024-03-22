@@ -105,7 +105,7 @@ export default function ProjectCard(props) {
             </div>
             <div className="rounded-b-s-fl-s flex flex-col gap-s-fl-2xs-xs color-transition text-neutral-50 bg-gradient-to-t from-white/0 to-white/20 bg-custom-700 dark:bg-neutral-700 p-s-fl-2xs-xs">
                 <div className="flex items-center gap-s-fl-l">
-                    <h3 className="flex-grow font-paytoneOne">{name}</h3>
+                    <h3 className="grow font-paytoneOne">{name}</h3>
                     <div className="flex items-center gap-s-fl-l text-t-fl-l">
                         {github && (
                             <Link
