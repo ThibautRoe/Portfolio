@@ -56,6 +56,7 @@ export default function Presentation() {
                                 className={`self-center motion-reduce:animate-none animate-fade-right animate-delay-300 ${
                                     inView ? "animate-play" : "animate-stop"
                                 }`}
+                                data-nosnippet // To prevent google search to use presentation text instead of meta description, see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag#data-nosnippet-attr
                             >
                                 <PresentationText />
                             </div>
