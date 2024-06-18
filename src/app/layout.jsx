@@ -7,17 +7,17 @@ import "@/assets/globals.css"
 const DynamicTestViewport = dynamic(() => import("@/components/TestViewport"), { ssr: false }) */
 
 export const metadata = {
+  title: "Thibaut Roegiers",
+  description: "Développeur web & web mobile fullstack indépendant",
+  metadataBase: new URL("https://thibautroegiers.dev"),
+  openGraph: {
     title: "Thibaut Roegiers",
-    description: "Développeur web & web mobile front-end indépendant",
-    metadataBase: new URL("https://thibautroegiers.dev"),
-    openGraph: {
-        title: "Thibaut Roegiers",
-        description: "Développeur web & web mobile front-end indépendant",
-        url: "https://thibautroegiers.dev",
-        siteName: "Thibaut Roegiers",
-        locale: "fr_FR",
-        type: "website",
-    },
+    description: "Développeur web & web mobile fullstack indépendant",
+    url: "https://thibautroegiers.dev",
+    siteName: "Thibaut Roegiers",
+    locale: "fr_FR",
+    type: "website",
+  },
 }
 
 export default function RootLayout({ children }) {
