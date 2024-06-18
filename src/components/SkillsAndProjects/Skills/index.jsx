@@ -42,7 +42,7 @@ export default function Skills({ skills }) {
                         </h2>
                     )}
                 </InView>
-                <div className="flex flex-grow">
+                <div className="flex grow">
                     <SkillsSlideshow skills={skills} />
                 </div>
             </div>

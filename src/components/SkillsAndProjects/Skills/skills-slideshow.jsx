@@ -72,7 +72,7 @@ export default function SkillsSlideshow({ skills }) {
                                 </h3>
                             )}
                         </InView>
-                        <div className="flex flex-grow items-center">
+                        <div className="flex grow items-center">
                             <InView triggerOnce>
                                 {({ inView, ref, entry }) => (
                                     <div

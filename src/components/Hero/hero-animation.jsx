@@ -64,7 +64,7 @@ export default function HeroAnimation() {
                         inView ? "animate-play" : "animate-stop"
                     }`}
                 >
-                    <div className="relative flex flex-grow items-center justify-center">
+                    <div className="relative flex grow items-center justify-center">
                         <dotlottie-player
                             class="w-[70dvw] sm:w-[60dvw] lg:w-[80%]"
                             src={heroAnimationPath}
