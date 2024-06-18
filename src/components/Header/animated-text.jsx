@@ -51,26 +51,26 @@ export default function AnimatedText(props) {
     }
 
     useEffect(() => {
-        let timeout
-        function show() {
+      let timeout
+      function show() {
+        controls.start("visible")
+        if (repeatDelay) {
+          timeout = setTimeout(async () => {
+            await controls.start("hidden")
             controls.start("visible")
-            if (repeatDelay) {
-                timeout = setTimeout(async () => {
-                    await controls.start("hidden")
-                    controls.start("visible")
-                }, repeatDelay)
-            }
+          }, repeatDelay)
         }
+      }
 
-        if (isInView) {
-            show()
-        } else {
-            controls.start("hidden")
-            controlsCaret.start("hidden")
-        }
+      if (isInView) {
+        show()
+      } else {
+        controls.start("hidden")
+        controlsCaret.start("hidden")
+      }
 
-        return () => clearTimeout(timeout)
-    }, [isInView])
+      return () => clearTimeout(timeout)
+    }, [isInView, controls, controlsCaret, repeatDelay])
 
     return (
         <>

@@ -112,17 +112,21 @@ export default function ProjectsSlideshow({ projects, sectionInView }) {
     }
 
     useEffect(() => {
-        const projectsVideos = document.querySelectorAll(`${projectsSwiperSelector} video`)
-        const activeSlideVideo = document.querySelector(activeSlideSelector)
+      const projectsVideos = document.querySelectorAll(
+        `${projectsSwiperSelector} video`
+      )
+      const activeSlideVideo = document.querySelector(activeSlideSelector)
 
-        if (!inView && projectsVideos) {
-            projectsVideos.forEach((video) => pauseVideo(video, findPlayButton(video)))
-        }
+      if (!inView && projectsVideos) {
+        projectsVideos.forEach((video) =>
+          pauseVideo(video, findPlayButton(video))
+        )
+      }
 
-        if (inView && activeSlideVideo && !reduceMotion) {
-            playVideo(activeSlideVideo, findPlayButton(activeSlideVideo))
-        }
-    }, [inView])
+      if (inView && activeSlideVideo && !reduceMotion) {
+        playVideo(activeSlideVideo, findPlayButton(activeSlideVideo))
+      }
+    }, [inView, reduceMotion])
 
     return (
         <div ref={ref} className="w-full">
