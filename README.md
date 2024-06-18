@@ -32,4 +32,4 @@ npm run build    # Build for production
 npm run start    # Locally preview production build, default server: http://localhost:3000
 ```
 
-_Tested with Node.js 20.11.1 and NPM 10.2.4_
+_Tested with Node.js 20.14.0 and NPM 10.7.0_
