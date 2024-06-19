@@ -69,7 +69,8 @@ export default function Hero() {
           let allSectionsTallEnough = true
 
           sections.forEach((section) => {
-            if (section.offsetHeight > window.innerHeight) {
+            // window.innerHeight + 1 car Firefox ne fait pas les mêmes arrondis pour section.offsetHeight (1027,5px = 1028) et pour window.innerHeight (1027,5px = 1027)
+            if (section.offsetHeight > window.innerHeight + 1) {
               allSectionsTallEnough = false
             }
           })
