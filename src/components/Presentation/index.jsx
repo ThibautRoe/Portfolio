@@ -76,6 +76,7 @@ export default function Presentation() {
                 <div className="color-transition flex lg:flex-col items-center gap-s-fl-m lg:p-s-fl-m text-neutral-600 dark:text-neutral-50 lg:bg-neutral-200/50 dark:lg:bg-neutral-700/20 lg:border-neutral-600 lg:border-2 lg:border-dashed lg:rounded-s-fl-2xs">
                   <h3 className="font-bold">Téléchargez mon CV</h3>
                   <Link
+                    prefetch={false}
                     href={cvFilePath}
                     aria-label="Téléchargez mon CV"
                     target="_blank"
@@ -98,6 +99,7 @@ export default function Presentation() {
                     </motion.div>
                   </Link>
                   <Link
+                    prefetch={false}
                     href={cvFilePath}
                     aria-label="Téléchargez mon CV"
                     target="_blank"
