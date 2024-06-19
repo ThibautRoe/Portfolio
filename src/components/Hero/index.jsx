@@ -65,27 +65,26 @@ export default function Hero() {
         }
 
         function handleSnapMandatory() {
-            const sections = document.querySelectorAll("section")
-            let allSectionsTallEnough = true
+          const sections = document.querySelectorAll("section")
+          let allSectionsTallEnough = true
 
-            sections.forEach((section) => {
-                if (section.offsetHeight > window.innerHeight) {
-                    document.body.classList.remove("snap-mandatory", "snap-y")
-                    allSectionsTallEnough = false
-                } else {
-                    allSectionsTallEnough = allSectionsTallEnough && section.offsetHeight < window.innerHeight
-                }
+          sections.forEach((section) => {
+            if (section.offsetHeight > window.innerHeight) {
+              allSectionsTallEnough = false
+            }
+          })
 
-                if (allSectionsTallEnough) {
-                    document.body.classList.add("snap-mandatory", "snap-y")
-                }
-            })
+          if (allSectionsTallEnough) {
+            document.body.classList.add("snap-mandatory", "snap-y")
+          } else {
+            document.body.classList.remove("snap-mandatory", "snap-y")
+          }
         }
 
         function handleResizeAndSnap() {
-            handleResizeHero()
-            setTimeout(() => handleSnapMandatory(), 300)
-            //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height and  because on page refresh if the browser automaticaly scrolls to previous section in view before the refresh it can screw things up
+          handleResizeHero()
+          setTimeout(() => handleSnapMandatory(), 300)
+          //Timeout because on small height screens it can be triggered before all elements have resized and the section is the proper height and  because on page refresh if the browser automaticaly scrolls to previous section in view before the refresh it can screw things up
         }
 
         handleResizeAndSnap()
