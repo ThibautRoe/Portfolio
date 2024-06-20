@@ -12,10 +12,9 @@ export function getCurrentAge() {
     let age = dateToday.getFullYear() - dateOfBirth.getFullYear()
     const monthDiff = dateToday.getMonth() - dateOfBirth.getMonth()
 
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && dateToday.getDate() < dateOfBirth.getDate())
-    ) {
+    if (monthDiff < 0) {
+      age--
+    } else if (monthDiff === 0 && dateToday.getDate() < dateOfBirth.getDate()) {
       age--
     }
 

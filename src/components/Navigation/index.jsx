@@ -40,7 +40,7 @@ export default function Navigation({ header, delay }) {
             }
           })
         },
-        { threshold: 0.6 }
+        { threshold: 0.4 }
       )
 
       const initObserver = () => {
