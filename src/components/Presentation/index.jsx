@@ -11,7 +11,7 @@ import IconDownload from "@/components/ui/icons/src/animated-infinite-loop/icon-
 import CV from "@/public/images/cv.webp"
 
 export default function Presentation() {
-  const cvFilePath = "/cv_thibaut_roegiers_2024_06.pdf"
+  const cvFilePath = "/cv_thibaut_roegiers_2024_07.pdf"
 
   useEffect(() => {
     function handleResizeAbout() {
