@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import Image from "next/image"
-import { InView } from "react-intersection-observer"
-import PresentationText from "@/components/Presentation/presentation-text"
-import BaseIcon from "@/components/ui/icons/base-icon"
-import IconDownload from "@/components/ui/icons/src/animated-infinite-loop/icon-download"
-import CV from "@/public/images/cv.webp"
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { InView } from "react-intersection-observer";
+import PresentationText from "@/components/Presentation/presentation-text";
+import BaseIcon from "@/components/ui/icons/base-icon";
+import IconDownload from "@/components/ui/icons/src/animated-infinite-loop/icon-download";
+import CV from "@/public/images/cv.webp";
 
 export default function Presentation() {
-  const cvFilePath = "/cv_thibaut_roegiers_2024_10.pdf"
+  const cvFilePath = "/cv_thibaut_roegiers_2025_07.pdf";
 
   useEffect(() => {
     function handleResizeAbout() {
-      const nav = document.querySelector("nav")
-      const aboutSection = document.getElementById("about")
+      const nav = document.querySelector("nav");
+      const aboutSection = document.getElementById("about");
 
       if (nav && aboutSection) {
         aboutSection.style.paddingBottom =
-          window.innerWidth < 1024 ? `${nav.offsetHeight}px` : ""
+          window.innerWidth < 1024 ? `${nav.offsetHeight}px` : "";
       }
     }
 
-    handleResizeAbout()
+    handleResizeAbout();
 
-    window.addEventListener("resize", handleResizeAbout)
+    window.addEventListener("resize", handleResizeAbout);
 
     return () => {
-      window.removeEventListener("resize", handleResizeAbout)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResizeAbout);
+    };
+  }, []);
 
   return (
     <section
@@ -131,5 +131,5 @@ export default function Presentation() {
         </div>
       </div>
     </section>
-  )
+  );
 }
